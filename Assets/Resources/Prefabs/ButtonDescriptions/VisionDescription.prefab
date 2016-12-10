@@ -9,31 +9,31 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1195061431737992}
+  m_RootGameObject: {fileID: 1481947519400736}
   m_IsPrefabParent: 1
---- !u!1 &1195061431737992
+--- !u!1 &1481947519400736
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 224388904220902014}
-  - component: {fileID: 222250271556995934}
-  - component: {fileID: 114738706144158218}
+  - component: {fileID: 224962650589719674}
+  - component: {fileID: 222984840142124692}
+  - component: {fileID: 114386699756579440}
   m_Layer: 5
-  m_Name: ThornDescription
+  m_Name: VisionDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114738706144158218
+--- !u!114 &114386699756579440
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1195061431737992}
+  m_GameObject: {fileID: 1481947519400736}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -52,41 +52,32 @@ MonoBehaviour:
     m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 0
+    m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Thorns:
-
-
-    From the day Roombie the Roomba was made it always knew it wanted thorns. Thorns
-    for the pesky cat. Mittens the Kitten. Also know as blood thirsty mouse killer
-    rambo esquire III. Mittens might not be alone though. His feline pals Kangaroo
-    Kat and Koala Katie might spit furballs your way too.
-
-
-    Beware of Air Budd the butt rubbing mutt. With his salacious slobering vision
-    he may mistake you for a frisbee!
-
-
-    Thorns allows you to chase off the pesky Mittens and pals. Try running into the
-    dastardly feline and enjoy the newly colored rug. More Upgrades means more Thorns!'
---- !u!222 &222250271556995934
+  m_Text: "Max Vision:\n\nHaving eyes but not being able to see Mount Tai Roombie
+    the Roomba looked to Roomba Rousey to steal the secrets of her eagle vision. Meditating
+    amongst the clouds, and fellow sweepers of dirt, Rhoombie gained enlightenment
+    in the ways of seeing. Now even the smallest speck of dust cannot escape Rhoobie's
+    motorized wrath. \n\nMax Vision increases how much of The Room you can see any
+    at time. Mo Upgrades Mo Vision."
+--- !u!222 &222984840142124692
 CanvasRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1195061431737992}
---- !u!224 &224388904220902014
+  m_GameObject: {fileID: 1481947519400736}
+--- !u!224 &224962650589719674
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1195061431737992}
+  m_GameObject: {fileID: 1481947519400736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -96,6 +87,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -644.7148, y: 166.9093}
+  m_AnchoredPosition: {x: 21.319153, y: -14.07312}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
