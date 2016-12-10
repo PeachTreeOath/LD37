@@ -21,14 +21,16 @@ public class DirtTileManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Decrement the opacity value by the amount afforded in the upgrade manager.
-        opacityPercentage = opacityPercentage - (UpgradeManager.instance.deepCleanLevel / 5);
-        UpdateOpacity();
-    }
+        int curUpgrade = UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN) + 1;
 
-    // Update is called once per frame
-    private void Update()
-    {
+        // Max Deep Clean upgrade level is 5.
+        if (curUpgrade > 5)
+            curUpgrade = 5;
+
+        // Decrement the opacity value by the amount afforded by the current
+        // upgrade level. Level 0 decrements by 1/5, Level 1 by 2/5, etc
+        opacityPercentage = opacityPercentage - (curUpgrade / 5);
+        UpdateOpacity();
     }
 
     /// <summary>

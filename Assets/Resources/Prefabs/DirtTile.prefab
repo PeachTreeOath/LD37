@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4017925806316076}
   - component: {fileID: 212876420874608004}
   - component: {fileID: 114124583882816140}
-  - component: {fileID: 61371540918558910}
   m_Layer: 0
   m_Name: DirtTile
   m_TagString: Untagged
@@ -42,20 +41,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61371540918558910
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1841225837927584}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1.76, y: 1.76}
 --- !u!114 &114124583882816140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67,6 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 244c8db304e70a948a2c87e62e5a6de7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curColor: {r: 0, g: 0, b: 0, a: 0}
+  opacityPercentage: 0.7
 --- !u!212 &212876420874608004
 SpriteRenderer:
   m_ObjectHideFlags: 1
