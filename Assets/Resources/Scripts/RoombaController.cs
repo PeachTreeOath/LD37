@@ -5,12 +5,14 @@ using UnityEngine;
 public class RoombaController : MonoBehaviour {
 
     private Rigidbody2D rb;
-    public float MovementSpeed;
-    public float RotationSpeed;
+	RoombaData rd;
 
+	Vector3 lastPos;
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody2D>();
+		rd = GetComponent<RoombaData>();
+		lastPos = gameObject.transform.position;
     }
     
     // Update is called once per frame
@@ -22,13 +24,14 @@ public class RoombaController : MonoBehaviour {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        rb.AddForce(transform.up * -MovementSpeed * moveVertical);
+		rb.AddForce(transform.up * -rd.moveSpeed);
 
-        if (moveVertical >= 0) {
-            rb.MoveRotation(rb.rotation - moveHorizontal * RotationSpeed);
+		if (Vector3.Distance(gameObject.transform.position, lastPos) > 0) {
+			rb.MoveRotation(rb.rotation - moveHorizontal * rd.rotSpeed);
         } else {
-            rb.MoveRotation(rb.rotation + moveHorizontal * RotationSpeed);
+			rb.MoveRotation(rb.rotation + moveHorizontal * rd.rotSpeed);
         }
+		lastPos = gameObject.transform.position;
     }
 
     void OnTriggerEnter2D(Collider2D other) {
