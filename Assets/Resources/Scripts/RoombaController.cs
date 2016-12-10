@@ -15,7 +15,7 @@ public class RoombaController : MonoBehaviour {
     
     // Update is called once per frame
     void Update () {
-
+        transform.FindChild("RoombaBody").rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, 0);
     }
 
     void FixedUpdate() {
