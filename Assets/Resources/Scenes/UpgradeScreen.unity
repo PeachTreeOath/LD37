@@ -135,7 +135,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -696,8 +696,8 @@ MonoBehaviour:
   Money: {fileID: 1715965134}
   Cost: {fileID: 1348878165}
   Description: {fileID: 0}
-  successAudio: {fileID: 0}
-  failureAudio: {fileID: 0}
+  succesClip: {fileID: 8300000, guid: fc4433c251ef9814c98389819abf7087, type: 3}
+  failureClip: {fileID: 8300000, guid: c4836a00ec719984bab489ae2ca1ca82, type: 3}
 --- !u!1 &266077281
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,8 +968,8 @@ MonoBehaviour:
   Money: {fileID: 1715965134}
   Cost: {fileID: 1919627115}
   Description: {fileID: 0}
-  successAudio: {fileID: 0}
-  failureAudio: {fileID: 0}
+  succesClip: {fileID: 8300000, guid: fc4433c251ef9814c98389819abf7087, type: 3}
+  failureClip: {fileID: 8300000, guid: c4836a00ec719984bab489ae2ca1ca82, type: 3}
 --- !u!1 &324887245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,8 +1183,8 @@ MonoBehaviour:
   Money: {fileID: 1715965134}
   Cost: {fileID: 1501935885}
   Description: {fileID: 0}
-  successAudio: {fileID: 0}
-  failureAudio: {fileID: 0}
+  succesClip: {fileID: 8300000, guid: fc4433c251ef9814c98389819abf7087, type: 3}
+  failureClip: {fileID: 8300000, guid: c4836a00ec719984bab489ae2ca1ca82, type: 3}
 --- !u!1 &406307398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1546,10 +1546,8 @@ MonoBehaviour:
   Money: {fileID: 1715965134}
   Cost: {fileID: 106073552}
   Description: {fileID: 0}
-  successAudio: {fileID: 82122271039979342, guid: cb9571b826233494f82da490f038a8dd,
-    type: 2}
-  failureAudio: {fileID: 82721511876225654, guid: d1d85f5dd75299b468134808b3321f4b,
-    type: 2}
+  succesClip: {fileID: 8300000, guid: fc4433c251ef9814c98389819abf7087, type: 3}
+  failureClip: {fileID: 8300000, guid: c4836a00ec719984bab489ae2ca1ca82, type: 3}
 --- !u!1 &554454079
 GameObject:
   m_ObjectHideFlags: 0
@@ -3232,8 +3230,8 @@ MonoBehaviour:
   Money: {fileID: 1715965134}
   Cost: {fileID: 585791858}
   Description: {fileID: 0}
-  successAudio: {fileID: 0}
-  failureAudio: {fileID: 0}
+  succesClip: {fileID: 8300000, guid: fc4433c251ef9814c98389819abf7087, type: 3}
+  failureClip: {fileID: 8300000, guid: c4836a00ec719984bab489ae2ca1ca82, type: 3}
 --- !u!1 &1156144025
 GameObject:
   m_ObjectHideFlags: 0
@@ -3435,8 +3433,8 @@ MonoBehaviour:
   Money: {fileID: 1715965134}
   Cost: {fileID: 557249534}
   Description: {fileID: 0}
-  successAudio: {fileID: 0}
-  failureAudio: {fileID: 0}
+  succesClip: {fileID: 8300000, guid: fc4433c251ef9814c98389819abf7087, type: 3}
+  failureClip: {fileID: 8300000, guid: c4836a00ec719984bab489ae2ca1ca82, type: 3}
 --- !u!1 &1179281461
 GameObject:
   m_ObjectHideFlags: 0
@@ -3576,8 +3574,8 @@ MonoBehaviour:
   Money: {fileID: 1715965134}
   Cost: {fileID: 994262421}
   Description: {fileID: 0}
-  successAudio: {fileID: 0}
-  failureAudio: {fileID: 0}
+  succesClip: {fileID: 8300000, guid: fc4433c251ef9814c98389819abf7087, type: 3}
+  failureClip: {fileID: 8300000, guid: c4836a00ec719984bab489ae2ca1ca82, type: 3}
 --- !u!1 &1207820189
 GameObject:
   m_ObjectHideFlags: 0
@@ -3861,8 +3859,8 @@ MonoBehaviour:
   Money: {fileID: 1715965134}
   Cost: {fileID: 324887247}
   Description: {fileID: 0}
-  successAudio: {fileID: 0}
-  failureAudio: {fileID: 0}
+  succesClip: {fileID: 8300000, guid: fc4433c251ef9814c98389819abf7087, type: 3}
+  failureClip: {fileID: 8300000, guid: c4836a00ec719984bab489ae2ca1ca82, type: 3}
 --- !u!1 &1348878163
 GameObject:
   m_ObjectHideFlags: 0
