@@ -35,6 +35,9 @@ public class BackgroundLoader : MonoBehaviour
                 GameObject bg = ((GameObject)Instantiate(bgPrefab, Vector2.zero, Quaternion.identity));
                 bg.transform.position = new Vector2(currX, currY);
                 bg.transform.SetParent(parentGameObject.transform);
+                SpriteRenderer spriteRenderer = bg.GetComponent<SpriteRenderer>();
+                spriteRenderer.sortingLayerID = SortingLayer.NameToID("Background");
+
                 currX += size.x;
             }
             currY -= size.y;
