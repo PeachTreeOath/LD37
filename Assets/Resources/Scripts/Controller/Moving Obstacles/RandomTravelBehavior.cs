@@ -45,11 +45,12 @@ namespace Controller
         private void Update()
         {
             timePassed += Time.deltaTime * 1000;
+
             if (timePassed >= msDelay)
             {
+                currPosition = nextPosition;
                 if (random.Next(1, 101) >= turnProbability)
                 {
-                    currPosition = nextPosition;
                     RandomizeDirection2D();
                 }
                 MovePosition();
