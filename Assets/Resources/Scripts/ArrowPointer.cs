@@ -33,8 +33,8 @@ public class ArrowPointer : MonoBehaviour
         }
         else
         {
-            Vector3 llBounds = Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 0.1f));
-            Vector3 urBounds = Camera.main.ViewportToWorldPoint(new Vector3(0.95f, 0.95f));
+            Vector3 llBounds = Camera.main.ViewportToWorldPoint(new Vector3(0.05f, 0.1f));
+            Vector3 urBounds = Camera.main.ViewportToWorldPoint(new Vector3(0.95f, 0.90f));
 
             arrow.transform.position = new Vector2(Mathf.Clamp(roombaBase.transform.position.x, llBounds.x, urBounds.x), Mathf.Clamp(roombaBase.transform.position.y, llBounds.y, urBounds.y));
             Quaternion rotation = Quaternion.LookRotation(roombaBase.transform.position - arrow.transform.position, arrow.transform.TransformDirection(Vector3.back));
