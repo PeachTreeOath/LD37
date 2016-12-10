@@ -4,30 +4,47 @@ using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour {
 
-    [HideInInspector]
-    public int thornLevel;
-    [HideInInspector]
-    public int visionLevel;
-    [HideInInspector]
-    public int energyLevel;
-    [HideInInspector]
-    public int deepCleanLevel;
-    [HideInInspector]
-    public int cleanRadiusLevel;
-    [HideInInspector]
-    public int speedLevel;
-    [HideInInspector]
-    public int launchSpeedLevel;
-    [HideInInspector]
-    public int turningLevel;
+	public enum UpgradeEnum {THORNS, VISION, ENERGY, DEEP_CLEAN, CLEAN_RADIUS, TURN_RADIUS};
+
+	Dictionary<UpgradeEnum, Upgrade> upgrades;
+
     public int money = 200;
 
-    UpgradeManager instance = null;
-	// Use this for initialization
-	void Awake ()
-    {
-        if (instance == null)
-            instance = this;
+    public static UpgradeManager Instance = null;
+
+	void Start()
+	{
+		upgrades = new Dictionary<UpgradeEnum, Upgrade>();
+		Instance = this;
+	}
+
+	public void AddUpgrade(UpgradeEnum t, bool hasCB)
+	{
+		if(upgrades.ContainsKey(t))
+		{
+			upgrades[t].value++;
+		}else
+		{
+			Upgrade u = ScriptableObject.CreateInstance<Upgrade>();
+			u.upgradeType = t;
+			u.value = 1;
+			if(hasCB)
+			{
+				u.cb = t.ToString().ToLower();
+			}
+			upgrades.Add(t, u);
+		}
+	}
+
+	public int GetUpgradeValue(UpgradeEnum t)
+	{
+		int ret = 0;
+		Upgrade u;
+		if(upgrades.TryGetValue(t, out u))
+		{
+			ret = u.value;
+		}
+		return ret;
 	}
 	
 	// Update is called once per frame

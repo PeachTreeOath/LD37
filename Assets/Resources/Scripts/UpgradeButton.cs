@@ -18,8 +18,7 @@ public class UpgradeButton : MonoBehaviour {
 
     public void Start()
     {
-        GameObject manager = GameObject.FindGameObjectWithTag("UpManage");
-        upManager = manager.GetComponent<UpgradeManager>();
+		upManager = UpgradeManager.Instance;
         GameObject audioManager = GameObject.Find("AudioManager");
         audioSource = audioManager.GetComponent<AudioSource>();
         GameObject descipt = GameObject.FindGameObjectWithTag("DescriptionTag");
@@ -65,28 +64,28 @@ public class UpgradeButton : MonoBehaviour {
         switch(name)
         {
             case "Knife Button":
-                upManager.thornLevel = value;
+				upManager.AddUpgrade(UpgradeManager.UpgradeEnum.THORNS, false);
                 break;
             case "Eagle Eye Button":
-                upManager.visionLevel = value;
+				upManager.AddUpgrade(UpgradeManager.UpgradeEnum.VISION, false);
                 break;
             case "Muscle Mix of Mixing":
-                upManager.energyLevel = value;
+				upManager.AddUpgrade(UpgradeManager.UpgradeEnum.ENERGY, false);
                 break;
             case "Max Gainz":
-                upManager.deepCleanLevel = value;
+				upManager.AddUpgrade(UpgradeManager.UpgradeEnum.DEEP_CLEAN, false);
                 break;
             case "AoE Cleaning":
-                upManager.cleanRadiusLevel = value;
+				upManager.AddUpgrade(UpgradeManager.UpgradeEnum.CLEAN_RADIUS, false);
                 break;
-            case "Rhonda's Legs of Running":
+            /*case "Rhonda's Legs of Running":
                 upManager.speedLevel = value;
                 break;
             case "Rhonda's Rockets of Launching":
                 upManager.launchSpeedLevel = value;
-                break;
+                break;*/
             case "Rhonda's Omnidirectional Turning Ability":
-                upManager.turningLevel = value;
+				upManager.AddUpgrade(UpgradeManager.UpgradeEnum.TURN_RADIUS, false);
                 break;
         }
     }
