@@ -208,6 +208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c56668d2d5316f4da751240ed23ef50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  batteryLife: 0
 --- !u!114 &114761628861404036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -248,7 +250,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1530422645
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a2fa41d0bd0f9864689d4d67c1922beb, type: 3}
   m_Color: {r: 0, g: 1, b: 0, a: 1}
@@ -283,7 +285,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1530422645
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2b813bfaca878bd4db32f5ea3e872047, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
