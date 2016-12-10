@@ -5,7 +5,7 @@ using UnityEngine;
 public class DirtData : MonoBehaviour {
 
 	public int baseValue;
-	public float multFactor;
+	public float multFactor = 1;
 	[HideInInspector]
 	public int value;
 
