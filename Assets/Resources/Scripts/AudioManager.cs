@@ -26,7 +26,10 @@ public class AudioManager : Singleton<AudioManager>
         ROCKETS,
         ROOMBA,
         ROOMBA_OVER_CARPET,
-        SELECT
+        SELECT,
+        SUCK_IT_UP_INTRO,
+        SUCK_IT_UP_LOOP,
+        ROOMBA_ROUSEY_SHOP
     }
 
     private AudioSource musicChannel;
@@ -49,7 +52,20 @@ public class AudioManager : Singleton<AudioManager>
         {
             Debug.Log(clip.name);
         }
+        PlayRoomMusic(100);
+
+        
     }
+    public void PlayShopMusic(float volume)
+    {
+        musicChannel.PlayOneShot(soundMap["ROOMBA_ROUSEY_SHOP"], volume);
+    }
+
+    public void PlayRoomMusic(float volume)
+    {
+        musicChannel.PlayOneShot(soundMap["SUCK_IT_UP_LOOP"], volume);
+    }
+
 
     public void PlaySound(string name)
     {
