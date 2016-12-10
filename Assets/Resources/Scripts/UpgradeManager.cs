@@ -60,10 +60,8 @@ public class UpgradeManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(upgrades.Count + "");
 		foreach(Upgrade u in upgrades.Values)
 		{
-			Debug.Log(u.upgradeType + " " + u.value);
 			if(u.cb != null && u.cb.Length > 0)
 			{
 				gameObject.SendMessage(u.cb, SendMessageOptions.DontRequireReceiver);
