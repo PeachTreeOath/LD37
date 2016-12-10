@@ -20,12 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4500932731785220}
   - component: {fileID: 212089346770456150}
-  - component: {fileID: 61792786914887466}
   - component: {fileID: 50409507414927064}
   - component: {fileID: 61955553329192978}
   m_Layer: 0
   m_Name: couch
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +44,7 @@ GameObject:
   - component: {fileID: 114461061420222198}
   m_Layer: 0
   m_Name: Cat
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,20 +159,6 @@ BoxCollider2D:
   m_Offset: {x: -0.0069716573, y: -0.018736273}
   serializedVersion: 2
   m_Size: {x: 0.16165602, y: 0.2625274}
---- !u!61 &61792786914887466
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1300629309563382}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.4}
 --- !u!61 &61955553329192978
 BoxCollider2D:
   m_ObjectHideFlags: 1
