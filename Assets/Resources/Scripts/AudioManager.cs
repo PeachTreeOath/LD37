@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class AudioManager : Singleton<AudioManager> {
 
-	// Use this for initialization
-	void Start () {
-		
+    private AudioSource musicChannel;
+    private AudioSource soundChannel;
+
+    // Use this for initialization
+    void Start () {
+        musicChannel = gameObject.AddComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
