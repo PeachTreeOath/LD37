@@ -259,11 +259,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4823674905965760, guid: 2d812149825f8d944b5d1ca1d7f646df, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.6
+      value: 1.33
       objectReference: {fileID: 0}
     - target: {fileID: 4823674905965760, guid: 2d812149825f8d944b5d1ca1d7f646df, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.18
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: 4823674905965760, guid: 2d812149825f8d944b5d1ca1d7f646df, type: 2}
       propertyPath: m_LocalPosition.z
@@ -399,9 +399,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114142479920870160, guid: 8408c8ef51aab1443915174a356f8135,
         type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114142479920870160, guid: 8408c8ef51aab1443915174a356f8135,
+        type: 2}
       propertyPath: roombaBase
       value: 
       objectReference: {fileID: 817941436}
+    - target: {fileID: 114142479920870160, guid: 8408c8ef51aab1443915174a356f8135,
+        type: 2}
+      propertyPath: scale
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114142479920870160, guid: 8408c8ef51aab1443915174a356f8135,
+        type: 2}
+      propertyPath: offset
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8408c8ef51aab1443915174a356f8135, type: 2}
   m_IsPrefabParent: 0
