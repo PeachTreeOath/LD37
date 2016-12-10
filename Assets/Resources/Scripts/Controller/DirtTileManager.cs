@@ -21,6 +21,12 @@ public class DirtTileManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Entered dirt OnTriggerEnter2D.");
+
+        if (other.CompareTag("Player")) {
+            Debug.Log("Vacuum collided with dirt.");
+        }
+
         int curUpgrade = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN) + 1;
 
         // Max Deep Clean upgrade level is 5.
