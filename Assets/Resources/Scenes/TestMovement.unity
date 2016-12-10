@@ -204,6 +204,21 @@ Prefab:
       propertyPath: rotSpeed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114317300382656934, guid: a0209aa2706e79743afba24e23dfe9a7,
+        type: 2}
+      propertyPath: minMoveSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114317300382656934, guid: a0209aa2706e79743afba24e23dfe9a7,
+        type: 2}
+      propertyPath: maxMoveSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114317300382656934, guid: a0209aa2706e79743afba24e23dfe9a7,
+        type: 2}
+      propertyPath: accelSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0209aa2706e79743afba24e23dfe9a7, type: 2}
   m_IsPrefabParent: 0

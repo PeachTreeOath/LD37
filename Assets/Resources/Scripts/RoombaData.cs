@@ -5,7 +5,9 @@ using UnityEngine;
 public class RoombaData : MonoBehaviour {
 
 	public float rotSpeed;
-	public float moveSpeed;
+	public float accelSpeed;
+	public float minMoveSpeed;
+	public float maxMoveSpeed;
     public int health;
     public float batteryLife;
     
