@@ -22,10 +22,14 @@ public class UpgradeButton : MonoBehaviour {
         Button button = this.gameObject.GetComponent<Button>();
         int value = int.Parse(ButtonText.text);
         int moneyValue = int.Parse(Money.text);
-        if(value < MaxLevel)
+        int costValue = int.Parse(Cost.text);
+        if(value < MaxLevel && moneyValue >= costValue)
         {
             value++;
+            upManager.money -= costValue;
+            Money.text = upManager.ToString();
             UpdateManager(value);
+            Debug.Log("Hit");
         }
         if(value == MaxLevel)
         {

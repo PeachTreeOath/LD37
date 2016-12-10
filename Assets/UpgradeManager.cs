@@ -20,8 +20,7 @@ public class UpgradeManager : MonoBehaviour {
     public int launchSpeedLevel;
     [HideInInspector]
     public int turningLevel;
-    [HideInInspector]
-
+    public int money = 200;
 
     UpgradeManager instance = null;
 	// Use this for initialization
