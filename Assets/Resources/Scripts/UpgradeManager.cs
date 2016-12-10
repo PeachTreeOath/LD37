@@ -49,6 +49,12 @@ public class UpgradeManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		foreach(Upgrade u in upgrades.Values)
+		{
+			if(u.cb != null && u.cb.Length > 0)
+			{
+				gameObject.SendMessage(u.cb, SendMessageOptions.DontRequireReceiver);
+			}
+		}
 	}
 }
