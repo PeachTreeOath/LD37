@@ -8,14 +8,35 @@ public class UpgradeManager : MonoBehaviour {
 
 	Dictionary<UpgradeEnum, Upgrade> upgrades;
 
-    public int money = 200;
+    public static int money = 200;
 
-    public static UpgradeManager Instance = null;
+	static UpgradeManager instance;
 
-	void Start()
+    public static UpgradeManager Instance
+	{
+		get
+		{
+			if(instance == null)
+			{
+				GameObject foo = new GameObject();
+				foo.name = "UpgradeManager";
+				instance = foo.AddComponent<UpgradeManager>();
+				instance.Start();
+				DontDestroyOnLoad(foo);
+			}
+
+			return instance;
+		}
+	}
+
+	public void Start()
 	{
 		upgrades = new Dictionary<UpgradeEnum, Upgrade>();
-		Instance = this;
+		if(instance == null)
+		{
+			instance = this;
+			DontDestroyOnLoad(gameObject);
+		}
 	}
 
 	public void AddUpgrade(UpgradeEnum t, bool hasCB)
