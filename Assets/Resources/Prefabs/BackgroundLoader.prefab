@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rowNum: 8
   colNum: 10
-  bgPrefab: {fileID: 1413799696881478, guid: 96261a8b5d8650d41bb5272a0e0fdee3, type: 2}
+  bgPrefab: {fileID: 1890525917952100, guid: 9da3bd37505a551499f48b0527fa3955, type: 2}
   parentGameObject: {fileID: 0}
 --- !u!114 &114797473927701628
 MonoBehaviour:
