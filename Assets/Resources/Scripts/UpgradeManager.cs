@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgradeManager : MonoBehaviour {
+public class UpgradeManager : Singleton<UpgradeManager> {
 
     [HideInInspector]
     public int thornLevel;
@@ -22,13 +22,6 @@ public class UpgradeManager : MonoBehaviour {
     public int turningLevel;
     public int money = 200;
 
-    UpgradeManager instance = null;
-	// Use this for initialization
-	void Awake ()
-    {
-        if (instance == null)
-            instance = this;
-	}
 	
 	// Update is called once per frame
 	void Update () {
