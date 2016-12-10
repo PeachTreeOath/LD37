@@ -34,7 +34,7 @@ public class UpgradeButton : MonoBehaviour {
         if(value < MaxLevel && moneyValue >= costValue)
         {
             value++;
-            upManager.money -= costValue;
+			UpgradeManager.money -= costValue;
             Money.text = upManager.ToString();
             UpdateManager(value);
             //Debug.Log("Hit");

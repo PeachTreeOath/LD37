@@ -21,7 +21,7 @@ public class DirtTileManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        int curUpgrade = UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN) + 1;
+        int curUpgrade = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN) + 1;
 
         // Max Deep Clean upgrade level is 5.
         if (curUpgrade > 5)
