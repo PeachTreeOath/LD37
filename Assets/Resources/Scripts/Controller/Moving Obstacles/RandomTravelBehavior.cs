@@ -15,42 +15,64 @@ namespace Controller
         /// Represented as a value from 1-100. The larger the number, the greater
         /// the chance of the model turning.
         /// </summary>
-        public double turnProbability = 10;
+        public double turnProbability = 5;
 
         /// <summary>
-        /// The rate at which
+        /// The rate at which the model moves
         /// </summary>
-        public float speed = 0.2f;
+        public float speed = 0.001f;
 
         /// <summary>
-        /// Container for random movement value.
+        /// The delay in ms between model position updates.
         /// </summary>
-        private double curVal = 0;
+        public float msDelay = 500f;
+
+        /// <summary>
+        /// Tracks the time passed for the delay.
+        /// </summary>
+        private float timePassed = 0;
 
         // Update is called once per frame
         private void Update()
         {
-            curVal = random.Next(1, 101);
-            if (curVal >= turnProbability)
+            timePassed += Time.deltaTime * 1000;
+            if (timePassed >= msDelay)
             {
-                switch (direction2D)
+                if (random.Next(1, 101) >= turnProbability)
                 {
-                    case DIRECTION2D.UP:
-                        transform.position = new Vector3(transform.position.x * speed, transform.position.y, transform.position.z);
-                        break;
-
-                    case DIRECTION2D.DOWN:
-                        transform.position = new Vector3(transform.position.x * speed * -1, transform.position.y, transform.position.z);
-                        break;
-
-                    case DIRECTION2D.LEFT:
-                        transform.position = new Vector3(transform.position.x, transform.position.y * speed, transform.position.z);
-                        break;
-
-                    case DIRECTION2D.RIGHT:
-                        transform.position = new Vector3(transform.position.x, transform.position.y * speed * -1, transform.position.z);
-                        break;
+                    RandomizeDirection2D();
                 }
+                MovePosition();
+                timePassed = 0;
+            }
+        }
+
+        /// <summary>
+        /// Handles moving the position of the model in the direction and speed provided.
+        /// </summary>
+        private void MovePosition()
+        {
+            switch (direction2D)
+            {
+                case DIRECTION2D.UP:
+                    transform.position = new Vector3(transform.position.x + speed,
+                        transform.position.y, transform.position.z);
+                    break;
+
+                case DIRECTION2D.DOWN:
+                    transform.position = new Vector3(transform.position.x + (speed * -1),
+                        transform.position.y, transform.position.z);
+                    break;
+
+                case DIRECTION2D.LEFT:
+                    transform.position = new Vector3(transform.position.x,
+                        transform.position.y + speed, transform.position.z);
+                    break;
+
+                case DIRECTION2D.RIGHT:
+                    transform.position = new Vector3(transform.position.x,
+                        transform.position.y + (speed * -1), transform.position.z);
+                    break;
             }
         }
     }
