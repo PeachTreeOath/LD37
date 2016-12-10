@@ -158,6 +158,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1441264558497924, guid: c47cb1945139aa14da7f14181e3dd86a, type: 2}
+      propertyPath: m_Name
+      value: Cat
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c47cb1945139aa14da7f14181e3dd86a, type: 2}
   m_IsPrefabParent: 0
@@ -323,6 +327,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1339106181 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1441264558497924, guid: c47cb1945139aa14da7f14181e3dd86a,
+    type: 2}
+  m_PrefabInternal: {fileID: 431263994}
+--- !u!114 &1339106185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1339106181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee727beb38f09343be2db61205bc785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnProbability: 10
+  speed: 0.2
+  msDelay: 1000
 --- !u!1001 &1508122624
 Prefab:
   m_ObjectHideFlags: 0
