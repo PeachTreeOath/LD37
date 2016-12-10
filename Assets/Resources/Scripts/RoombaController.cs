@@ -22,7 +22,7 @@ public class RoombaController : MonoBehaviour {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         Vector2 moveForward = new Vector2(0, MovementSpeed * moveVertical);
-        rb.AddForce(transform.up * MovementSpeed * moveVertical);
+        rb.AddForce(transform.up * -MovementSpeed * moveVertical);
 
         if (moveVertical >= 0) {
             rb.MoveRotation(rb.rotation - moveHorizontal * RotationSpeed);
