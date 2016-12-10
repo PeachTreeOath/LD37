@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4967204251669144}
+  - component: {fileID: 114039213680494002}
   m_Layer: 0
   m_Name: BackgroundLoader
   m_TagString: Untagged
@@ -39,3 +40,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114039213680494002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1514037908326438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7877812262a94a84c95597ef67c49967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rowNum: 4
+  colNum: 4
+  bgPrefab: {fileID: 1065251511592528, guid: 2fa7faadad4522642a8ce9ebe9633d82, type: 2}
+  parentGameObject: {fileID: 0}

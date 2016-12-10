@@ -98,11 +98,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114053662830513062, guid: 1afa3b4839a18ee439114e972af3dc38,
-        type: 2}
-      propertyPath: singletonList.Array.size
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 4438408200870556, guid: 1afa3b4839a18ee439114e972af3dc38, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -135,12 +130,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114053662830513062, guid: 1afa3b4839a18ee439114e972af3dc38,
-        type: 2}
-      propertyPath: singletonList.Array.data[0]
-      value: 
-      objectReference: {fileID: 1942578012871276, guid: 4d66add672f192846bef26fcf3c23dd3,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1afa3b4839a18ee439114e972af3dc38, type: 2}
   m_IsPrefabParent: 0
@@ -211,6 +200,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114039213680494002, guid: 539ba0822f7c83e44b851643f5ca50fc,
+        type: 2}
+      propertyPath: parentGameObject
+      value: 
+      objectReference: {fileID: 319764141}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 539ba0822f7c83e44b851643f5ca50fc, type: 2}
   m_IsPrefabParent: 0
@@ -329,23 +323,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2004819145 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1514037908326438, guid: 539ba0822f7c83e44b851643f5ca50fc,
-    type: 2}
-  m_PrefabInternal: {fileID: 468668511}
---- !u!114 &2004819146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2004819145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7877812262a94a84c95597ef67c49967, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rowNum: 4
-  colNum: 4
-  bgPrefab: {fileID: 1065251511592528, guid: 2fa7faadad4522642a8ce9ebe9633d82, type: 2}
-  parentGameObject: {fileID: 319764141}

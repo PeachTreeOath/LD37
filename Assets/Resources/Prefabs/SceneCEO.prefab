@@ -51,4 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770a3ff4f7bdce4408d051a2a3fe0afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  singletonList: []
+  singletonList:
+  - {fileID: 1942578012871276, guid: 4d66add672f192846bef26fcf3c23dd3, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
