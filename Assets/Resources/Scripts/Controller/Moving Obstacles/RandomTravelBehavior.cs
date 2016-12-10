@@ -32,12 +32,29 @@ namespace Controller
         /// </summary>
         private float timePassed = 0;
 
+        /// <summary>
+        /// Track previous position to lerp from.
+        /// </summary>
+        private Vector3 currPosition;
+
+        /// <summary>
+        /// Track next position to lerp to.
+        /// </summary>
+        private Vector3 nextPosition;
+
+        private void Start()
+        {
+            currPosition = nextPosition = transform.position;
+        }
+
         // Update is called once per frame
         private void Update()
         {
             timePassed += Time.deltaTime * 1000;
+
             if (timePassed >= msDelay)
             {
+                currPosition = nextPosition;
                 if (random.Next(1, 101) >= turnProbability)
                 {
                     RandomizeDirection2D();
@@ -45,6 +62,8 @@ namespace Controller
                 MovePosition();
                 timePassed = 0;
             }
+
+            transform.position = Vector3.Lerp(currPosition, nextPosition, timePassed / msDelay);
         }
 
         /// <summary>
@@ -55,22 +74,22 @@ namespace Controller
             switch (direction2D)
             {
                 case DIRECTION2D.UP:
-                    transform.position = new Vector3(transform.position.x + speed,
+                    nextPosition = new Vector3(transform.position.x + speed,
                         transform.position.y, transform.position.z);
                     break;
 
                 case DIRECTION2D.DOWN:
-                    transform.position = new Vector3(transform.position.x + (speed * -1),
+                    nextPosition = new Vector3(transform.position.x + (speed * -1),
                         transform.position.y, transform.position.z);
                     break;
 
                 case DIRECTION2D.LEFT:
-                    transform.position = new Vector3(transform.position.x,
+                    nextPosition = new Vector3(transform.position.x,
                         transform.position.y + speed, transform.position.z);
                     break;
 
                 case DIRECTION2D.RIGHT:
-                    transform.position = new Vector3(transform.position.x,
+                    nextPosition = new Vector3(transform.position.x,
                         transform.position.y + (speed * -1), transform.position.z);
                     break;
             }
