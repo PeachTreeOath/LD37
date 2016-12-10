@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114351848331193870}
   m_Layer: 0
   m_Name: FollowCamera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,7 +64,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 1
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff73530b978c2f54f9ba0377889c507a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1228621184709464, guid: 177f60306888cb043bcd0ac581ff67e6, type: 2}
+  player: {fileID: 0}
 --- !u!124 &124891942418727362
 Behaviour:
   m_ObjectHideFlags: 1
