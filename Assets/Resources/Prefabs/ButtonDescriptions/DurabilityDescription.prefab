@@ -9,31 +9,31 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1295478745011872}
+  m_RootGameObject: {fileID: 1819531296055358}
   m_IsPrefabParent: 1
---- !u!1 &1295478745011872
+--- !u!1 &1819531296055358
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 224415798031213362}
-  - component: {fileID: 222593433098056160}
-  - component: {fileID: 114592389689525038}
+  - component: {fileID: 224072089835978396}
+  - component: {fileID: 222218212731637274}
+  - component: {fileID: 114715573995138760}
   m_Layer: 5
-  m_Name: TurningDescription
+  m_Name: DurabilityDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114592389689525038
+--- !u!114 &114715573995138760
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1295478745011872}
+  m_GameObject: {fileID: 1819531296055358}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -54,35 +54,29 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Turning:
-
-
-    An accomplished ambi-turner Roomba Rousey knows its way around the octogon. Having
-    the ability to turn on a dime is neccessary to avoid the hazards of the ring.
-    Sadly Roomba Rousey''s rotational wheel matrix is still in need of much development.
-    Turning slower then a speeding bullet this limitiation will soon cause Rooma Rousey''s
-    eternal sleep.
-
-
-    Turning: increases how quickly you can turn Roomba Rousey.'
---- !u!222 &222593433098056160
+  m_Text: "Durability:\n\nIt is not how hard you hit, but hard you can get hit and
+    keep on moving. Roomba Rousey can take a hit. A singular hit. But can dish out
+    a mean Wheel Bar. Taking the iron from the blood it's sucked up Roomba Rousey
+    enforces it's iron plating. \n\nDurability: increases how many hits you can take
+    from the environment."
+--- !u!222 &222218212731637274
 CanvasRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1295478745011872}
---- !u!224 &224415798031213362
+  m_GameObject: {fileID: 1819531296055358}
+--- !u!224 &224072089835978396
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1295478745011872}
+  m_GameObject: {fileID: 1819531296055358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
