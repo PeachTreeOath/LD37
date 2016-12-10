@@ -32,8 +32,14 @@ namespace Controller
         /// </summary>
         private float timePassed = 0;
 
+        /// <summary>
+        /// Track previous position to lerp from.
+        /// </summary>
         private Vector3 currPosition;
 
+        /// <summary>
+        /// Track next position to lerp to.
+        /// </summary>
         private Vector3 nextPosition;
 
         private void Start()
