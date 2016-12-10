@@ -38,6 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 508610745
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Roomba
+    uniqueID: 2764544651
+    locked: 0
+  - name: LowObstacles
+    uniqueID: 2425449175
+    locked: 0
+  - name: HighObstacles
+    uniqueID: 1150938971
     locked: 0
