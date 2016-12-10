@@ -6,7 +6,7 @@ public class UpgradeManager : MonoBehaviour {
 
 	public enum UpgradeEnum {THORNS, VISION, ENERGY, DEEP_CLEAN, CLEAN_RADIUS, TURN_RADIUS};
 
-	Dictionary<UpgradeEnum, Upgrade> upgrades;
+	static Dictionary<UpgradeEnum, Upgrade> upgrades;
 
     public static int money = 200;
 
@@ -21,21 +21,11 @@ public class UpgradeManager : MonoBehaviour {
 				GameObject foo = new GameObject();
 				foo.name = "UpgradeManager";
 				instance = foo.AddComponent<UpgradeManager>();
-				instance.Start();
+				upgrades = new Dictionary<UpgradeEnum, Upgrade>();
 				DontDestroyOnLoad(foo);
 			}
 
 			return instance;
-		}
-	}
-
-	public void Start()
-	{
-		upgrades = new Dictionary<UpgradeEnum, Upgrade>();
-		if(instance == null)
-		{
-			instance = this;
-			DontDestroyOnLoad(gameObject);
 		}
 	}
 
@@ -70,8 +60,10 @@ public class UpgradeManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log(upgrades.Count + "");
 		foreach(Upgrade u in upgrades.Values)
 		{
+			Debug.Log(u.upgradeType + " " + u.value);
 			if(u.cb != null && u.cb.Length > 0)
 			{
 				gameObject.SendMessage(u.cb, SendMessageOptions.DontRequireReceiver);

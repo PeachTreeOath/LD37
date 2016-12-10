@@ -10,6 +10,7 @@ public class RoombaData : MonoBehaviour {
 	public float maxMoveSpeed;
     public int health;
     public float batteryLife;
+	public int suctionPower;
     
     // Use this for initialization
     void Start () {
