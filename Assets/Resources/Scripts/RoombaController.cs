@@ -8,13 +8,13 @@ public class RoombaController : MonoBehaviour {
     public float MovementSpeed;
     public float RotationSpeed;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         rb = GetComponent<Rigidbody2D>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+    
+    // Update is called once per frame
+    void Update () {
 
     }
 
@@ -24,5 +24,13 @@ public class RoombaController : MonoBehaviour {
         Vector2 moveForward = new Vector2(0, MovementSpeed * moveVertical);
         rb.AddForce(transform.up * MovementSpeed * moveVertical);
         rb.MoveRotation(rb.rotation - moveHorizontal * RotationSpeed);
+    }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        /* TODO: dependent on dirt objects existing
+        if (other.gameObject.CompareTag("Dirt")) {
+            other.gameObject.SetActive(false);
+        }
+        */
     }
 }
