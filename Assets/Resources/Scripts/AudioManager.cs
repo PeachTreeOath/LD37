@@ -47,6 +47,12 @@ public class AudioManager : Singleton<AudioManager>
         musicChannel.Play();
     }
 
+    public void PlayMusicWithIntro(string name, float volume)
+    {
+        musicChannel.clip = soundMap[name];
+        musicChannel.volume = volume;
+        musicChannel.Play();
+    }
 
     public void PlaySound(string name)
     {
