@@ -6,6 +6,7 @@ TagManager:
   tags:
   - UpManage
   - DescriptionTag
+  - Obstacle
   layers:
   - Default
   - TransparentFX
