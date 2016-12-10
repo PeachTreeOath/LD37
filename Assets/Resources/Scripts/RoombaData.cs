@@ -9,16 +9,13 @@ public class RoombaData : MonoBehaviour {
 	public float minMoveSpeed;
 	public float maxMoveSpeed;
     public int health;
+	[HideInInspector]
     public float batteryLife;
+	public float maxBatteryLife;
 	public int suctionPower;
     
     // Use this for initialization
     void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		// TODO: Hook this up to UI
+		batteryLife = maxBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY);
 	}
 }
