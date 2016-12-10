@@ -10,6 +10,7 @@ public class UpgradeButton : MonoBehaviour {
     public Text Money;
     public Text Cost;
     public Text Description;
+    private Text DescriptionField;
     private UpgradeManager upManager;
     public AudioClip succesClip;
     public AudioClip failureClip;
@@ -21,6 +22,8 @@ public class UpgradeButton : MonoBehaviour {
         upManager = manager.GetComponent<UpgradeManager>();
         GameObject audioManager = GameObject.Find("AudioManager");
         audioSource = audioManager.GetComponent<AudioSource>();
+        GameObject descipt = GameObject.FindGameObjectWithTag("DescriptionTag");
+        DescriptionField = descipt.GetComponent<Text>();
 
     }
     public void Upgrade()
@@ -86,6 +89,10 @@ public class UpgradeButton : MonoBehaviour {
                 upManager.turningLevel = value;
                 break;
         }
+    }
+    public void SetDescription()
+    {
+        DescriptionField.text = Description.text;
     }
 
 }
