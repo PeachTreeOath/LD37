@@ -78,12 +78,12 @@ public class UpgradeButton : MonoBehaviour {
             case "AoE Cleaning":
 				upManager.AddUpgrade(UpgradeManager.UpgradeEnum.CLEAN_RADIUS, false);
                 break;
-            /*case "Rhonda's Legs of Running":
-                upManager.speedLevel = value;
+            case "Rhonda's Legs of Running":
+                upManager.AddUpgrade(UpgradeManager.UpgradeEnum.SPEED, false);
                 break;
-            case "Rhonda's Rockets of Launching":
-                upManager.launchSpeedLevel = value;
-                break;*/
+            case "Rhonda's Plate Armor":
+                upManager.AddUpgrade(UpgradeManager.UpgradeEnum.DURABILITY, false);
+                break;
             case "Rhonda's Omnidirectional Turning Ability":
 				upManager.AddUpgrade(UpgradeManager.UpgradeEnum.TURN_RADIUS, false);
                 break;

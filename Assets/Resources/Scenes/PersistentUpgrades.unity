@@ -131,12 +131,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a3ae9d2f251544ead6f7d1cf43cb88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornLevel: 0
-  visionLevel: 0
-  energyLevel: 0
-  deepCleanLevel: 0
-  cleanRadiusLevel: 0
-  speedLevel: 0
-  launchSpeedLevel: 0
-  turningLevel: 0
-  money: 200

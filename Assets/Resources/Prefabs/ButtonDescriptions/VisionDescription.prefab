@@ -60,12 +60,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Max Vision:\n\nHaving eyes but not being able to see Mount Tai Roombie
-    the Roomba looked to Roomba Rousey to steal the secrets of her eagle vision. Meditating
-    amongst the clouds, and fellow sweepers of dirt, Rhoombie gained enlightenment
-    in the ways of seeing. Now even the smallest speck of dust cannot escape Rhoobie's
-    motorized wrath. \n\nMax Vision increases how much of The Room you can see any
-    at time. Mo Upgrades Mo Vision."
+  m_Text: "Max Vision:\n\nHaving eyes but not being able to see Mount Tai Roomba Rousey
+    looked to Vin Diesel to steal the secrets of his eagle eye vision. Meditating
+    amongst the clouds, and fellow sweepers of sweat and blood, Roomba Rousey gained
+    enlightenment in the ways of seeing. Now even the smallest speck of dust cannot
+    escape Roomba Rousey's motorized wrath. \n\nMax Vision increases how much of The
+    Room you can see any at time. Mo Upgrades Mo Vision."
 --- !u!222 &222984840142124692
 CanvasRenderer:
   m_ObjectHideFlags: 1

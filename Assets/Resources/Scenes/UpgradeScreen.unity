@@ -311,7 +311,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: 231}
+  m_AnchoredPosition: {x: -10, y: 342}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &106073552
@@ -385,8 +385,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -429.0534, y: -68}
-  m_SizeDelta: {x: 15, y: 495.6}
+  m_AnchoredPosition: {x: -429.0534, y: -36}
+  m_SizeDelta: {x: 15, y: 567.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &140784282
 MonoBehaviour:
@@ -453,8 +453,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -193.0534, y: -61}
-  m_SizeDelta: {x: 15, y: 495.6}
+  m_AnchoredPosition: {x: -193.0534, y: -29}
+  m_SizeDelta: {x: 15, y: 567.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &166141155
 MonoBehaviour:
@@ -569,6 +569,7 @@ GameObject:
   - component: {fileID: 228114604}
   - component: {fileID: 228114603}
   - component: {fileID: 228114606}
+  - component: {fileID: 228114607}
   m_Layer: 5
   m_Name: Muscle Mix of Mixing
   m_TagString: Untagged
@@ -592,7 +593,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -386, y: 54}
+  m_AnchoredPosition: {x: -386, y: 114}
   m_SizeDelta: {x: 120, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &228114603
@@ -695,9 +696,40 @@ MonoBehaviour:
   MaxLevel: 5
   Money: {fileID: 1715965134}
   Cost: {fileID: 1348878165}
-  Description: {fileID: 0}
+  Description: {fileID: 114665996109912996, guid: 145632affae553d468682b58082ece08,
+    type: 2}
   succesClip: {fileID: 8300000, guid: fc4433c251ef9814c98389819abf7087, type: 3}
   failureClip: {fileID: 8300000, guid: c4836a00ec719984bab489ae2ca1ca82, type: 3}
+--- !u!114 &228114607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 228114601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 228114606}
+          m_MethodName: SetDescription
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &266077281
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,7 +752,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 266077281}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -41, z: 0}
+  m_LocalPosition: {x: 0, y: -43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 827335730}
@@ -780,7 +812,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 272276647}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 60, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 578802836}
@@ -841,6 +873,7 @@ GameObject:
   - component: {fileID: 286082302}
   - component: {fileID: 286082301}
   - component: {fileID: 286082304}
+  - component: {fileID: 286082305}
   m_Layer: 5
   m_Name: Eagle Eye Button
   m_TagString: Untagged
@@ -864,7 +897,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -386, y: 125}
+  m_AnchoredPosition: {x: -386, y: 219}
   m_SizeDelta: {x: 120, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &286082301
@@ -967,9 +1000,40 @@ MonoBehaviour:
   MaxLevel: 5
   Money: {fileID: 1715965134}
   Cost: {fileID: 1919627115}
-  Description: {fileID: 0}
+  Description: {fileID: 114386699756579440, guid: cbb8863ea16af83499e304b1ddceccbd,
+    type: 2}
   succesClip: {fileID: 8300000, guid: fc4433c251ef9814c98389819abf7087, type: 3}
   failureClip: {fileID: 8300000, guid: c4836a00ec719984bab489ae2ca1ca82, type: 3}
+--- !u!114 &286082305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 286082299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 286082304}
+          m_MethodName: SetDescription
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &324887245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,6 +1120,7 @@ GameObject:
   - component: {fileID: 328291449}
   - component: {fileID: 328291448}
   - component: {fileID: 328291451}
+  - component: {fileID: 328291452}
   m_Layer: 5
   m_Name: AoE Cleaning
   m_TagString: Untagged
@@ -1079,7 +1144,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -386, y: -93}
+  m_AnchoredPosition: {x: -386, y: -95}
   m_SizeDelta: {x: 120, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &328291448
@@ -1182,9 +1247,40 @@ MonoBehaviour:
   MaxLevel: 5
   Money: {fileID: 1715965134}
   Cost: {fileID: 1501935885}
-  Description: {fileID: 0}
+  Description: {fileID: 114406791566644076, guid: b82e8150133f77d47b3afe546300ce48,
+    type: 2}
   succesClip: {fileID: 8300000, guid: fc4433c251ef9814c98389819abf7087, type: 3}
   failureClip: {fileID: 8300000, guid: c4836a00ec719984bab489ae2ca1ca82, type: 3}
+--- !u!114 &328291452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 328291446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 328291451}
+          m_MethodName: SetDescription
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &406307398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,7 +1539,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -386, y: 220}
+  m_AnchoredPosition: {x: -386, y: 331}
   m_SizeDelta: {x: 120, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &549796616
@@ -1653,7 +1749,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: -8}
+  m_AnchoredPosition: {x: -10, y: 24}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &557249534
@@ -1780,7 +1876,7 @@ GameObject:
   - component: {fileID: 585791859}
   - component: {fileID: 585791858}
   m_Layer: 5
-  m_Name: Launch Speed Cost
+  m_Name: Durability Cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1919,6 +2015,84 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 594523273}
+--- !u!1 &615594551
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 615594552}
+  - component: {fileID: 615594554}
+  - component: {fileID: 615594553}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &615594552
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 615594551}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1675385546}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &615594553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 615594551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Durability:
+
+
+    It is not how hard you hit, but hard you can get hit and keep on moving. Roomba
+    Rousey can take a hit. A singular hit.'
+--- !u!222 &615594554
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 615594551}
 --- !u!1 &615881617
 GameObject:
   m_ObjectHideFlags: 0
@@ -1941,7 +2115,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 615881617}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 24, z: 0}
+  m_LocalPosition: {x: 0, y: 118, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2024932185}
@@ -2039,7 +2213,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 695022480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 73, z: 0}
+  m_LocalPosition: {x: 0, y: 184, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1093484591}
@@ -2099,7 +2273,7 @@ GameObject:
   - component: {fileID: 814775516}
   - component: {fileID: 814775515}
   m_Layer: 5
-  m_Name: Rhonda's Rockets of Launching
+  m_Name: Rhonda's Plate Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2155,7 +2329,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Launch Speed:'
+  m_Text: 'Durability:'
 --- !u!222 &814775516
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2408,7 +2582,7 @@ GameObject:
   - component: {fileID: 872673913}
   - component: {fileID: 872673912}
   m_Layer: 5
-  m_Name: Upgrade Divder Three (1)
+  m_Name: Upgrade Divder Three
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2429,8 +2603,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -687, y: -60}
-  m_SizeDelta: {x: 15, y: 495.6}
+  m_AnchoredPosition: {x: -687, y: -33}
+  m_SizeDelta: {x: 15, y: 567.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &872673912
 MonoBehaviour:
@@ -2573,7 +2747,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -536, y: 219}
+  m_AnchoredPosition: {x: -536, y: 330}
   m_SizeDelta: {x: 169.43, y: 38.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &886436800
@@ -2783,7 +2957,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -538, y: -96}
+  m_AnchoredPosition: {x: -538, y: -98}
   m_SizeDelta: {x: 162, y: 34.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &958153561
@@ -3136,7 +3310,7 @@ GameObject:
   - component: {fileID: 1112980264}
   - component: {fileID: 1112980267}
   m_Layer: 5
-  m_Name: Rhonda's Rockets of Launching
+  m_Name: Rhonda's Plate Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3338,6 +3512,7 @@ GameObject:
   - component: {fileID: 1167233389}
   - component: {fileID: 1167233388}
   - component: {fileID: 1167233391}
+  - component: {fileID: 1167233392}
   m_Layer: 5
   m_Name: Max Gainz
   m_TagString: Untagged
@@ -3361,7 +3536,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -386, y: -21}
+  m_AnchoredPosition: {x: -386, y: 11}
   m_SizeDelta: {x: 120, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1167233388
@@ -3464,9 +3639,40 @@ MonoBehaviour:
   MaxLevel: 5
   Money: {fileID: 1715965134}
   Cost: {fileID: 557249534}
-  Description: {fileID: 0}
+  Description: {fileID: 114591215690640600, guid: 91e6fe6371757594e8ca35b4017e1c1f,
+    type: 2}
   succesClip: {fileID: 8300000, guid: fc4433c251ef9814c98389819abf7087, type: 3}
   failureClip: {fileID: 8300000, guid: c4836a00ec719984bab489ae2ca1ca82, type: 3}
+--- !u!114 &1167233392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1167233386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1167233391}
+          m_MethodName: SetDescription
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1179281461
 GameObject:
   m_ObjectHideFlags: 0
@@ -3479,6 +3685,7 @@ GameObject:
   - component: {fileID: 1179281464}
   - component: {fileID: 1179281463}
   - component: {fileID: 1179281466}
+  - component: {fileID: 1179281467}
   m_Layer: 5
   m_Name: Rhonda's Legs of Running
   m_TagString: Untagged
@@ -3605,9 +3812,40 @@ MonoBehaviour:
   MaxLevel: 5
   Money: {fileID: 1715965134}
   Cost: {fileID: 994262421}
-  Description: {fileID: 0}
+  Description: {fileID: 114916865805257636, guid: 242c1f3c5d3a43342ae10806dae127c7,
+    type: 2}
   succesClip: {fileID: 8300000, guid: fc4433c251ef9814c98389819abf7087, type: 3}
   failureClip: {fileID: 8300000, guid: c4836a00ec719984bab489ae2ca1ca82, type: 3}
+--- !u!114 &1179281467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1179281461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1179281466}
+          m_MethodName: SetDescription
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1207820189
 GameObject:
   m_ObjectHideFlags: 0
@@ -3716,8 +3954,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -65, y: -65}
-  m_SizeDelta: {x: 15, y: 504.2}
+  m_AnchoredPosition: {x: -65, y: -33}
+  m_SizeDelta: {x: 15, y: 567.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1254993545
 MonoBehaviour:
@@ -3925,7 +4163,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: 67}
+  m_AnchoredPosition: {x: -10, y: 127}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1348878165
@@ -4250,7 +4488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -53, y: 180}
+  m_AnchoredPosition: {x: -53, y: 250}
   m_SizeDelta: {x: 1280, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1480596974
@@ -4318,7 +4556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: -86}
+  m_AnchoredPosition: {x: -10, y: -88}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1501935885
@@ -4392,7 +4630,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -550, y: 130}
+  m_AnchoredPosition: {x: -550, y: 224}
   m_SizeDelta: {x: 133, y: 30.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1506685925
@@ -4593,7 +4831,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1599496899}
   m_Layer: 0
-  m_Name: Launch Speed
+  m_Name: Durability
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4896,7 +5134,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 615594552}
   m_Father: {fileID: 1810840333}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5018,7 +5257,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 704, y: 333}
+  m_AnchoredPosition: {x: 704, y: 424}
   m_SizeDelta: {x: 156.7, y: 55.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1715965134
@@ -5103,7 +5342,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -533, y: -22}
+  m_AnchoredPosition: {x: -533, y: 10}
   m_SizeDelta: {x: 163.3, y: 29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1758410333
@@ -5167,7 +5406,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1810689448}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -15, z: 0}
+  m_LocalPosition: {x: 0, y: 17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1538079553}
@@ -5458,7 +5697,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: 139}
+  m_AnchoredPosition: {x: -10, y: 233}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1919627115
@@ -5811,7 +6050,7 @@ GameObject:
   - component: {fileID: 2073421399}
   - component: {fileID: 2073421398}
   m_Layer: 0
-  m_Name: Upgrade Horizontal Divider (1)
+  m_Name: Upgrade Horizontal Divider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5976,7 +6215,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -545, y: 56}
+  m_AnchoredPosition: {x: -545, y: 116}
   m_SizeDelta: {x: 135.7, y: 30.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2090403881
