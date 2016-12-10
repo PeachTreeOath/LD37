@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4964951401408062}
   - component: {fileID: 114649476687845476}
   - component: {fileID: 114142479920870160}
+  - component: {fileID: 114478892702547500}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -47,12 +48,25 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1249069030234072}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e2c10fae1abf2542b872127eb4275db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   roombaBase: {fileID: 0}
+  scale: 0.25
+  offset: 0.2
+--- !u!114 &114478892702547500
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1249069030234072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b4beb40591ab7c4e88fdc71b901f43f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114649476687845476
 MonoBehaviour:
   m_ObjectHideFlags: 1
