@@ -5,33 +5,6 @@ using UnityEngine;
 public class AudioManager : Singleton<AudioManager>
 {
 
-    public enum SoundClip
-    {
-        BOUNCE,
-        BUG,
-        BUZZ,
-        COLLISION_SOFA,
-        COLLISION_WOOD,
-        CONSTANT,
-        CRUMB,
-        DOG,
-        GENERIC_SHOOT_HIGH,
-        GENERIC_SHOOT_MID,
-        KITTY,
-        LOW_BATTERY,
-        MONEY_BUY,
-        MONEY_INVALID,
-        PICKUP_SOUND,
-        PRESSING_START,
-        ROCKETS,
-        ROOMBA,
-        ROOMBA_OVER_CARPET,
-        SELECT,
-        SUCK_IT_UP_INTRO,
-        SUCK_IT_UP_LOOP,
-        ROOMBA_ROUSEY_SHOP
-    }
-
     private AudioSource musicChannel;
     private AudioSource soundChannel;
     private Dictionary<string, AudioClip> soundMap;
@@ -50,12 +23,12 @@ public class AudioManager : Singleton<AudioManager>
         AudioClip[] clips = Resources.LoadAll<AudioClip>("Audio");
         foreach (AudioClip clip in clips)
         {
-            Debug.Log(clip.name);
+            soundMap.Add(clip.name, clip);
         }
-        PlayRoomMusic(100);
-
-        
+        // PlayRoomMusic(1);
+        PlaySound("suck_it_up_loop", .25f);
     }
+
     public void PlayShopMusic(float volume)
     {
         musicChannel.PlayOneShot(soundMap["ROOMBA_ROUSEY_SHOP"], volume);
