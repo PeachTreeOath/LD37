@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7877812262a94a84c95597ef67c49967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rowNum: 4
-  colNum: 4
+  rowNum: 8
+  colNum: 10
   bgPrefab: {fileID: 1413799696881478, guid: 96261a8b5d8650d41bb5272a0e0fdee3, type: 2}
   parentGameObject: {fileID: 0}
