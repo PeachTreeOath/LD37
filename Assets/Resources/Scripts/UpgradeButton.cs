@@ -11,11 +11,17 @@ public class UpgradeButton : MonoBehaviour {
     public Text Cost;
     public Text Description;
     private UpgradeManager upManager;
-    
+    public AudioClip succesClip;
+    public AudioClip failureClip;
+    private AudioSource audioSource;
+
     public void Start()
     {
         GameObject manager = GameObject.FindGameObjectWithTag("UpManage");
         upManager = manager.GetComponent<UpgradeManager>();
+        GameObject audioManager = GameObject.Find("AudioManager");
+        audioSource = audioManager.GetComponent<AudioSource>();
+
     }
     public void Upgrade()
     {
@@ -29,7 +35,12 @@ public class UpgradeButton : MonoBehaviour {
             upManager.money -= costValue;
             Money.text = upManager.ToString();
             UpdateManager(value);
-            Debug.Log("Hit");
+            //Debug.Log("Hit");
+            audioSource.PlayOneShot(succesClip);
+        }
+        else
+        {
+            audioSource.PlayOneShot(failureClip);
         }
         if(value == MaxLevel)
         {
