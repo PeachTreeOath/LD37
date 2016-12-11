@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 95983931669848014}
   - component: {fileID: 61538214332701628}
   - component: {fileID: 114192780496494794}
+  - component: {fileID: 50720220057632456}
   m_Layer: 0
   m_Name: kangaroo
   m_TagString: AnimalObstacle
@@ -98,6 +99,7 @@ GameObject:
   - component: {fileID: 61780765133539808}
   - component: {fileID: 50065617022694372}
   - component: {fileID: 114506619306108770}
+  - component: {fileID: 114651058454561484}
   m_Layer: 0
   m_Name: boxer
   m_TagString: AnimalObstacle
@@ -359,7 +361,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!50 &50098515431338236
 Rigidbody2D:
@@ -460,6 +462,26 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!50 &50720220057632456
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1021953035346640}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!50 &50809961204582276
 Rigidbody2D:
@@ -796,6 +818,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flipTime: 0.3
+--- !u!114 &114651058454561484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1529962660155382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f45b810ae4364d440b8ac9537ff2fa9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundsToPlay:
+  - Buzz
 --- !u!114 &114769684765340764
 MonoBehaviour:
   m_ObjectHideFlags: 1
