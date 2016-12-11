@@ -20,7 +20,7 @@ public class UpgradeButton : MonoBehaviour {
     {
 		upManager = UpgradeManager.Instance;
         GameObject audioManager = GameObject.Find("AudioManager");
-        audioSource = audioManager.GetComponent<AudioSource>();
+        audioSource = audioManager.GetComponentInChildren<AudioSource>();
         GameObject descipt = GameObject.FindGameObjectWithTag("DescriptionTag");
         DescriptionField = descipt.GetComponent<Text>();
 
