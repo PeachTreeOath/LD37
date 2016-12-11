@@ -7,9 +7,13 @@ public class AudioManager : Singleton<AudioManager>
     
     private AudioSource musicChannel;
     private AudioSource soundChannel;
-    private AudioSource roombaChannel; // To play constant vacuum noise..
+    private AudioSource dirtChannel; // To play dirt repeatedly
     private Dictionary<string, AudioClip> soundMap;
-    
+
+    private int dirtStockpile = 0;
+    private bool playingDirtSound = false;
+    private float timeSinceLastSound = 0;
+    private float dirtCheckInterval = .18f;
     // Use this for initialization
     protected override void Awake()
     {
@@ -22,9 +26,9 @@ public class AudioManager : Singleton<AudioManager>
         musicChannel.loop = true;
         soundChannel = Instantiate(Resources.Load<GameObject>("Prefabs/AudioChannel")).GetComponent<AudioSource>();
         soundChannel.transform.SetParent(transform);
-        roombaChannel = Instantiate(Resources.Load<GameObject>("Prefabs/AudioChannel")).GetComponent<AudioSource>();
-        roombaChannel.transform.SetParent(transform);
-        roombaChannel.loop = true;
+        dirtChannel = Instantiate(Resources.Load<GameObject>("Prefabs/AudioChannel")).GetComponent<AudioSource>();
+        dirtChannel.transform.SetParent(transform);
+        //dirtChannel.loop = true;
 
         AudioClip[] clips = Resources.LoadAll<AudioClip>("Audio");
         foreach (AudioClip clip in clips)
@@ -75,6 +79,12 @@ public class AudioManager : Singleton<AudioManager>
         soundChannel.PlayOneShot(soundMap[name]);
     }
 
+    public void PlayDirtSound(int dirtAmmount)
+    {
+        dirtStockpile += dirtAmmount;
+        
+    }
+
     public void PlaySound(string name, float volume)
     {
         soundChannel.PlayOneShot(soundMap[name], volume);
@@ -89,6 +99,37 @@ public class AudioManager : Singleton<AudioManager>
         else
         {
             AudioListener.volume = 1;
+        }
+    }
+
+    public void Update()
+    {
+        timeSinceLastSound += Time.deltaTime;
+
+        playingDirtSound = timeSinceLastSound < dirtCheckInterval; 
+        if (!playingDirtSound && dirtStockpile >= 50)
+        {
+            playingDirtSound = true;
+            dirtStockpile -= 50;
+            timeSinceLastSound = 0;
+            AudioClip clip = soundMap["Crumb_click_heavy"];
+            soundChannel.PlayOneShot(clip);
+        }
+        else if (!playingDirtSound && dirtStockpile >= 20)
+        {
+            playingDirtSound = true;
+            dirtStockpile -= 20;
+            timeSinceLastSound = 0;
+            AudioClip clip = soundMap["Crumb_click_med"];
+            soundChannel.PlayOneShot(clip);
+        }
+        else if (!playingDirtSound && dirtStockpile >= 5)
+        {
+            playingDirtSound = true;
+            dirtStockpile -= 5;
+            timeSinceLastSound = 0;
+            AudioClip clip = soundMap["Crumb_click_light"];
+            soundChannel.PlayOneShot(clip);
         }
     }
 }

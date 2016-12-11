@@ -63,6 +63,11 @@ public class DirtTileManager : MonoBehaviour
 			dirt.collected += dirt.value;
             dirtCounter.text = "" + UpgradeManager.money;
 
+            for (int i = 0; i < 1; i++)
+            {
+                AudioManager.instance.PlayDirtSound(dirt.collected);
+            }
+
 			if (MyTime.Instance.time - moneyTimer > moneyTimeout)
             {
 				moneyTimer = MyTime.Instance.time;
