@@ -40,7 +40,14 @@ public class UpgradeManager : MonoBehaviour {
 		int [] values = {0, 0, 0, 0, 0, 0, 0, 0};
 		int [] maxValues = {5, 5, 5, 5, 5, 5, 5, 5};
 		bool [] cbs = {true, false, false, false, false, false, false, false};
-		string [] desc = {"1", "2", "3", "4", "5", "6", "7", "8"};
+		string [] desc = {"Thorns allows you to chase off the pesky Mittens and pals. Try running into the dastardly feline and enjoy the newly colored ring. More Upgrades means more Thorns!", 
+			"Max Vision increases how much of The Room you can see any at time. Mo Upgrades Mo Vision.", 
+			"Battery Life increases the how long Roomba Rousey can be out on a single run.", 
+			"Deeper Clean: Each upgrade allows you to pull in more dirt from a single carpet tile.", 
+			"Clean Radius allows Roomba Rousey to have a larger radius to suck in sweat and blood.", 
+			"Turning: increases how quickly you can turn Roomba Rousey.", 
+			"Durability: increases how many hits you can take from the environment.", 
+			"Speed: Increases how fast Roomba Rousey can move."};
 		int [] costs = {200, 200, 200, 200, 200, 200, 200, 200};
 		UpgradeEnum [] types = {UpgradeEnum.THORNS, UpgradeEnum.VISION, UpgradeEnum.ENERGY, UpgradeEnum.DEEP_CLEAN, UpgradeEnum.CLEAN_RADIUS, UpgradeEnum.TURN_RADIUS, UpgradeEnum.DURABILITY, UpgradeEnum.SPEED};
 
