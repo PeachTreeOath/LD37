@@ -193,6 +193,11 @@ Prefab:
       propertyPath: baseBatteryLife
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 212924449353909370, guid: a0209aa2706e79743afba24e23dfe9a7,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0209aa2706e79743afba24e23dfe9a7, type: 2}
   m_IsPrefabParent: 0
@@ -247,6 +252,10 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 4856172142232324, guid: 4b2ac8edc6917b54184b9fe938bd0caa, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.245
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b2ac8edc6917b54184b9fe938bd0caa, type: 2}
   m_IsPrefabParent: 0
@@ -294,6 +303,11 @@ Prefab:
       propertyPath: parentGameObject
       value: 
       objectReference: {fileID: 319764141}
+    - target: {fileID: 114797473927701628, guid: 539ba0822f7c83e44b851643f5ca50fc,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 539ba0822f7c83e44b851643f5ca50fc, type: 2}
   m_IsPrefabParent: 0
@@ -709,6 +723,17 @@ GameObject:
   m_PrefabParentObject: {fileID: 1233278716725154, guid: a0209aa2706e79743afba24e23dfe9a7,
     type: 2}
   m_PrefabInternal: {fileID: 322030540}
+--- !u!114 &1083169280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1083169273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9419c49a3a108c4499f66b3cd3c29c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1426782845
 Prefab:
   m_ObjectHideFlags: 0
