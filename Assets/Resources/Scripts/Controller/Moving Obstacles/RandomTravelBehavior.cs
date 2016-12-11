@@ -60,7 +60,7 @@ namespace Controller
 
             if (timePassed >= msDelay)
             {
-                currPosition = nextPosition;
+                currPosition = transform.position;
                 if (random.Next(1, 101) >= turnProbability)
                 {
                     RandomizeDirection2D();
