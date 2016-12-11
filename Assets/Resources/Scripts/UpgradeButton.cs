@@ -139,6 +139,6 @@ public class UpgradeButton : MonoBehaviour {
 
 	public void Done()
 	{
-		Application.LoadLevel(0);
-	}
+        SceneTransitionManager.instance.GoToRoom();
+    }
 }
