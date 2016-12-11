@@ -13,5 +13,6 @@ public class DirtData : MonoBehaviour {
 	void Start()
 	{
 		health = baseHealth;
-	}
+        DirtManager.instance.totalDirtValue += baseHealth;
+    }
 }

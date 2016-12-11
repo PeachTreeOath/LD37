@@ -53,7 +53,8 @@ public class DirtTileManager : MonoBehaviour
             RoombaData rd = other.gameObject.transform.parent.gameObject.GetComponent<RoombaData>();
             int dmg = (int)((rd.suctionPower + UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeEnum.DEEP_CLEAN)) * dirt.multFactor);
             dirt.health -= dmg;
-
+            DirtManager.instance.totalDirtValue -= dmg;
+            
             opacityPercentage = dirt.health / (float)dirt.baseHealth;
             if (dirt.health <= 0)
             {
