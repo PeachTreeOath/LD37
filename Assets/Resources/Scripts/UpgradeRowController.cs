@@ -45,7 +45,7 @@ public class UpgradeRowController : MonoBehaviour
     {
         if (currLevel == null)
             Debug.LogWarning("Current level text not assigned.");
-		upgradeObj = UpgradeManager.Instance.GetUpgradeInfo(type);
+		upgradeObj = UpgradeManager.instance.GetUpgradeInfo(type);
 
         if (upgradeObj != null)
         {
@@ -69,7 +69,7 @@ public class UpgradeRowController : MonoBehaviour
 			upgradeObj.value < upgradeObj.maxValue)
         {
 			UpgradeManager.money -= upgradeObj.cost;
-			UpgradeManager.Instance.AddUpgrade(type, ((upgradeObj.cb != null)?true:false));
+			UpgradeManager.instance.AddUpgrade(type, ((upgradeObj.cb != null)?true:false));
             AudioManager.instance.PlaySound("Money_Buy");
             Referesh();
         }

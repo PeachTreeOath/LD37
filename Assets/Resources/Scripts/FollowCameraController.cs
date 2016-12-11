@@ -23,6 +23,6 @@ public class FollowCameraController : MonoBehaviour
     {
         transform.position = player.transform.position + offset;
 
-        cam.orthographicSize = startSize + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.VISION) * .25f;
+        cam.orthographicSize = startSize + UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.VISION) * .25f;
     }
 }

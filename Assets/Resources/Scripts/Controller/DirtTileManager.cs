@@ -51,7 +51,7 @@ public class DirtTileManager : MonoBehaviour
             other.CompareTag("Player"))
         {
             RoombaData rd = other.gameObject.transform.parent.gameObject.GetComponent<RoombaData>();
-            int dmg = (int)((rd.suctionPower + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN)) * dirt.multFactor);
+            int dmg = (int)((rd.suctionPower + UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN)) * dirt.multFactor);
             dirt.health -= dmg;
             DirtManager.instance.CalculateDamage(dmg);
             
