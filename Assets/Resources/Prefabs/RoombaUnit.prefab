@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 58023881290784178}
   - component: {fileID: 114963782569691810}
   - component: {fileID: 114910675838351714}
+  - component: {fileID: 114921833228931822}
   m_Layer: 10
   m_Name: RoombaUnit
   m_TagString: Untagged
@@ -60,7 +61,6 @@ GameObject:
   - component: {fileID: 212412298236788198}
   - component: {fileID: 58795111419835892}
   - component: {fileID: 114244350035772484}
-  - component: {fileID: 114414083226907440}
   m_Layer: 10
   m_Name: VacuumEffect
   m_TagString: Player
@@ -234,18 +234,6 @@ MonoBehaviour:
   suctionPower: 5
   curBatteryPerc: 0
   curBatteryTime: 0
---- !u!114 &114414083226907440
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1809998986098480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b945065054787c45b2e479671e82e26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radUpgradeMult: 0.015
 --- !u!114 &114761628861404036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -258,6 +246,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114910675838351714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1233278716725154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9419c49a3a108c4499f66b3cd3c29c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114921833228931822
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
