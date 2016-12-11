@@ -13,9 +13,13 @@ public class BatteryController : MonoBehaviour
     private bool batteryDead;
 	GameObject batteryUI;
 
+	float damageTimer;
+	float damageTimeout = .15f;
+
     // Use this for initialization
     private void Start()
     {
+		damageTimer = Time.time;
         batteryDead = false;
         moneyStart = UpgradeManager.money;
         dirtCounter = GameObject.Find("DirtCounter");
@@ -56,13 +60,16 @@ public class BatteryController : MonoBehaviour
 
     public void Damage()
     {
-		int dmgAmt = (6 - UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DURABILITY));
+		if(Time.time - damageTimer > damageTimeout)
+		{
+			int dmgAmt = (6 - UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DURABILITY));
 
-		GameObject dmgTxt = Instantiate(moneyLossFab) as GameObject;
-		dmgTxt.GetComponent<Text>().text = "-" + dmgAmt + "%";
-		dmgTxt.transform.SetParent(batteryUI.transform.parent);
-		dmgTxt.transform.position = batteryUI.transform.position + Vector3.right * 50;
+			GameObject dmgTxt = Instantiate(moneyLossFab) as GameObject;
+			dmgTxt.GetComponent<Text>().text = "-" + dmgAmt + "%";
+			dmgTxt.transform.SetParent(batteryUI.transform.parent);
+			dmgTxt.transform.position = batteryUI.transform.position + Vector3.right * 50;
 
-		startTime -= dmgAmt;
+			startTime -= dmgAmt;
+		}
     }
 }

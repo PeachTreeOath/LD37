@@ -14,6 +14,8 @@ public class Vacuum : MonoBehaviour
         rd = gameObject.transform.parent.gameObject.GetComponent<RoombaData>();
         cirCol = GetComponent<CircleCollider2D>();
         startRad = cirCol.radius;
+		Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Vacuum"), LayerMask.NameToLayer("Default"));
+		Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Vacuum"), LayerMask.NameToLayer("Animal"));
     }
 
     private void Update()
