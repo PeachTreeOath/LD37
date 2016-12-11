@@ -46,7 +46,7 @@ public class RoombaController : MonoBehaviour {
     // Update is called once per frame
     private void Update() {
         transform.FindChild("RoombaBody").rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, 0);
-        isBraking = Input.GetKey(KeyCode.Space);
+        isBraking = Input.GetKey(KeyCode.Space) | Input.GetKey(KeyCode.S) | Input.GetKey(KeyCode.DownArrow);
         if (isBraking) {
             rb.drag = Mathf.Lerp(0, 10, dragControl);
             if (dragControl < 1) {
