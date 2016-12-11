@@ -5,23 +5,15 @@ using System.Collections;
 public class SceneTransitionManager : Singleton<SceneTransitionManager>
 {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public void GoToShop()
+    {
+        SceneManager.UnloadSceneAsync("Game");
+        SceneManager.LoadScene("UpgradeScreen", LoadSceneMode.Additive);
+    }
 
-	public void GoToShop ()
-	{
-		SceneManager.LoadScene ("UpgradeScreen");
-	}
-
-	public void GoToRoom ()
-	{
-		SceneManager.LoadScene ("Game");
-	}
+    public void GoToRoom()
+    {
+        SceneManager.UnloadSceneAsync("UpgradeScreen");
+        SceneManager.LoadScene("Game", LoadSceneMode.Additive);
+    }
 }

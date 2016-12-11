@@ -28,8 +28,8 @@ public class BatteryController : MonoBehaviour {
 
 		if(rd.curBatteryPerc <= 0)
 		{
-			Application.LoadLevel(1);
-		}
+            SceneTransitionManager.instance.GoToShop();
+        }
 	}
 
 	public void Damage()
