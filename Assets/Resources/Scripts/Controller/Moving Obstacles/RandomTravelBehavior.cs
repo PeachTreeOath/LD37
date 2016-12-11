@@ -71,8 +71,8 @@ namespace Controller
 
 			if(!isKb)
 			{
-            	transform.position = Vector3.Lerp(currPosition, nextPosition, timePassed / msDelay);
-			}else
+                transform.position += (nextPosition - currPosition) * 0.02f;
+            } else
 			{
 				DoKnockBack();
 			}
