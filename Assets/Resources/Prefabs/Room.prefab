@@ -41,9 +41,10 @@ GameObject:
   - component: {fileID: 212580306985438490}
   - component: {fileID: 95983931669848014}
   - component: {fileID: 61538214332701628}
+  - component: {fileID: 114192780496494794}
   m_Layer: 0
   m_Name: kangaroo
-  m_TagString: Untagged
+  m_TagString: AnimalObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +100,7 @@ GameObject:
   - component: {fileID: 114506619306108770}
   m_Layer: 0
   m_Name: boxer
-  m_TagString: Untagged
+  m_TagString: AnimalObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -282,7 +283,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1529962660155382}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.39, y: -1.12, z: 0}
+  m_LocalPosition: {x: -0.39, y: -0.952, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4151141137314870}
@@ -334,8 +335,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1021953035346640}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.695, y: -1.1105, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: 1.002, y: -0.807, z: 0}
+  m_LocalScale: {x: 1.189397, y: 1.3365314, z: 1}
   m_Children: []
   m_Father: {fileID: 4151141137314870}
   m_RootOrder: 1
@@ -705,6 +706,17 @@ MonoBehaviour:
   soundsToPlay:
   - Bounce
   - collision_wood
+--- !u!114 &114192780496494794
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1021953035346640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b7f7789ccee3e4d80368757643d242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114269244202740492
 MonoBehaviour:
   m_ObjectHideFlags: 1
