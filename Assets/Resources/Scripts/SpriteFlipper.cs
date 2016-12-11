@@ -19,10 +19,10 @@ public class SpriteFlipper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > nextFlipTime)
+		if (MyTime.Instance.time > nextFlipTime)
         {
             sprite.flipX = !sprite.flipX;
-            nextFlipTime = Time.time + flipTime;
+			nextFlipTime = MyTime.Instance.time + flipTime;
         }
     }
 }

@@ -18,7 +18,7 @@ public class UpgradeButton : MonoBehaviour
 
     public void Start()
     {
-        upManager = UpgradeManager.instance;
+        upManager = UpgradeManager.Instance;
         GameObject audioManager = GameObject.Find("AudioManager");
         audioSource = audioManager.GetComponentInChildren<AudioSource>();
         GameObject descipt = GameObject.FindGameObjectWithTag("DescriptionTag");
@@ -36,35 +36,35 @@ public class UpgradeButton : MonoBehaviour
         switch (name)
         {
             case "Knife Button":
-                val = UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.THORNS);
+                val = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.THORNS);
                 break;
 
             case "Eagle Eye Button":
-                val = UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.VISION);
+                val = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.VISION);
                 break;
 
             case "Muscle Mix of Mixing":
-                val = UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY);
+                val = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY);
                 break;
 
             case "Max Gainz":
-                val = UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN);
+                val = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN);
                 break;
 
             case "AoE Cleaning":
-                val = UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.CLEAN_RADIUS);
+                val = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.CLEAN_RADIUS);
                 break;
 
             case "Rhonda's Legs of Running":
-                val = UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED);
+                val = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED);
                 break;
 
             case "Rhonda's Plate Armor":
-                val = UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DURABILITY);
+                val = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DURABILITY);
                 break;
 
             case "Rhonda's Omnidirectional Turning Ability":
-                val = UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.TURN_RADIUS);
+                val = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.TURN_RADIUS);
                 break;
         }
 

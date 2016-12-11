@@ -51,13 +51,16 @@ public class RoombaController : MonoBehaviour
 
     private SceneTransitionManager sceneManager;
 
+    private bool isDocked = false;
+
     // Use this for initialization
     private void Start()
     {
+        MyTime.Instance.timeScale = 1;
         rb = GetComponent<Rigidbody2D>();
         rd = GetComponent<RoombaData>();
         lastPos = gameObject.transform.position;
-        startTime = Time.time;
+        startTime = MyTime.Instance.time;
         dragControl = 0;
         GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         sceneManager = gameManager.GetComponent<SceneTransitionManager>();
@@ -73,7 +76,7 @@ public class RoombaController : MonoBehaviour
             rb.drag = Mathf.Lerp(0, 10, dragControl);
             if (dragControl < 1)
             {
-                dragControl += Time.deltaTime / 5f;
+                dragControl += MyTime.Instance.deltaTime / 5f;
             }
         }
     }
@@ -86,27 +89,32 @@ public class RoombaController : MonoBehaviour
             rb.AddForce(transform.up * Mathf.Lerp(rd.maxMoveSpeed + bounceVelocity, rd.minMoveSpeed, (currReverseTime / reverseDuration)));
         else if (isDocking)
         {
-            dockTime += Time.deltaTime * 1000;
+            dockTime += MyTime.Instance.deltaTime * 1000;
             // After a set amount of time has passed, jump to the docked position.
             if (dockTime >= DOCK_TIME)
             {
-                transform.localPosition = new Vector3(dockLocation.x, dockLocation.y - 0.11f);
-                Time.timeScale = 0;
-                AudioManager.instance.PlaySound("Buzz");
-                UpgradePanelShowHide.instance.ShowHide(true);
+                if (!isDocked)
+                {
+                    transform.localPosition = new Vector3(dockLocation.x, dockLocation.y - 0.11f);
+                    MyTime.Instance.timeScale = 0;
+
+                    AudioManager.instance.PlaySound("Buzz");
+                    UpgradePanelShowHide.instance.ShowHide(true);
+                    isDocked = true;
+                }
             }
             else
             {
                 // Before the time limit has passed, attempt to lerp to the dock.
-                dockTime += Time.deltaTime * 1000;
+                dockTime += MyTime.Instance.deltaTime * 1000;
                 transform.localPosition = Vector2.Lerp(transform.localPosition, new Vector3(dockLocation.x, dockLocation.y - 0.11f), dockTime / DOCK_TIME);
             }
         }
         else
         {
-            float minSpeed = rd.minMoveSpeed + UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED) * 5;
-            float maxSpeed = rd.maxMoveSpeed + UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED) * 2;
-            float force = -Mathf.Lerp(minSpeed, maxSpeed, (Time.time - startTime) * rd.accelSpeed);
+            float minSpeed = rd.minMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED) * 5;
+            float maxSpeed = rd.maxMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED) * 2;
+            float force = -Mathf.Lerp(minSpeed, maxSpeed, (MyTime.Instance.time - startTime) * rd.accelSpeed);
             if (rd.curBatteryPerc < 0.001f)
             { // floats...
                 rb.velocity = Vector3.zero;
@@ -125,7 +133,7 @@ public class RoombaController : MonoBehaviour
             }
         }
 
-        float rSpeed = rd.rotSpeed + UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.TURN_RADIUS) * rotUpgradeMult;
+        float rSpeed = rd.rotSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.TURN_RADIUS) * rotUpgradeMult;
         rb.MoveRotation(rb.rotation - moveHorizontal * rSpeed);
 
         lastPos = gameObject.transform.position;
@@ -133,12 +141,12 @@ public class RoombaController : MonoBehaviour
         if (isReversing)
         {
             dragControl = 1;
-            currReverseTime += Time.deltaTime * 1000;
+            currReverseTime += MyTime.Instance.deltaTime * 1000;
             if (currReverseTime >= reverseDuration)
             {
                 currReverseTime = 0;
                 isReversing = false;
-                startTime = Time.time;
+                startTime = MyTime.Instance.time;
             }
         }
     }
@@ -151,6 +159,7 @@ public class RoombaController : MonoBehaviour
             bounceVelocity = 2;
             reverseDuration = 500;
             isReversing = true;
+			GetComponent<BatteryController>().Damage();
         }
         else if (other.gameObject.CompareTag("AnimalObstacle"))
         {

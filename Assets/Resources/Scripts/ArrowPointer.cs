@@ -10,8 +10,8 @@ public class ArrowPointer : MonoBehaviour
     public float offset;
 
     private GameObject arrow;
-
-    public float batteryThreshold = 0.25f;
+    // If you change this value, change it in AnimateFillAmount too
+    private float batteryThreshold = .15f;
 
     private RoombaData roombaData;
 
@@ -36,7 +36,7 @@ public class ArrowPointer : MonoBehaviour
             }
             if (CheckIfOnScreen(roombaBase))
             {
-                float bounceVal = Mathf.Abs(Mathf.Sin(Time.time * 3) / 3);
+				float bounceVal = Mathf.Abs(Mathf.Sin(MyTime.Instance.time * 3) / 3);
                 arrow.transform.position = roombaBase.transform.position;
                 arrow.transform.up = roombaBase.transform.position - (arrow.transform.position + arrow.transform.localPosition);
                 arrow.transform.localPosition = new Vector2(0, bounceVal + offset);

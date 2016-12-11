@@ -56,7 +56,7 @@ namespace Controller
         // Update is called once per frame
         private void Update()
         {
-            timePassed += Time.deltaTime * 1000;
+			timePassed += MyTime.Instance.deltaTime * 1000;
 
             if (timePassed >= msDelay)
             {
@@ -71,7 +71,7 @@ namespace Controller
 
 			if(!isKb)
 			{
-                transform.position += (nextPosition - currPosition) * 0.02f;
+				transform.position += (nextPosition - currPosition) * MyTime.Instance.deltaTime * 1.02f;
             } else
 			{
 				DoKnockBack();
@@ -80,9 +80,9 @@ namespace Controller
 
 		void DoKnockBack()
 		{
-			if(Time.time - kbTimer < kbTimeout)
+			if(MyTime.Instance.time - kbTimer < kbTimeout)
 			{
-				transform.position += kbDir * Time.deltaTime * kbForce;
+				transform.position += kbDir * MyTime.Instance.deltaTime * kbForce;
 			}else
 			{
 				isKb = false;
@@ -124,7 +124,7 @@ namespace Controller
 		{
 			isKb = true;
 			kbDir = kDir;
-			kbTimer = Time.time;
+			kbTimer = MyTime.Instance.time;
 			SendMessage("PlayImpactSounds", SendMessageOptions.DontRequireReceiver);
 		}
     }
