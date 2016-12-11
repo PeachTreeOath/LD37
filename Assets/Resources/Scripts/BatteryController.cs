@@ -11,6 +11,7 @@ public class BatteryController : MonoBehaviour
     private GameObject moneyLossFab;
     private float moneyStart;
     private bool batteryDead;
+	GameObject batteryUI;
 
     // Use this for initialization
     private void Start()
@@ -18,6 +19,7 @@ public class BatteryController : MonoBehaviour
         batteryDead = false;
         moneyStart = UpgradeManager.money;
         dirtCounter = GameObject.Find("DirtCounter");
+		batteryUI = GameObject.Find("BatteryUI");
         roombaData = GetComponent<RoombaData>();
         moneyLossFab = Resources.Load("Prefabs/MoneyLoss") as GameObject;
 
@@ -54,6 +56,13 @@ public class BatteryController : MonoBehaviour
 
     public void Damage()
     {
-        startTime -= (6 - UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DURABILITY));
+		int dmgAmt = (6 - UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DURABILITY));
+
+		GameObject dmgTxt = Instantiate(moneyLossFab) as GameObject;
+		dmgTxt.GetComponent<Text>().text = "-" + dmgAmt + "%";
+		dmgTxt.transform.SetParent(batteryUI.transform.parent);
+		dmgTxt.transform.position = batteryUI.transform.position + Vector3.right * 50;
+
+		startTime -= dmgAmt;
     }
 }

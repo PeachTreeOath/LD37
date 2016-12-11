@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212931999891873518}
   - component: {fileID: 61078721321069018}
   - component: {fileID: 50590031918077768}
+  - component: {fileID: 114114107208532934}
   m_Layer: 0
   m_Name: Table
   m_TagString: Obstacle
@@ -76,6 +77,19 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.8, y: 0.8}
+--- !u!114 &114114107208532934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1143498010923344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f45b810ae4364d440b8ac9537ff2fa9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundsToPlay:
+  - Bounce
 --- !u!212 &212931999891873518
 SpriteRenderer:
   m_ObjectHideFlags: 1
