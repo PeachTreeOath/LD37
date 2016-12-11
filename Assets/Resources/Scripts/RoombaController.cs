@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoombaController : MonoBehaviour
-{
+public class RoombaController : MonoBehaviour {
     private Rigidbody2D rb;
     private RoombaData rd;
     public float rotUpgradeMult;
@@ -31,9 +30,10 @@ public class RoombaController : MonoBehaviour
     /// </summary>
     private float reverseDuration = 700;
 
+    private bool isBraking;
+
     // Use this for initialization
-    private void Start()
-    {
+    private void Start() {
         rb = GetComponent<Rigidbody2D>();
         rd = GetComponent<RoombaData>();
         lastPos = gameObject.transform.position;
@@ -41,41 +41,39 @@ public class RoombaController : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void Update()
-    {
+    private void Update() {
         transform.FindChild("RoombaBody").rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, 0);
+        isBraking = Input.GetKey(KeyCode.Space);
     }
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
 
         if (isReversing)
             rb.AddForce(transform.up * Mathf.Lerp(rd.maxMoveSpeed + bounceVelocity, rd.minMoveSpeed, (currReverseTime / reverseDuration)));
-        else
-		{
-			float minSpeed = rd.minMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED) * 5;
-			float maxSpeed = rd.maxMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED) * 2;
-			rb.AddForce(transform.up * -Mathf.Lerp(minSpeed, maxSpeed, (Time.time - startTime) * rd.accelSpeed));
-		}
+        else {
+            float minSpeed = rd.minMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED) * 5;
+            float maxSpeed = rd.maxMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED) * 2;
+            float force = -Mathf.Lerp(minSpeed, maxSpeed, (Time.time - startTime) * rd.accelSpeed);
+
+            rb.AddForce(transform.up * force);
+
+            if (isBraking) {
+                rb.AddForce(transform.up * -force);
+            }
+        }
 
         float rSpeed = rd.rotSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.TURN_RADIUS) * rotUpgradeMult;
-        if (Vector3.Distance(gameObject.transform.position, lastPos) > 0)
-        {
+        if (Vector3.Distance(gameObject.transform.position, lastPos) > 0) {
             rb.MoveRotation(rb.rotation - moveHorizontal * rSpeed);
-        }
-        else
-        {
+        } else {
             rb.MoveRotation(rb.rotation + moveHorizontal * rSpeed);
         }
         lastPos = gameObject.transform.position;
 
-        if (isReversing)
-        {
+        if (isReversing) {
             currReverseTime += Time.deltaTime * 1000;
-            if (currReverseTime >= reverseDuration)
-            {
+            if (currReverseTime >= reverseDuration) {
                 currReverseTime = 0;
                 isReversing = false;
                 startTime = Time.time;
@@ -83,23 +81,13 @@ public class RoombaController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        /* TODO: dependent on dirt objects existing
-        if (other.gameObject.CompareTag("Dirt")) {
-            other.gameObject.SetActive(false);
-        }
-        */
-
+    private void OnTriggerEnter2D(Collider2D other) {
         // Trigger a reverse after collision with obstacle
-        if (other.gameObject.CompareTag("Obstacle"))
-        {
+        if (other.gameObject.CompareTag("Obstacle")) {
             bounceVelocity = 2;
             reverseDuration = 500;
             isReversing = true;
-        }
-        else if (other.gameObject.CompareTag("AnimalObstacle"))
-        {
+        } else if (other.gameObject.CompareTag("AnimalObstacle")) {
             bounceVelocity = 7;
             reverseDuration = 700;
             isReversing = true;
