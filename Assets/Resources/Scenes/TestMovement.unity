@@ -572,7 +572,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1841225837927584, guid: b8b9424780e1c8c42a08021e6cc46b28, type: 2}
       propertyPath: m_TagString
-      value: Dirt
+      value: AnimalObstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8b9424780e1c8c42a08021e6cc46b28, type: 2}

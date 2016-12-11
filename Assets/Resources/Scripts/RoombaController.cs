@@ -19,12 +19,17 @@ public class RoombaController : MonoBehaviour
     /// <summary>
     /// Tracks time duration of a reversal.
     /// </summary>
-    private float timeSpan = 0;
+    private float currReverseTime = 0;
+
+    /// <summary>
+    /// Adjusts roomba flyback speed.
+    /// </summary>
+    private float bounceVelocity = 5;
 
     /// <summary>
     /// Duration of time in miliseconds to reverse after a collision.
     /// </summary>
-    private const double REVERSE_DURATION = 700;
+    private float reverseDuration = 700;
 
     // Use this for initialization
     private void Start()
@@ -47,7 +52,7 @@ public class RoombaController : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
 
         if (isReversing)
-            rb.AddForce(transform.up * Mathf.Lerp(rd.minMoveSpeed, rd.maxMoveSpeed, (Time.time - startTime) * rd.accelSpeed));
+            rb.AddForce(transform.up * Mathf.Lerp(rd.maxMoveSpeed + bounceVelocity, rd.minMoveSpeed, (currReverseTime / reverseDuration)));
         else
             rb.AddForce(transform.up * -Mathf.Lerp(rd.minMoveSpeed, rd.maxMoveSpeed, (Time.time - startTime) * rd.accelSpeed));
 
@@ -64,11 +69,12 @@ public class RoombaController : MonoBehaviour
 
         if (isReversing)
         {
-            timeSpan += Time.deltaTime * 1000;
-            if (timeSpan >= REVERSE_DURATION)
+            currReverseTime += Time.deltaTime * 1000;
+            if (currReverseTime >= reverseDuration)
             {
-                timeSpan = 0;
+                currReverseTime = 0;
                 isReversing = false;
+                startTime = Time.time;
             }
         }
     }
@@ -84,6 +90,14 @@ public class RoombaController : MonoBehaviour
         // Trigger a reverse after collision with obstacle
         if (other.gameObject.CompareTag("Obstacle"))
         {
+            bounceVelocity = 2;
+            reverseDuration = 500;
+            isReversing = true;
+        }
+        else if (other.gameObject.CompareTag("AnimalObstacle"))
+        {
+            bounceVelocity = 7;
+            reverseDuration = 700;
             isReversing = true;
         }
     }
