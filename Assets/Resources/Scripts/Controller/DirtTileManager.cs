@@ -6,6 +6,9 @@ public class DirtTileManager : MonoBehaviour
     /// Current color value shown in the sprite renderer.
     /// </summary>
     public Color curColor;
+	static GameObject moneyFab;
+	static float moneyTimer;
+	static float moneyTimeout = .3f;
 
     /// <summary>
     /// The current opacity value of the tile, as a percentage.
@@ -19,6 +22,11 @@ public class DirtTileManager : MonoBehaviour
 
     // Use this for initialization
     void Start() {
+		moneyTimer = Time.time;
+		if(moneyFab == null)
+		{
+			moneyFab = Resources.Load("Prefabs/Money") as GameObject;
+		}
         curColor = GetComponent<SpriteRenderer>().color;
         curColor.a = 1;
         opacityPercentage = 0.7f;
@@ -43,6 +51,12 @@ public class DirtTileManager : MonoBehaviour
             // start lerp control value when roomba enters dirt
             t = 0;
 			UpgradeManager.money += dirt.value;
+			if(Time.time - moneyTimer > moneyTimeout)
+			{
+				moneyTimer = Time.time;
+				GameObject moneyObj = Instantiate(moneyFab) as GameObject;
+				moneyObj.transform.position = other.transform.position;
+			}
 			//TODO: show money income
 			/*
             int curUpgrade = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN) + 1;
