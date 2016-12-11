@@ -3,7 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UpgradePanelShowHide : Singleton<UpgradePanelShowHide>
-{
+{ 
+    void Start()
+    {
+
+        AudioManager.instance.PlayShopMusic(.25f);
+    }
+
     protected override void Awake()
     {
         base.Awake();
