@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Resources/Scenes/Game.unity
   - enabled: 1
     path: Assets/Resources/Scenes/UpgradeScreen.unity
+  - enabled: 1
+    path: Assets/Resources/Scenes/PersistentUpgrades.unity
