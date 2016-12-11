@@ -164,7 +164,6 @@ GameObject:
   - component: {fileID: 1068955329}
   - component: {fileID: 1068955328}
   - component: {fileID: 1068955327}
-  - component: {fileID: 1068955326}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -172,13 +171,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1068955326
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1068955325}
-  m_Enabled: 1
 --- !u!124 &1068955327
 Behaviour:
   m_ObjectHideFlags: 0
@@ -296,8 +288,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8fb2021135575534a9036291b98233d6, type: 3}
-    m_FontSize: 20
-    m_FontStyle: 0
+    m_FontSize: 40
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 93
@@ -341,7 +333,7 @@ RectTransform:
   m_GameObject: {fileID: 1544636909}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1204713739}
   m_Father: {fileID: 1624152504}
@@ -350,7 +342,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 252, y: -158}
-  m_SizeDelta: {x: 93, y: 24}
+  m_SizeDelta: {x: 186, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1544636911
 MonoBehaviour:
@@ -392,7 +384,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1544636914}
-        m_MethodName: LoadGame
+        m_MethodName: GotoGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -448,6 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b62b192e4e7a904da32e1132e86ccaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  persistSceneName: PersistentUpgrades
 --- !u!1 &1624152500
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,7 +595,7 @@ RectTransform:
   m_GameObject: {fileID: 1864298393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1624152504}
   m_RootOrder: 0
@@ -610,7 +603,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 256, y: -44}
-  m_SizeDelta: {x: 233, y: 171}
+  m_SizeDelta: {x: 466, y: 342}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1864298395
 MonoBehaviour:
@@ -633,10 +626,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8fb2021135575534a9036291b98233d6, type: 3}
-    m_FontSize: 30
-    m_FontStyle: 0
+    m_FontSize: 54
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 70
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -644,7 +637,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BRIEF INTRO TEXT HERE. LORIUM IPSUM DOLOR HOTDOG.
+  m_Text: 'A / D  T O  R O T A T E
+
+    S P A C E  T O  B R A K E
+
+    B U Y  U P G R A D E S  W I T H  D I R T
+
+    C L E A N  U P  9 0 %  O F  T H E  R O O M
+
+'
 --- !u!222 &1864298396
 CanvasRenderer:
   m_ObjectHideFlags: 0

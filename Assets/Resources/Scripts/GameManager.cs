@@ -35,13 +35,4 @@ public class GameManager : Singleton<GameManager>
         AudioManager.instance.PlayRoomMusic(.25f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //TODO: Remove this
-        if(Input.GetKeyDown(KeyCode.T))
-        {
-            SceneTransitionManager.instance.GoToShop();
-        }
-    }
 }

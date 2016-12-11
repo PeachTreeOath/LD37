@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoombaController : MonoBehaviour
 {
@@ -53,6 +54,8 @@ public class RoombaController : MonoBehaviour
 
     private bool isDocked = false;
 
+    private Text warning;
+
     // Use this for initialization
     private void Start()
     {
@@ -64,6 +67,7 @@ public class RoombaController : MonoBehaviour
         dragControl = 0;
         GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         sceneManager = gameManager.GetComponent<SceneTransitionManager>();
+        warning = GameObject.Find("RechargeWarning").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -99,6 +103,7 @@ public class RoombaController : MonoBehaviour
                     MyTime.Instance.timeScale = 0;
 
                     AudioManager.instance.PlaySound("Buzz");
+                    warning.enabled = false;
                     UpgradePanelShowHide.instance.ShowHide(true);
                     isDocked = true;
                 }

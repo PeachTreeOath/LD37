@@ -5,24 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    float timeLeft = 3.0f;
-    bool loadGame = false;
+    public string persistSceneName = "PersistentUpgrades";
 
-    public void LoadGame()
+    void Awake()
     {
-        loadGame = true;
-    }
-
-    void Update()
-    {
-        if(loadGame)
+        bool isPersistenceSceneLoaded = false;
+        for (int i = 0; i < SceneManager.sceneCount; i++)
         {
-			timeLeft -= MyTime.Instance.deltaTime;
-            Debug.Log(timeLeft);
-            if(timeLeft <= -1)
+            Scene scene = SceneManager.GetSceneAt(i);
+            if (scene.name.Equals(persistSceneName))
             {
-                SceneManager.LoadScene("Game", LoadSceneMode.Single);
+                isPersistenceSceneLoaded = true;
+                break;
             }
         }
+
+        if (!isPersistenceSceneLoaded)
+        {
+            SceneManager.LoadScene(persistSceneName, LoadSceneMode.Additive);
+        }
+    }
+
+    public void GotoGame()
+    {
+        SceneTransitionManager.instance.StartGame();
     }
 }
