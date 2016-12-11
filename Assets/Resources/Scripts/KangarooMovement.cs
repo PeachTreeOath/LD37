@@ -20,6 +20,14 @@ public class KangarooMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+            AudioListener.volume = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            AudioListener.volume = 1;
+        }
         if (moveTo)
         {
             timer += Time.deltaTime;
