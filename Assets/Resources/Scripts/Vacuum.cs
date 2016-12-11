@@ -14,8 +14,6 @@ public class Vacuum : MonoBehaviour {
 		rd = gameObject.transform.parent.gameObject.GetComponent<RoombaData>();
 		cirCol = GetComponent<CircleCollider2D>();
 		startRad = cirCol.radius;
-
-		UpgradeManager.Instance.AddUpgrade(UpgradeManager.UpgradeEnum.CLEAN_RADIUS, false);
 	}
 
 	void Update()
