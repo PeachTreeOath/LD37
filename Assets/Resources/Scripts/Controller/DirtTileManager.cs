@@ -51,29 +51,35 @@ public class DirtTileManager : MonoBehaviour
             other.CompareTag("Player"))
         {
             RoombaData rd = other.gameObject.transform.parent.gameObject.GetComponent<RoombaData>();
-            int dmg = (int)((rd.suctionPower + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN)) * dirt.multFactor);
+            int dmg = (int)((rd.suctionPower + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN) * 2) * dirt.multFactor);
             dirt.health -= dmg;
             DirtManager.instance.CalculateDamage(dmg);
             
             opacityPercentage = dirt.health / (float)dirt.baseHealth;
-            if (dirt.health <= 0)
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                // start lerp control value when roomba enters dirt
-                t = 0;
-                UpgradeManager.money += dirt.value;
-                dirtCounter.text = "" + UpgradeManager.money;
+            
+            // start lerp control value when roomba enters dirt
+            t = 0;
+            UpgradeManager.money += dirt.value;
+			dirt.collected += dirt.value;
+            dirtCounter.text = "" + UpgradeManager.money;
 
-				if (MyTime.Instance.time - moneyTimer > moneyTimeout)
-                {
-					moneyTimer = MyTime.Instance.time;
-                    GameObject moneyObj = Instantiate(moneyFab) as GameObject;
-                    moneyObj.transform.position = other.transform.position;
-                }
+			if (MyTime.Instance.time - moneyTimer > moneyTimeout)
+            {
+				moneyTimer = MyTime.Instance.time;
+                GameObject moneyObj = Instantiate(moneyFab) as GameObject;
+                moneyObj.transform.position = other.transform.position;
             }
+
+			if (dirt.health <= 0)
+			{
+				int totalValue = (int)Mathf.Ceil(dirt.value * (dirt.baseHealth/rd.suctionPower));
+				if(dirt.collected < totalValue)
+				{
+					UpgradeManager.money += totalValue - dirt.collected;
+				}
+				Destroy(gameObject);
+			}
+            
             //TODO: show money income
             /*
             int curUpgrade = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN) + 1;
