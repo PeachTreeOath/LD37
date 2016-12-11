@@ -30,8 +30,8 @@ public class RoombaData : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        batteryLife = baseBatteryLife + UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY);
-        batteryTimer = Time.time;
+        batteryLife = baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY);
+		batteryTimer = MyTime.Instance.time;
         //UpgradeManager.Instance.AddUpgrade(UpgradeManager.UpgradeEnum.THORNS, true);
     }
 }

@@ -21,7 +21,7 @@ public class BatteryDisplay : MonoBehaviour
         float x = canv.GetComponent<RectTransform>().sizeDelta.x;
         Vector2 basePos = Vector2.zero;
         bool setBasePos = false;
-        for (int i = 0; i < rd.baseBatteryLife + UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY); i++)
+        for (int i = 0; i < rd.baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY); i++)
         {
             GameObject icn = Instantiate(Resources.Load("Prefabs/BatteryIcon")) as GameObject;
             batteryIcons.Add(icn);
@@ -59,13 +59,13 @@ public class BatteryDisplay : MonoBehaviour
         }
 
         maxBatteryTime = rd.batteryDuration * batteryIcons.Count;
-        startTime = Time.time;
+		startTime = MyTime.Instance.time;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        float perc = 1 - Mathf.InverseLerp(startTime, startTime + maxBatteryTime, (Time.time - startTime));
+		float perc = 1 - Mathf.InverseLerp(startTime, startTime + maxBatteryTime, (MyTime.Instance.time - startTime));
         int startI = (int)Mathf.Round(batteryIcons.Count - (batteryIcons.Count * perc));
         float dPerc = 1f / batteryIcons.Count;
         for (int i = startI - 1; i >= 0; i--)

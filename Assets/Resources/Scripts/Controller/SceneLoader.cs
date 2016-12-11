@@ -17,7 +17,7 @@ public class SceneLoader : MonoBehaviour
     {
         if(loadGame)
         {
-            timeLeft -= Time.deltaTime;
+			timeLeft -= MyTime.Instance.deltaTime;
             Debug.Log(timeLeft);
             if(timeLeft <= -1)
             {

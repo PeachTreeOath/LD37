@@ -48,7 +48,7 @@ public class UpgradeRowController : MonoBehaviour
 		dirCounter = GameObject.Find("DirtCounter");
         if (currLevel == null)
             Debug.LogWarning("Current level text not assigned.");
-        upgradeObj = UpgradeManager.instance.GetUpgradeInfo(type);
+        upgradeObj = UpgradeManager.Instance.GetUpgradeInfo(type);
 
         if (upgradeObj != null)
         {
@@ -73,7 +73,7 @@ public class UpgradeRowController : MonoBehaviour
         {
             UpgradeManager.money -= (upgradeObj.cost + (int)(upgradeObj.cost * upgradeObj.value * .33f));
 			dirCounter.GetComponent<Text>().text = UpgradeManager.money+"";
-            UpgradeManager.instance.AddUpgrade(type, ((upgradeObj.cb != null) ? true : false));
+            UpgradeManager.Instance.AddUpgrade(type, ((upgradeObj.cb != null) ? true : false));
             AudioManager.instance.PlaySound("Money_Buy");
             Referesh();
         }

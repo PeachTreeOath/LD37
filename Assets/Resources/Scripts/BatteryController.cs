@@ -21,16 +21,16 @@ public class BatteryController : MonoBehaviour
         roombaData = GetComponent<RoombaData>();
         moneyLossFab = Resources.Load("Prefabs/MoneyLoss") as GameObject;
 
-        roombaData.curBatteryPerc = (roombaData.baseBatteryLife + UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10f) / 100f;
-        float f = (roombaData.baseBatteryLife + UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10) / roombaData.baseBatteryLife;
+        roombaData.curBatteryPerc = (roombaData.baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10f) / 100f;
+        float f = (roombaData.baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10) / roombaData.baseBatteryLife;
         roombaData.curBatteryTime = roombaData.batteryDuration * f;
-        startTime = Time.time;
+		startTime = MyTime.Instance.time;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        roombaData.curBatteryPerc = (1 - (Time.time - startTime) / roombaData.curBatteryTime) * ((roombaData.baseBatteryLife + UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10f) / 100f);
+		roombaData.curBatteryPerc = (1 - (MyTime.Instance.time - startTime) / roombaData.curBatteryTime) * ((roombaData.baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10f) / 100f);
 
         CircleCollider2D boxCollider = gameObject.GetComponent<CircleCollider2D>();
         Collider2D[] overlap = Physics2D.OverlapAreaAll(boxCollider.bounds.min, boxCollider.bounds.max);
@@ -40,7 +40,7 @@ public class BatteryController : MonoBehaviour
             batteryDead = true;
             //SceneTransitionManager.instance.GoToShop();
             int moneyDec = (int)((UpgradeManager.money - moneyStart) / 2);
-            Time.timeScale = 0;
+			MyTime.Instance.timeScale = 0;
             UpgradeManager.money -= moneyDec;
 			dirtCounter.GetComponent<Text>().text = "" + UpgradeManager.money;
             GameObject moneyLossTxt = Instantiate(moneyLossFab) as GameObject;
@@ -54,6 +54,6 @@ public class BatteryController : MonoBehaviour
 
     public void Damage()
     {
-        startTime -= (6 - UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DURABILITY));
+        startTime -= (6 - UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DURABILITY));
     }
 }

@@ -23,15 +23,15 @@ public class BoxerMovementScript : MonoBehaviour
     {
         if (moveTo)
         {
-            timer += Time.deltaTime;
+			timer += MyTime.Instance.deltaTime;
             Vector3 diff = kangaroo.transform.position - transform.position;
-            transform.position += diff.normalized * speed * Time.deltaTime;
+			transform.position += diff.normalized * speed * MyTime.Instance.deltaTime;
         }
         else
         {
-            timer -= Time.deltaTime;
+			timer -= MyTime.Instance.deltaTime;
             Vector3 diff = kangaroo.transform.position - transform.position;
-            transform.position -= diff.normalized * speed * Time.deltaTime;
+			transform.position -= diff.normalized * speed * MyTime.Instance.deltaTime;
             if (timer < 0)
             {
                 moveTo = true;

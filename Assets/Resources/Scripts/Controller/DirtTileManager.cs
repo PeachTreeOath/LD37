@@ -32,7 +32,7 @@ public class DirtTileManager : MonoBehaviour
             dirtCounter = GameObject.Find("DirtCounter").GetComponent<Text>();
         }
 
-        moneyTimer = Time.time;
+		moneyTimer = MyTime.Instance.time;
         if (moneyFab == null)
         {
             moneyFab = Resources.Load("Prefabs/Money") as GameObject;
@@ -51,7 +51,7 @@ public class DirtTileManager : MonoBehaviour
             other.CompareTag("Player"))
         {
             RoombaData rd = other.gameObject.transform.parent.gameObject.GetComponent<RoombaData>();
-            int dmg = (int)((rd.suctionPower + UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN)) * dirt.multFactor);
+            int dmg = (int)((rd.suctionPower + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN)) * dirt.multFactor);
             dirt.health -= dmg;
             DirtManager.instance.CalculateDamage(dmg);
             
@@ -67,9 +67,9 @@ public class DirtTileManager : MonoBehaviour
                 UpgradeManager.money += dirt.value;
                 dirtCounter.text = "" + UpgradeManager.money;
 
-                if (Time.time - moneyTimer > moneyTimeout)
+				if (MyTime.Instance.time - moneyTimer > moneyTimeout)
                 {
-                    moneyTimer = Time.time;
+					moneyTimer = MyTime.Instance.time;
                     GameObject moneyObj = Instantiate(moneyFab) as GameObject;
                     moneyObj.transform.position = other.transform.position;
                 }
@@ -102,7 +102,7 @@ public class DirtTileManager : MonoBehaviour
         // Increment lerp control value until maximum over fade duration
         if (t < 1)
         {
-            t += Time.deltaTime / fadeDuration;
+			t += MyTime.Instance.deltaTime / fadeDuration;
         }
     }
 

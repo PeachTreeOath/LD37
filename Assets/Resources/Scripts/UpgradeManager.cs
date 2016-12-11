@@ -2,23 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgradeManager : Singleton<UpgradeManager>
+public class UpgradeManager : MonoBehaviour
 {
-    public enum UpgradeEnum { THORNS, VISION, ENERGY, DEEP_CLEAN, CLEAN_RADIUS, TURN_RADIUS, DURABILITY, SPEED };
+	public enum UpgradeEnum {THORNS, VISION, ENERGY, DEEP_CLEAN, CLEAN_RADIUS, TURN_RADIUS, DURABILITY, SPEED};
 
-    private static Dictionary<UpgradeEnum, Upgrade> upgrades;
+	static Dictionary<UpgradeEnum, Upgrade> upgrades;
 
-    public static int money = 0;
+	public static int money = 200;
 
-    private GameObject thornsFab;
-    private GameObject thornsObj;
-    private GameObject player;
+	static UpgradeManager instance;
 
-    protected override void Awake()
-    {
-        base.Awake();
-        InitUpgrades();
-    }
+	GameObject thornsFab;
+	GameObject thornsObj;
+	GameObject player;
+
+	public static UpgradeManager Instance
+	{
+		get
+		{
+			if(instance == null)
+			{
+				GameObject foo = new GameObject();
+				foo.name = "UpgradeManager";
+				instance = foo.AddComponent<UpgradeManager>();
+				upgrades = new Dictionary<UpgradeEnum, Upgrade>();
+				DontDestroyOnLoad(foo);
+			}
+
+			return instance;
+		}
+	}
 
     private static void InitUpgrades()
     {
@@ -97,7 +110,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
         Upgrade u;
         if (upgrades.TryGetValue(t, out u))
         {
-            Debug.Log(Time.time + " Downgrading " + u.upgradeType.ToString() + " val " + u.value);
+			Debug.Log(MyTime.Instance.time + " Downgrading " + u.upgradeType.ToString() + " val " + u.value);
             u.value--;
             if (u.value <= 0)
             {

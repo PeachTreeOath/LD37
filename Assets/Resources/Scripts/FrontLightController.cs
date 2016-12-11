@@ -30,7 +30,7 @@ public class FrontLightController : MonoBehaviour {
         }
 
         if (colorControl < 1) {
-            colorControl += Time.deltaTime / duration;
+			colorControl += MyTime.Instance.deltaTime / duration;
         } else {
             colorControl = 0;
             colorUp = !colorUp;

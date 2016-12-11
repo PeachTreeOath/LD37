@@ -6,7 +6,6 @@ public class UpgradePanelShowHide : Singleton<UpgradePanelShowHide>
 { 
     void Start()
     {
-
         AudioManager.instance.PlayShopMusic(.25f);
     }
 
@@ -23,6 +22,5 @@ public class UpgradePanelShowHide : Singleton<UpgradePanelShowHide>
 	public void ShowHide(bool state)
     {
         gameObject.SetActive(state);
-        Time.timeScale = 1;
     }
 }

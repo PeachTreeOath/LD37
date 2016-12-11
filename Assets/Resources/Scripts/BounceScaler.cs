@@ -12,22 +12,22 @@ public class BounceScaler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log(Time.time + " bounce");
+		Debug.Log(MyTime.Instance.time + " bounce");
 		scales = new Vector3[2];
 		scales[0] = gameObject.transform.localScale;
 		scales[1] = scales[0] * mult;
-		timer = Time.time;
+		timer = MyTime.Instance.time;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		float p = (Time.time - timer) * speed;
+		float p = (MyTime.Instance.time - timer) * speed;
 		if(p >= 1)
 		{
 			Vector3 tmp = scales[0];
 			scales[0] = scales[1];
 			scales[1] = tmp;
-			timer = Time.time;
+			timer = MyTime.Instance.time;
 			gameObject.transform.localScale = scales[0];
 			p = 0;
 		}
