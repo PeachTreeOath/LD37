@@ -5,11 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    /// <summary>
-    /// Starts the game
-    /// </summary>
+    float timeLeft = 3.0f;
+    bool loadGame = false;
+
     public void LoadGame()
     {
-        SceneManager.LoadScene("Game", LoadSceneMode.Single);
+        loadGame = true;
+    }
+
+    void Update()
+    {
+        if(loadGame)
+        {
+            timeLeft -= Time.deltaTime;
+            Debug.Log(timeLeft);
+            if(timeLeft <= -1)
+            {
+                SceneManager.LoadScene("Game", LoadSceneMode.Single);
+            }
+        }
     }
 }
