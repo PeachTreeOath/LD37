@@ -8,7 +8,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
 
     private static Dictionary<UpgradeEnum, Upgrade> upgrades;
 
-    public static int money = 200;
+    public static int money = 0;
 
     private GameObject thornsFab;
     private GameObject thornsObj;
