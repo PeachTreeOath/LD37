@@ -13,11 +13,9 @@ public class BatteryController : MonoBehaviour
         rd = GetComponent<RoombaData>();
 
         rd.curBatteryPerc = (rd.baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10f) / 100f;
-        Debug.Log("rd.curBatteryPerc " + rd.curBatteryPerc);
         float f = (rd.baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10) / rd.baseBatteryLife;
         rd.curBatteryTime = rd.batteryDuration * f;
         startTime = Time.time;
-        Debug.Log("rd.curBatteryTime " + rd.curBatteryTime);
     }
 
     // Update is called once per frame

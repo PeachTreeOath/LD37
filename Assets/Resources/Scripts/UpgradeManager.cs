@@ -103,6 +103,7 @@ public class UpgradeManager : MonoBehaviour {
 		Upgrade u;
 		if(upgrades.TryGetValue(t, out u))
 		{
+			Debug.Log(Time.time + " Downgrading " + u.upgradeType.ToString() + " val " + u.value);
 			u.value--;
 			if(u.value <= 0)
 			{
