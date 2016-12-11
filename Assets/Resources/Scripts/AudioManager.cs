@@ -7,6 +7,7 @@ public class AudioManager : Singleton<AudioManager>
 
     private AudioSource musicChannel;
     private AudioSource soundChannel;
+    private AudioSource roombaChannel; // To play constant vacuum noise..
     private Dictionary<string, AudioClip> soundMap;
 
     // Use this for initialization
@@ -19,14 +20,19 @@ public class AudioManager : Singleton<AudioManager>
         musicChannel.loop = true;
         soundChannel = Instantiate(Resources.Load<GameObject>("Prefabs/AudioChannel")).GetComponent<AudioSource>();
         soundChannel.transform.SetParent(transform);
+        roombaChannel = Instantiate(Resources.Load<GameObject>("Prefabs/AudioChannel")).GetComponent<AudioSource>();
+        roombaChannel.transform.SetParent(transform);
+        roombaChannel.loop = true;
 
         AudioClip[] clips = Resources.LoadAll<AudioClip>("Audio");
         foreach (AudioClip clip in clips)
         {
             soundMap.Add(clip.name, clip);
         }
-        // PlayRoomMusic(1);
-        PlaySound("suck_it_up_loop", .25f);
+        
+        PlayMusic("suck_it_up_loop", .25f);
+        roombaChannel.clip = soundMap["roomba"];
+        roombaChannel.Play();
     }
 
     public void PlayShopMusic(float volume)
@@ -34,11 +40,19 @@ public class AudioManager : Singleton<AudioManager>
         musicChannel.PlayOneShot(soundMap["ROOMBA_ROUSEY_SHOP"], volume);
     }
 
-    public void PlayRoomMusic(float volume)
+    public void PlayMusic(string name, float volume)
     {
-        musicChannel.PlayOneShot(soundMap["SUCK_IT_UP_LOOP"], volume);
+        musicChannel.clip = soundMap[name];
+        musicChannel.volume = volume;
+        musicChannel.Play();
     }
 
+    public void PlayMusicWithIntro(string name, float volume)
+    {
+        musicChannel.clip = soundMap[name];
+        musicChannel.volume = volume;
+        musicChannel.Play();
+    }
 
     public void PlaySound(string name)
     {
