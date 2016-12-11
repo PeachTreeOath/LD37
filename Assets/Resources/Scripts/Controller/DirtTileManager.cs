@@ -14,20 +14,25 @@ public class DirtTileManager : MonoBehaviour
     private float t = 0;
     private float fadeDuration = 3.0f; // seconds
 
+	DirtData dirt;
+	bool started;
+
     // Use this for initialization
-    private void Start() {
+    void Start() {
         curColor = GetComponent<SpriteRenderer>().color;
         curColor.a = 1;
         opacityPercentage = 0.7f;
         UpdateOpacity();
+		dirt = GetComponent<DirtData>();
+		started = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Player")) {
-
-			DirtData dirt = GetComponent<DirtData>();
+        if (started &&
+			other.CompareTag("Player")) {
 			RoombaData rd = other.gameObject.transform.parent.gameObject.GetComponent<RoombaData>();
-			dirt.health -= (int)((rd.suctionPower + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN)) * dirt.multFactor);
+			int dmg = (int)((rd.suctionPower + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN)) * dirt.multFactor);
+			dirt.health -= dmg;
 
 			opacityPercentage = dirt.health/(float)dirt.baseHealth;
 			if(dirt.health <= 0)
