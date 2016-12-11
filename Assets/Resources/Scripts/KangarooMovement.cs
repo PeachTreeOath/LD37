@@ -39,6 +39,11 @@ public class KangarooMovement : MonoBehaviour
         }
 
 
+        if (timer > reengageTime)
+        {
+            moveTo = true;
+            timer = 0;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D col)
