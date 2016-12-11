@@ -69,7 +69,6 @@ public class RoombaController : MonoBehaviour {
             rb.AddForce(transform.up * force);
 
             if (isBraking) {
-
                 rb.AddForce(transform.up * -force);
             } else {
                 rb.drag = 10;
@@ -88,6 +87,7 @@ public class RoombaController : MonoBehaviour {
         lastPos = gameObject.transform.position;
 
         if (isReversing) {
+            dragControl = 1;
             currReverseTime += Time.deltaTime * 1000;
             if (currReverseTime >= reverseDuration) {
                 currReverseTime = 0;
