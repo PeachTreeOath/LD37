@@ -29,15 +29,16 @@ public class AudioManager : Singleton<AudioManager>
         {
             soundMap.Add(clip.name, clip);
         }
-        
-        PlayMusic("suck_it_up_loop", .25f);
+
+        PlayMusicWithIntro("suck_it_up_intro", "suck_it_up_loop", .25f);
         roombaChannel.clip = soundMap["roomba"];
         roombaChannel.Play();
     }
 
+    // Pretty optional, keeping this here in case
     public void PlayShopMusic(float volume)
     {
-        musicChannel.PlayOneShot(soundMap["ROOMBA_ROUSEY_SHOP"], volume);
+        PlayMusic("roomba_rousey_shop", volume);
     }
 
     public void PlayMusic(string name, float volume)
@@ -47,11 +48,16 @@ public class AudioManager : Singleton<AudioManager>
         musicChannel.Play();
     }
 
-    public void PlayMusicWithIntro(string name, float volume)
+    public void PlayMusicWithIntro(string introName, string loopName, float volume)
     {
-        musicChannel.clip = soundMap[name];
-        musicChannel.volume = volume;
-        musicChannel.Play();
+        PlayMusic(introName, volume);
+        StartCoroutine(PlayMusicDelayed(loopName, volume, musicChannel.clip.length));
+    }
+
+    IEnumerator PlayMusicDelayed(string name, float volume, float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        PlayMusic(name, volume);
     }
 
     public void PlaySound(string name)
