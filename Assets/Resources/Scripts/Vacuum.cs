@@ -30,6 +30,9 @@ public class Vacuum : MonoBehaviour {
 			DirtData dirt = col.gameObject.GetComponent<DirtData>();
 			dirt.value -= (int)((rd.suctionPower + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN)) * dirt.multFactor);
 
+			Color origCol = col.gameObject.GetComponent<SpriteRenderer>().color;
+			origCol.a = dirt.value/dirt.baseValue;
+			col.gameObject.GetComponent<SpriteRenderer>().color = origCol;
 			if(dirt.value <= 0)
 			{
 				Destroy(col.gameObject);

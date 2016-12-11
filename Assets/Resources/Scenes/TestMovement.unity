@@ -432,6 +432,25 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2847d80ff86e214e9f34989fbcf99e7, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1308504596 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1841225837927584, guid: b8b9424780e1c8c42a08021e6cc46b28,
+    type: 2}
+  m_PrefabInternal: {fileID: 1694733177}
+--- !u!114 &1308504597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1308504596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f9c4e0edca526a4290e00d3c3e19802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseValue: 3
+  multFactor: 1
+  value: 0
 --- !u!1001 &1400441073
 Prefab:
   m_ObjectHideFlags: 0
@@ -572,7 +591,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1841225837927584, guid: b8b9424780e1c8c42a08021e6cc46b28, type: 2}
       propertyPath: m_TagString
-      value: AnimalObstacle
+      value: Dirt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8b9424780e1c8c42a08021e6cc46b28, type: 2}

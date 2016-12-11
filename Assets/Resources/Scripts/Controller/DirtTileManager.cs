@@ -25,9 +25,19 @@ public class DirtTileManager : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player")) {
 
+			DirtData dirt = GetComponent<DirtData>();
+			RoombaData rd = other.gameObject.transform.parent.gameObject.GetComponent<RoombaData>();
+			dirt.value -= (int)((rd.suctionPower + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN)) * dirt.multFactor);
+
+			opacityPercentage = dirt.value/(float)dirt.baseValue;
+			if(dirt.value <= 0)
+			{
+				Destroy(gameObject);
+			}
+				
             // start lerp control value when roomba enters dirt
             t = 0;
-
+			/*
             int curUpgrade = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN) + 1;
 
             // Max Deep Clean upgrade level is 5.
@@ -40,7 +50,7 @@ public class DirtTileManager : MonoBehaviour
             Debug.Log("Opacity " + opacityPercentage.ToString());
             if (opacityPercentage <= 0f) {
                 Destroy(this.gameObject);
-            }
+            }*/
             UpdateOpacity();
         }
     }
