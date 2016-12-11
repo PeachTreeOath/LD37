@@ -34,6 +34,8 @@ public class RoombaController : MonoBehaviour {
 
     private float dragControl;
 
+    private SceneTransitionManager sceneManager;
+
     // Use this for initialization
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -41,6 +43,8 @@ public class RoombaController : MonoBehaviour {
         lastPos = gameObject.transform.position;
         startTime = Time.time;
         dragControl = 0;
+        GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        sceneManager = gameManager.GetComponent<SceneTransitionManager>();
     }
 
     // Update is called once per frame
