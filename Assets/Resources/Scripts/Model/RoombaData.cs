@@ -11,7 +11,7 @@ public class RoombaData : MonoBehaviour {
     public int health;
 	[HideInInspector]
     public float batteryLife;
-	public float maxBatteryLife;
+	public float baseBatteryLife;
 	[HideInInspector]
 	public float batteryTimer;
 	public float batteryDuration;
@@ -19,7 +19,7 @@ public class RoombaData : MonoBehaviour {
     
     // Use this for initialization
     void Start () {
-		batteryLife = maxBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY);
+		batteryLife = baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY);
 		batteryTimer = Time.time;
 	}
 }

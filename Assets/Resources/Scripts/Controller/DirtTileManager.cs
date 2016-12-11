@@ -46,16 +46,17 @@ public class DirtTileManager : MonoBehaviour
 			if(dirt.health <= 0)
 			{
 				Destroy(gameObject);
-			}
-
-            // start lerp control value when roomba enters dirt
-            t = 0;
-			UpgradeManager.money += dirt.value;
-			if(Time.time - moneyTimer > moneyTimeout)
+			}else
 			{
-				moneyTimer = Time.time;
-				GameObject moneyObj = Instantiate(moneyFab) as GameObject;
-				moneyObj.transform.position = other.transform.position;
+	            // start lerp control value when roomba enters dirt
+	            t = 0;
+				UpgradeManager.money += dirt.value;
+				if(Time.time - moneyTimer > moneyTimeout)
+				{
+					moneyTimer = Time.time;
+					GameObject moneyObj = Instantiate(moneyFab) as GameObject;
+					moneyObj.transform.position = other.transform.position;
+				}
 			}
 			//TODO: show money income
 			/*
