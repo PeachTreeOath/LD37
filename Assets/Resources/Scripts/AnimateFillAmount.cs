@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class AnimateFillAmount : MonoBehaviour
 {
     public Image image;
-    public bool coolingDown;
     private Text text;
 	RoombaData rd;
 	float waitTime;
+	float startTime;
 
     // Use this for initialization
     void Start()
@@ -22,17 +22,13 @@ public class AnimateFillAmount : MonoBehaviour
 		image.fillAmount = (rd.baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10f)/100f;
 		float f = (rd.baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10)/rd.baseBatteryLife;
 		waitTime = rd.batteryDuration * f;
+		startTime = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
-        image.fillAmount -= 1.0f / waitTime * Time.deltaTime;
+		image.fillAmount = (1 - (Time.time - startTime) / waitTime) * ((rd.baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10f)/100f);
         text.text = (int)(image.fillAmount * 100) + "%";
-        if (coolingDown == true)
-        {
-            //Reduce fill amount over 30 seconds
-            image.fillAmount -= 1.0f / waitTime * Time.deltaTime;
-        }
     }
 }
