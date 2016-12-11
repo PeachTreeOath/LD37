@@ -100,9 +100,9 @@ GameObject:
   - component: {fileID: 60594074859201570}
   - component: {fileID: 114055464372605830}
   - component: {fileID: 114201713396501644}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DirtBlob
-  m_TagString: Untagged
+  m_TagString: Dirt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
