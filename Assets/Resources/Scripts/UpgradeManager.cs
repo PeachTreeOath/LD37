@@ -8,7 +8,7 @@ public class UpgradeManager : MonoBehaviour
 
 	static Dictionary<UpgradeEnum, Upgrade> upgrades;
 
-	public static int money = 200;
+	public static int money = 0;
 
 	static UpgradeManager instance;
 
@@ -25,7 +25,7 @@ public class UpgradeManager : MonoBehaviour
 				GameObject foo = new GameObject();
 				foo.name = "UpgradeManager";
 				instance = foo.AddComponent<UpgradeManager>();
-				upgrades = new Dictionary<UpgradeEnum, Upgrade>();
+				InitUpgrades();
 				DontDestroyOnLoad(foo);
 			}
 

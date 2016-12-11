@@ -10,8 +10,8 @@ public class ArrowPointer : MonoBehaviour
     public float offset;
 
     private GameObject arrow;
-
-    public float batteryThreshold = 0.25f;
+    // If you change this value, change it in AnimateFillAmount too
+    private float batteryThreshold = .15f;
 
     private RoombaData roombaData;
 

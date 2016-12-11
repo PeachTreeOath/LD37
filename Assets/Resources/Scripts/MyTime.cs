@@ -21,6 +21,7 @@ public class MyTime : MonoBehaviour {
 				GameObject foo = new GameObject();
 				foo.name = "MyTime";
 				instance = foo.AddComponent<MyTime>();
+				instance.Awake();
 				DontDestroyOnLoad(foo);
 			}
 
