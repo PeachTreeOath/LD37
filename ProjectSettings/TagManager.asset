@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - AnimalObstacle
   - Dirt
+  - Thorns
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Animal
+  - Thorns
   - 
   - 
   - 

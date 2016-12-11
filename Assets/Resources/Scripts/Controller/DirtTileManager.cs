@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class DirtTileManager : MonoBehaviour
 {
@@ -16,12 +17,14 @@ public class DirtTileManager : MonoBehaviour
     public float opacityPercentage;
     private float t = 0;
     private float fadeDuration = 3.0f; // seconds
+    private Text dirtCounter;
 
 	DirtData dirt;
 	bool started;
 
     // Use this for initialization
     void Start() {
+        dirtCounter = GameObject.Find("DirtCounter").GetComponent<Text>();
 		moneyTimer = Time.time;
 		if(moneyFab == null)
 		{
@@ -51,7 +54,9 @@ public class DirtTileManager : MonoBehaviour
 	            // start lerp control value when roomba enters dirt
 	            t = 0;
 				UpgradeManager.money += dirt.value;
-				if(Time.time - moneyTimer > moneyTimeout)
+                dirtCounter.text = "" + UpgradeManager.money;
+
+                if (Time.time - moneyTimer > moneyTimeout)
 				{
 					moneyTimer = Time.time;
 					GameObject moneyObj = Instantiate(moneyFab) as GameObject;

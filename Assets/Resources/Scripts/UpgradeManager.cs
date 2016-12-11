@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour {
 
-	//TODO: Thorns, energy, durability
+	//TODO: Thorns, durability
 	public enum UpgradeEnum {THORNS, VISION, ENERGY, DEEP_CLEAN, CLEAN_RADIUS, TURN_RADIUS, DURABILITY, SPEED};
 
 	static Dictionary<UpgradeEnum, Upgrade> upgrades;
@@ -12,6 +12,10 @@ public class UpgradeManager : MonoBehaviour {
     public static int money = 200;
 
 	static UpgradeManager instance;
+
+	GameObject thornsFab;
+	GameObject thornsObj;
+	GameObject player;
 
     public static UpgradeManager Instance
 	{
@@ -58,6 +62,11 @@ public class UpgradeManager : MonoBehaviour {
 		}
 		return ret;
 	}
+
+	public void RemoveUpgrade(UpgradeEnum t)
+	{
+		upgrades.Remove(t);
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -68,5 +77,19 @@ public class UpgradeManager : MonoBehaviour {
 				gameObject.SendMessage(u.cb, SendMessageOptions.DontRequireReceiver);
 			}
 		}
+	}
+
+	void thorns()
+	{
+		if(thornsObj == null)
+		{
+			thornsObj = Instantiate(Resources.Load("Prefabs/Thorns")) as GameObject;
+		}
+		if(player == null)
+		{
+			player = GameObject.Find("RoombaUnit");
+		}
+
+		thornsObj.transform.position = player.transform.position;
 	}
 }
