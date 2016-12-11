@@ -42,6 +42,7 @@ public class BatteryController : MonoBehaviour
             int moneyDec = (int)((UpgradeManager.money - moneyStart) / 2);
             Time.timeScale = 0;
             UpgradeManager.money -= moneyDec;
+			dirtCounter.GetComponent<Text>().text = "" + UpgradeManager.money;
             GameObject moneyLossTxt = Instantiate(moneyLossFab) as GameObject;
             moneyLossTxt.GetComponent<Text>().text = "-" + moneyDec;
             moneyLossTxt.transform.SetParent(dirtCounter.transform.parent);
