@@ -17,6 +17,6 @@ public class CurrencyDisplay : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        textbox.text = UpgradeManager.instance.money.ToString();
+        textbox.text = UpgradeManager.money.ToString();
     }
 }

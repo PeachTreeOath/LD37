@@ -12,9 +12,9 @@ public class BatteryController : MonoBehaviour
     {
         rd = GetComponent<RoombaData>();
 
-        rd.curBatteryPerc = (rd.baseBatteryLife + UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeEnum.ENERGY) * 10f) / 100f;
+        rd.curBatteryPerc = (rd.baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10f) / 100f;
         Debug.Log("rd.curBatteryPerc " + rd.curBatteryPerc);
-        float f = (rd.baseBatteryLife + UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeEnum.ENERGY) * 10) / rd.baseBatteryLife;
+        float f = (rd.baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10) / rd.baseBatteryLife;
         rd.curBatteryTime = rd.batteryDuration * f;
         startTime = Time.time;
         Debug.Log("rd.curBatteryTime " + rd.curBatteryTime);
@@ -23,7 +23,7 @@ public class BatteryController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        rd.curBatteryPerc = (1 - (Time.time - startTime) / rd.curBatteryTime) * ((rd.baseBatteryLife + UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeEnum.ENERGY) * 10f) / 100f);
+        rd.curBatteryPerc = (1 - (Time.time - startTime) / rd.curBatteryTime) * ((rd.baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10f) / 100f);
 
         CircleCollider2D boxCollider = gameObject.GetComponent<CircleCollider2D>();
         Collider2D[] overlap = Physics2D.OverlapAreaAll(boxCollider.bounds.min, boxCollider.bounds.max);
@@ -38,6 +38,6 @@ public class BatteryController : MonoBehaviour
 
     public void Damage()
     {
-        startTime -= (6 - UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeEnum.DURABILITY));
+        startTime -= (6 - UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DURABILITY));
     }
 }

@@ -15,6 +15,6 @@ public class MoneyTracker : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        text.text = UpgradeManager.instance.money.ToString();
+        text.text = UpgradeManager.money.ToString();
     }
 }

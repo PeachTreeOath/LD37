@@ -18,6 +18,6 @@ public class Vacuum : MonoBehaviour
 
     private void Update()
     {
-        cirCol.radius = startRad + (UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeEnum.CLEAN_RADIUS) * radUpgradeMult);
+        cirCol.radius = startRad + (UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.CLEAN_RADIUS) * radUpgradeMult);
     }
 }

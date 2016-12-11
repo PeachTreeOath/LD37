@@ -104,8 +104,8 @@ public class RoombaController : MonoBehaviour
         }
         else
         {
-            float minSpeed = rd.minMoveSpeed + UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeEnum.SPEED) * 5;
-            float maxSpeed = rd.maxMoveSpeed + UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeEnum.SPEED) * 2;
+            float minSpeed = rd.minMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED) * 5;
+            float maxSpeed = rd.maxMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED) * 2;
             float force = -Mathf.Lerp(minSpeed, maxSpeed, (Time.time - startTime) * rd.accelSpeed);
             if (rd.curBatteryPerc < 0.001f) { // floats...
                 rb.velocity = Vector3.zero;
@@ -124,7 +124,7 @@ public class RoombaController : MonoBehaviour
             }
         }
 
-        float rSpeed = rd.rotSpeed + UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeEnum.TURN_RADIUS) * rotUpgradeMult;
+        float rSpeed = rd.rotSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.TURN_RADIUS) * rotUpgradeMult;
         rb.MoveRotation(rb.rotation - moveHorizontal * rSpeed);
 
         lastPos = gameObject.transform.position;
@@ -162,6 +162,7 @@ public class RoombaController : MonoBehaviour
         {
             isDocking = true;
             dockLocation = other.transform.localPosition;
+			GetComponent<BatteryController>().enabled = false;
         }
     }
 }

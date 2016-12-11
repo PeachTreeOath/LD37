@@ -45,12 +45,12 @@ public class UpgradeRowController : MonoBehaviour
     {
         if (currLevel == null)
             Debug.LogWarning("Current level text not assigned.");
-        upgradeObj = UpgradeManager.instance.GetUpgrade(type);
+		upgradeObj = UpgradeManager.Instance.GetUpgradeInfo(type);
 
         if (upgradeObj != null)
         {
-            currLevel.text = upgradeObj.level.ToString();
-            currCost.text = upgradeObj.costVal.ToString();
+			currLevel.text = upgradeObj.value.ToString();
+			currCost.text = upgradeObj.cost.ToString();
         }
         buyButton = GetComponentInChildren<Button>();
         if (buyButton != null)
@@ -65,11 +65,11 @@ public class UpgradeRowController : MonoBehaviour
     /// </summary>
     public void ButtonPress()
     {
-        if (UpgradeManager.instance.money >= upgradeObj.costVal &&
-            upgradeObj.level < upgradeObj.maxLevel)
+		if (UpgradeManager.money >= upgradeObj.cost &&
+			upgradeObj.value < upgradeObj.maxValue)
         {
-            UpgradeManager.instance.money -= upgradeObj.costVal;
-            UpgradeManager.instance.IncrementUpgrade(type);
+			UpgradeManager.money -= upgradeObj.cost;
+			UpgradeManager.Instance.AddUpgrade(type, ((upgradeObj.cb != null)?true:false));
             AudioManager.instance.PlaySound("Money_Buy");
             Referesh();
         }
@@ -77,7 +77,7 @@ public class UpgradeRowController : MonoBehaviour
         {
             AudioManager.instance.PlaySound("Money_Invalid");
         }
-        if (upgradeObj.level == upgradeObj.maxLevel)
+		if (upgradeObj.value == upgradeObj.maxValue)
         {
             buyButton.enabled = false;
         }
@@ -88,8 +88,8 @@ public class UpgradeRowController : MonoBehaviour
     /// </summary>
     private void Referesh()
     {
-        currLevel.text = upgradeObj.level.ToString();
-        currCost.text = upgradeObj.costVal.ToString();
+		currLevel.text = upgradeObj.value.ToString();
+        currCost.text = upgradeObj.cost.ToString();
     }
 
     // Update is called once per frame

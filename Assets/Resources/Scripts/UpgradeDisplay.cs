@@ -16,7 +16,7 @@ public class UpgradeDisplay : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        //UpgradeManager.instance.
+        //UpgradeManager.Instance.
         //    (UpgradeManager.UpgradeEnum.DEEP_CLEAN);
         imgRoot = gameObject.transform.FindChild("Images").gameObject;
         txtRoot = gameObject.transform.FindChild("Texts").gameObject;
@@ -46,7 +46,7 @@ public class UpgradeDisplay : MonoBehaviour
     {
         for (int i = 0; i < txtObjs.Count; i++)
         {
-            //txtObjs[i].GetComponent<Text>().text = UpgradeManager.instance.GetUpgradeValue((UpgradeManager.UpgradeEnum)i) + "/5";
+            //txtObjs[i].GetComponent<Text>().text = UpgradeManager.Instance.GetUpgradeValue((UpgradeManager.UpgradeEnum)i) + "/5";
         }
     }
 }

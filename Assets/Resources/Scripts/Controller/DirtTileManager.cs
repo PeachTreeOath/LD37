@@ -51,7 +51,7 @@ public class DirtTileManager : MonoBehaviour
             other.CompareTag("Player"))
         {
             RoombaData rd = other.gameObject.transform.parent.gameObject.GetComponent<RoombaData>();
-            int dmg = (int)((rd.suctionPower + UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeEnum.DEEP_CLEAN)) * dirt.multFactor);
+            int dmg = (int)((rd.suctionPower + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN)) * dirt.multFactor);
             dirt.health -= dmg;
             DirtManager.instance.CalculateDamage(dmg);
             
@@ -64,8 +64,8 @@ public class DirtTileManager : MonoBehaviour
             {
                 // start lerp control value when roomba enters dirt
                 t = 0;
-                UpgradeManager.instance.money += dirt.value;
-                dirtCounter.text = "" + UpgradeManager.instance.money;
+                UpgradeManager.money += dirt.value;
+                dirtCounter.text = "" + UpgradeManager.money;
 
                 if (Time.time - moneyTimer > moneyTimeout)
                 {
