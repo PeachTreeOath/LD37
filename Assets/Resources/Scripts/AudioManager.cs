@@ -9,7 +9,7 @@ public class AudioManager : Singleton<AudioManager>
     private AudioSource soundChannel;
     private AudioSource roombaChannel; // To play constant vacuum noise..
     private Dictionary<string, AudioClip> soundMap;
-
+    
     // Use this for initialization
     protected override void Awake()
     {
@@ -78,5 +78,17 @@ public class AudioManager : Singleton<AudioManager>
     public void PlaySound(string name, float volume)
     {
         soundChannel.PlayOneShot(soundMap[name], volume);
+    }
+
+    public void ToggleMute(bool mute)
+    {
+        if(mute)
+        {
+            AudioListener.volume = 0;
+        }
+        else
+        {
+            AudioListener.volume = 1;
+        }
     }
 }

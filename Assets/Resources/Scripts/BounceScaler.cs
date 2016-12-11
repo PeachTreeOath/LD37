@@ -24,6 +24,7 @@ public class BounceScaler : MonoBehaviour {
 		float p = (MyTime.Instance.time - timer) * speed;
 		if(p >= 1)
 		{
+            AudioManager.instance.PlaySound("Low_Battery");
 			Vector3 tmp = scales[0];
 			scales[0] = scales[1];
 			scales[1] = tmp;
