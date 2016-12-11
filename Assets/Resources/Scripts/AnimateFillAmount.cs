@@ -8,8 +8,10 @@ public class AnimateFillAmount : MonoBehaviour
     public Image image;
     private Text text;
     private RoombaData rd;
+    // If you change this value, change it in ArrowPointer too
+    private float batteryLimit = .15f;
 
-	float startBatteryPerc;
+    float startBatteryPerc;
 
     // Use this for initialization
     private void Start()
@@ -29,7 +31,8 @@ public class AnimateFillAmount : MonoBehaviour
 		image.fillAmount = Mathf.Min(rd.curBatteryPerc + Mathf.Lerp(0, .05f, 1-Mathf.InverseLerp(0, startBatteryPerc, rd.curBatteryPerc)), startBatteryPerc); //load bar is off at under 5%
 		text.text = (int)(rd.curBatteryPerc * 100) + "%";
 
-		if (rd.curBatteryPerc < .13f &&
+        
+		if (rd.curBatteryPerc < batteryLimit &&
             transform.parent.gameObject.GetComponent<BounceScaler>() == null)
         {
             BounceScaler bs = transform.parent.gameObject.AddComponent<BounceScaler>();
