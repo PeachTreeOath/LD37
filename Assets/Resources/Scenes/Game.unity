@@ -275,7 +275,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 427255805}
-  m_RootOrder: 18
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &316995745
 GameObject:
@@ -380,53 +380,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 58795111419835892, guid: a0209aa2706e79743afba24e23dfe9a7,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 58023881290784178, guid: a0209aa2706e79743afba24e23dfe9a7,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212412298236788198, guid: a0209aa2706e79743afba24e23dfe9a7,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114317300382656934, guid: a0209aa2706e79743afba24e23dfe9a7,
-        type: 2}
-      propertyPath: suctionPower
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114317300382656934, guid: a0209aa2706e79743afba24e23dfe9a7,
-        type: 2}
-      propertyPath: maxBatteryLife
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 114317300382656934, guid: a0209aa2706e79743afba24e23dfe9a7,
-        type: 2}
-      propertyPath: batteryDuration
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 114317300382656934, guid: a0209aa2706e79743afba24e23dfe9a7,
-        type: 2}
-      propertyPath: baseBatteryLife
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 114273378939495716, guid: a0209aa2706e79743afba24e23dfe9a7,
-        type: 2}
-      propertyPath: rotUpgradeMult
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 58795111419835892, guid: a0209aa2706e79743afba24e23dfe9a7,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0209aa2706e79743afba24e23dfe9a7, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &427255804
@@ -629,23 +583,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d812149825f8d944b5d1ca1d7f646df, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &595941410 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1809998986098480, guid: a0209aa2706e79743afba24e23dfe9a7,
-    type: 2}
-  m_PrefabInternal: {fileID: 322030540}
---- !u!114 &595941411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 595941410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b945065054787c45b2e479671e82e26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radUpgradeMult: 0.015
 --- !u!1 &614162264
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,7 +1018,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 427255805}
-  m_RootOrder: 17
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1306649917
 Prefab:
@@ -1616,7 +1553,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 427255805}
-  m_RootOrder: 19
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1985463244
 GameObject:

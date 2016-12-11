@@ -59,7 +59,6 @@ GameObject:
   - component: {fileID: 212412298236788198}
   - component: {fileID: 58795111419835892}
   - component: {fileID: 114244350035772484}
-  - component: {fileID: 114266345810339360}
   m_Layer: 10
   m_Name: VacuumEffect
   m_TagString: Player
@@ -187,18 +186,6 @@ CircleCollider2D:
   serializedVersion: 2
   m_Radius: 0.17
 --- !u!114 &114244350035772484
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1809998986098480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b945065054787c45b2e479671e82e26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radUpgradeMult: 0.015
---- !u!114 &114266345810339360
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
