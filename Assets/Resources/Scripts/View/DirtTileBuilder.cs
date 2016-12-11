@@ -63,8 +63,8 @@ namespace View
                     GameObject bg = ((GameObject)Instantiate(dirtPrefab, Vector2.zero, Quaternion.identity));
                     bg.transform.position = new Vector2(currX, currY);
                     bg.transform.SetParent(this.transform);
-                    SpriteRenderer spriteRenderer = bg.GetComponent<SpriteRenderer>();
-                    spriteRenderer.sortingLayerID = SortingLayer.NameToID("BackgroundDirt");
+                    //SpriteRenderer spriteRenderer = bg.GetComponent<SpriteRenderer>();
+                    //spriteRenderer.sortingLayerID = SortingLayer.NameToID("BackgroundDirt");
                     currX += size.x;
                 }
                 currY -= size.y;

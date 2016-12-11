@@ -38,6 +38,5 @@ public class BoxerMovementScript : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         moveTo = false;
-        Debug.Log("Wow");
     }
 }
