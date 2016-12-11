@@ -86,6 +86,7 @@ namespace Controller
 			}else
 			{
 				isKb = false;
+				currPosition = gameObject.transform.position;
 				MovePosition();
 			}
 		}
