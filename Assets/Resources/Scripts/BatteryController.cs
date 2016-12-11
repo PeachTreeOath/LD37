@@ -30,7 +30,9 @@ public class BatteryController : MonoBehaviour
 
         if (rd.curBatteryPerc <= 0)
         {
-            SceneTransitionManager.instance.GoToShop();
+            //SceneTransitionManager.instance.GoToShop();
+            Time.timeScale = 0;
+            UpgradePanelShowHide.instance.ShowHide(true);
         }
     }
 
