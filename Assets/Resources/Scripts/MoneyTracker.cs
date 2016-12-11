@@ -7,13 +7,9 @@ public class MoneyTracker : MonoBehaviour {
 
     private Text text;
 
-    private UpgradeManager manager;
     void Start()
     {
         text = GetComponent<Text>();
-        GameObject obj = GameObject.FindGameObjectWithTag("UpManage");
-        manager = obj.GetComponent<UpgradeManager>();
-        
     }
 	// Update is called once per frame
 	void Update () {

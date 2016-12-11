@@ -25,5 +25,13 @@ public class AnimateFillAmount : MonoBehaviour
     {
 		image.fillAmount = rd.curBatteryPerc;
         text.text = (int)(image.fillAmount * 100) + "%";
+
+		if(image.fillAmount < .15f &&
+			transform.parent.gameObject.GetComponent<BounceScaler>() == null)
+		{
+			BounceScaler bs = transform.parent.gameObject.AddComponent<BounceScaler>();
+			bs.mult = 1.5f;
+			bs.speed = 1.3f;
+		}
     }
 }

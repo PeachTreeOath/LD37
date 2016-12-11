@@ -94,4 +94,8 @@ public class UpgradeButton : MonoBehaviour {
         DescriptionField.text = Description.text;
     }
 
+	public void Done()
+	{
+		Application.LoadLevel(0);
+	}
 }

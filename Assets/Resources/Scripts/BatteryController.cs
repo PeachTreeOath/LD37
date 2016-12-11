@@ -23,6 +23,11 @@ public class BatteryController : MonoBehaviour {
 
 		CircleCollider2D boxCollider = gameObject.GetComponent<CircleCollider2D>();
 		Collider2D[] overlap = Physics2D.OverlapAreaAll(boxCollider.bounds.min, boxCollider.bounds.max);
+
+		if(rd.curBatteryPerc <= 0)
+		{
+			Application.LoadLevel(1);
+		}
 	}
 
 	public void Damage()
