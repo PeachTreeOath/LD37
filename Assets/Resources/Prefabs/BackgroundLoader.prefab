@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4967204251669144}
   - component: {fileID: 114039213680494002}
   - component: {fileID: 114797473927701628}
+  - component: {fileID: 114476474376853378}
   m_Layer: 0
   m_Name: BackgroundLoader
   m_TagString: Untagged
@@ -56,6 +57,24 @@ MonoBehaviour:
   colNum: 10
   bgPrefab: {fileID: 1413799696881478, guid: 96261a8b5d8650d41bb5272a0e0fdee3, type: 2}
   parentGameObject: {fileID: 0}
+--- !u!114 &114476474376853378
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1514037908326438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa94c973f44cf64e95dc6f78c802065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomWidth: 10
+  roomHeight: 8
+  dirtPatches: 100
+  scaleMin: 0.2
+  scaleMax: 1
+  dirtParticlePrefab: {fileID: 1819323040811344, guid: 4e110faeb3483c64f834f7e3133e2af7,
+    type: 2}
 --- !u!114 &114797473927701628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -69,5 +88,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rowNum: 8
   colNum: 10
-  scale: 0.1
+  scale: 0.5
   dirtPrefab: {fileID: 1841225837927584, guid: b8b9424780e1c8c42a08021e6cc46b28, type: 2}
