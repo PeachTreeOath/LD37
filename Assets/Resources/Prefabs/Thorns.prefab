@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 58979912032814116}
   - component: {fileID: 114825567490377870}
   - component: {fileID: 50081697804311084}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Thorns
   m_TagString: Thorns
   m_Icon: {fileID: 0}
