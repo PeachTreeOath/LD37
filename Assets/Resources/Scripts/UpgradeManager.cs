@@ -26,7 +26,7 @@ public class UpgradeManager : MonoBehaviour {
 				foo.name = "UpgradeManager";
 				instance = foo.AddComponent<UpgradeManager>();
 				upgrades = new Dictionary<UpgradeEnum, Upgrade>();
-				DontDestroyOnLoad(foo);
+				//DontDestroyOnLoad(foo);
 			}
 
 			return instance;
