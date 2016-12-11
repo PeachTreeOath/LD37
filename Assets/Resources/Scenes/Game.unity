@@ -168,6 +168,19 @@ Prefab:
       propertyPath: radUpgradeMult
       value: 0.065
       objectReference: {fileID: 0}
+    - target: {fileID: 1809998986098480, guid: a0209aa2706e79743afba24e23dfe9a7, type: 2}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1233278716725154, guid: a0209aa2706e79743afba24e23dfe9a7, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 58023881290784178, guid: a0209aa2706e79743afba24e23dfe9a7,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0209aa2706e79743afba24e23dfe9a7, type: 2}
   m_IsPrefabParent: 0

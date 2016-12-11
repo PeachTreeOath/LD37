@@ -9,6 +9,8 @@ public class DirtData : MonoBehaviour {
 	public float multFactor = 1;
 	[HideInInspector]
 	public int health;
+	[HideInInspector]
+	public int collected;
 
 	void Start()
 	{
