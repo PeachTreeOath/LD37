@@ -346,6 +346,7 @@ GameObject:
   - component: {fileID: 224597490136277146}
   - component: {fileID: 222093639392638448}
   - component: {fileID: 114661566871659814}
+  - component: {fileID: 114152782807421748}
   m_Layer: 5
   m_Name: Currency
   m_TagString: Untagged
@@ -1731,6 +1732,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: MAX VISION
+--- !u!114 &114152782807421748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1338481941237962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa034e6a21cf87f4aabcb6360edd95c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textbox: {fileID: 0}
 --- !u!114 &114154349579337814
 MonoBehaviour:
   m_ObjectHideFlags: 1
