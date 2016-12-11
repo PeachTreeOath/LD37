@@ -12,7 +12,6 @@ public class BounceScaler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log(MyTime.Instance.time + " bounce");
 		scales = new Vector3[2];
 		scales[0] = gameObject.transform.localScale;
 		scales[1] = scales[0] * mult;
