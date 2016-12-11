@@ -152,6 +152,7 @@ public class RoombaController : MonoBehaviour
             bounceVelocity = 2;
             reverseDuration = 500;
             isReversing = true;
+			GetComponent<BatteryController>().Damage();
         }
         else if (other.gameObject.CompareTag("AnimalObstacle"))
         {
