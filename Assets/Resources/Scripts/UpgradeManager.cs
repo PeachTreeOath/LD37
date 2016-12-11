@@ -25,7 +25,7 @@ public class UpgradeManager : MonoBehaviour
 				GameObject foo = new GameObject();
 				foo.name = "UpgradeManager";
 				instance = foo.AddComponent<UpgradeManager>();
-				upgrades = new Dictionary<UpgradeEnum, Upgrade>();
+				InitUpgrades();
 				DontDestroyOnLoad(foo);
 			}
 
