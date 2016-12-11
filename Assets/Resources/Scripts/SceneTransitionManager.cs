@@ -1,10 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class SceneTransitionManager : Singleton<SceneTransitionManager>
 {
-
     public void GoToShop()
     {
         SceneManager.UnloadSceneAsync("Game");
@@ -14,6 +13,12 @@ public class SceneTransitionManager : Singleton<SceneTransitionManager>
     public void GoToRoom()
     {
         SceneManager.UnloadSceneAsync("UpgradeScreen");
+        SceneManager.LoadScene("Game", LoadSceneMode.Additive);
+    }
+
+    public void ReloadRoom()
+    {
+        SceneManager.UnloadSceneAsync("Game");
         SceneManager.LoadScene("Game", LoadSceneMode.Additive);
     }
 }

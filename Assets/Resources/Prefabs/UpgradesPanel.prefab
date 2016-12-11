@@ -652,6 +652,7 @@ GameObject:
   - component: {fileID: 224614508536579710}
   - component: {fileID: 222549182432590410}
   - component: {fileID: 114487984711702448}
+  - component: {fileID: 114498371652211192}
   m_Layer: 5
   m_Name: UpgradesPanel
   m_TagString: Untagged
@@ -1235,6 +1236,7 @@ GameObject:
   - component: {fileID: 222308951272303530}
   - component: {fileID: 114170198091856338}
   - component: {fileID: 114739834698665992}
+  - component: {fileID: 114690097158014884}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2528,6 +2530,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114498371652211192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1487801219161988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2759503467eb24b81b7f67d8f541aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114513190580182664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2981,6 +2994,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Upgrade
+--- !u!114 &114690097158014884
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1951369488017084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e049970b94230c043a010c7303875091, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 114739834698665992}
 --- !u!114 &114695846684398612
 MonoBehaviour:
   m_ObjectHideFlags: 1

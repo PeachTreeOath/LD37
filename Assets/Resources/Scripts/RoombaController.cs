@@ -93,6 +93,7 @@ public class RoombaController : MonoBehaviour
                 transform.localPosition = new Vector3(dockLocation.x, dockLocation.y - 0.11f);
                 Time.timeScale = 0;
                 AudioManager.instance.PlaySound("Buzz");
+                UpgradePanelShowHide.instance.ShowHide(true);
             }
             else
             {
