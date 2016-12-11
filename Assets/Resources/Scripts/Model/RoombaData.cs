@@ -16,11 +16,15 @@ public class RoombaData : MonoBehaviour {
 	public float batteryTimer;
 	public float batteryDuration;
 	public int suctionPower;
+	[HideInInspector]
+	public float curBatteryPerc;
+	[HideInInspector]
+	public float curBatteryTime;
     
     // Use this for initialization
     void Start () {
 		batteryLife = baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY);
 		batteryTimer = Time.time;
-		UpgradeManager.Instance.AddUpgrade(UpgradeManager.UpgradeEnum.THORNS, true);
+		//UpgradeManager.Instance.AddUpgrade(UpgradeManager.UpgradeEnum.THORNS, true);
 	}
 }

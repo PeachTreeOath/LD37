@@ -91,6 +91,7 @@ public class RoombaController : MonoBehaviour {
             bounceVelocity = 7;
             reverseDuration = 700;
             isReversing = true;
+			GetComponent<BatteryController>().Damage();
         }
     }
 }
