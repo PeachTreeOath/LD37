@@ -21,8 +21,6 @@ public class RoombaController : MonoBehaviour
     /// </summary>
     private float currReverseTime = 0;
 
-    private float dockTime = 0;
-
     /// <summary>
     /// Adjusts roomba flyback speed.
     /// </summary>
@@ -45,9 +43,13 @@ public class RoombaController : MonoBehaviour
     /// </summary>
     private const float DOCK_TIME = 1000;
 
+    private float dockTime = 0;
+
     private Vector3 dockLocation;
 
     private float dragControl;
+
+    private SceneTransitionManager sceneManager;
 
     // Use this for initialization
     private void Start()
@@ -57,13 +59,14 @@ public class RoombaController : MonoBehaviour
         lastPos = gameObject.transform.position;
         startTime = Time.time;
         dragControl = 0;
+        GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        sceneManager = gameManager.GetComponent<SceneTransitionManager>();
     }
 
     // Update is called once per frame
     private void Update()
     {
         transform.FindChild("RoombaBody").rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, 0);
-
         isBraking = Input.GetKey(KeyCode.Space) | Input.GetKey(KeyCode.S) | Input.GetKey(KeyCode.DownArrow);
         if (isBraking)
         {
@@ -118,14 +121,8 @@ public class RoombaController : MonoBehaviour
         }
 
         float rSpeed = rd.rotSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.TURN_RADIUS) * rotUpgradeMult;
-        if (Vector3.Distance(gameObject.transform.position, lastPos) > 0)
-        {
-            rb.MoveRotation(rb.rotation - moveHorizontal * rSpeed);
-        }
-        else
-        {
-            rb.MoveRotation(rb.rotation + moveHorizontal * rSpeed);
-        }
+        rb.MoveRotation(rb.rotation - moveHorizontal * rSpeed);
+
         lastPos = gameObject.transform.position;
 
         if (isReversing)

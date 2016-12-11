@@ -62,9 +62,21 @@ public class UpgradeManager : MonoBehaviour {
 		return ret;
 	}
 
-	public void RemoveUpgrade(UpgradeEnum t)
+	public bool Downgrade(UpgradeEnum t)
 	{
-		upgrades.Remove(t);
+		bool ret = false;
+		Upgrade u;
+		if(upgrades.TryGetValue(t, out u))
+		{
+			u.value--;
+			if(u.value <= 0)
+			{
+				upgrades.Remove(t);
+				ret = true;
+			}
+		}
+
+		return ret;
 	}
 	
 	// Update is called once per frame
@@ -88,7 +100,9 @@ public class UpgradeManager : MonoBehaviour {
 		{
 			player = GameObject.Find("RoombaUnit");
 		}
-
-		thornsObj.transform.position = player.transform.position;
+		if(player != null)
+		{
+			thornsObj.transform.position = player.transform.position;
+		}
 	}
 }

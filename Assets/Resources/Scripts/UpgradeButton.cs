@@ -64,7 +64,7 @@ public class UpgradeButton : MonoBehaviour {
         switch(name)
         {
             case "Knife Button":
-				upManager.AddUpgrade(UpgradeManager.UpgradeEnum.THORNS, false);
+				upManager.AddUpgrade(UpgradeManager.UpgradeEnum.THORNS, true);
                 break;
             case "Eagle Eye Button":
 				upManager.AddUpgrade(UpgradeManager.UpgradeEnum.VISION, false);
@@ -94,4 +94,8 @@ public class UpgradeButton : MonoBehaviour {
         DescriptionField.text = Description.text;
     }
 
+	public void Done()
+	{
+		Application.LoadLevel(0);
+	}
 }

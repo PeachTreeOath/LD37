@@ -19,11 +19,14 @@ public class Thorns : MonoBehaviour {
 			col.gameObject.tag.Equals("AnimalObstacle"))
 		{
 			timer = Time.time;
-			UpgradeManager.Instance.RemoveUpgrade(UpgradeManager.UpgradeEnum.THORNS);
+			bool destr = UpgradeManager.Instance.Downgrade(UpgradeManager.UpgradeEnum.THORNS);
 			Controller.RandomTravelBehavior rtb = col.gameObject.GetComponent<Controller.RandomTravelBehavior>();
 			Vector3 pDir = col.gameObject.transform.position - gameObject.transform.position;
 			rtb.KnockBack(pDir.normalized);
-			Destroy(gameObject);
+			if(destr)
+			{
+				Destroy(gameObject);
+			}
 		}
 	}
 }
