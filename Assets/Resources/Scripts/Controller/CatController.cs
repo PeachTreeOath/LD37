@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CatController : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class CatController : MonoBehaviour
+{
+    
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        AudioManager.instance.PlaySound("kitty");
+        AudioManager.instance.PlaySound("Bounce");
+    }
 }
