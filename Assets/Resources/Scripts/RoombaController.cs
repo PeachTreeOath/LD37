@@ -107,7 +107,10 @@ public class RoombaController : MonoBehaviour
             float minSpeed = rd.minMoveSpeed + UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeEnum.SPEED) * 5;
             float maxSpeed = rd.maxMoveSpeed + UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeEnum.SPEED) * 2;
             float force = -Mathf.Lerp(minSpeed, maxSpeed, (Time.time - startTime) * rd.accelSpeed);
-
+            if (rd.curBatteryPerc < 0.001f) { // floats...
+                rb.velocity = Vector3.zero;
+                return;
+            }
             rb.AddForce(transform.up * force);
 
             if (isBraking)
