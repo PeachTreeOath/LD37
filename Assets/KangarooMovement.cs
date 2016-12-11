@@ -19,25 +19,25 @@ public class KangarooMovement : MonoBehaviour
     {
         if (moveTo)
         {
+            timer += Time.deltaTime;
             this.transform.position -= new Vector3(0.1f, 0) * Time.deltaTime;
         }
         else
         {
-            if (this.transform.position != startPosition)
-            {
-                this.transform.position += new Vector3(0.1f, 0) * Time.deltaTime;
-            }
-            else
+            timer -= Time.deltaTime;
+            this.transform.position += new Vector3(0.1f, 0) * Time.deltaTime;
+            if(timer < 0)
             {
                 moveTo = true;
             }
+
         }
 
 
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("bah");
+        moveTo = false;
     }
 }
