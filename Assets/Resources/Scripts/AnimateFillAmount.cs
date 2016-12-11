@@ -9,6 +9,8 @@ public class AnimateFillAmount : MonoBehaviour
     private Text text;
     private RoombaData rd;
 
+	float startBatteryPerc;
+
     // Use this for initialization
     private void Start()
     {
@@ -18,15 +20,16 @@ public class AnimateFillAmount : MonoBehaviour
         text = GetComponentInChildren<Text>();
 
         image.fillAmount = (rd.baseBatteryLife + UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10f) / 100f;
+		startBatteryPerc = image.fillAmount;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        image.fillAmount = rd.curBatteryPerc; //load bar is off at under 5%
-        text.text = (int)(image.fillAmount * 100) + "%";
+		image.fillAmount = Mathf.Min(rd.curBatteryPerc + Mathf.Lerp(0, .05f, 1-Mathf.InverseLerp(0, startBatteryPerc, rd.curBatteryPerc)), startBatteryPerc); //load bar is off at under 5%
+		text.text = (int)(rd.curBatteryPerc * 100) + "%";
 
-        if (image.fillAmount < .13f &&
+		if (rd.curBatteryPerc < .13f &&
             transform.parent.gameObject.GetComponent<BounceScaler>() == null)
         {
             BounceScaler bs = transform.parent.gameObject.AddComponent<BounceScaler>();
