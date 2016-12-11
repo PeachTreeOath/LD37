@@ -12,6 +12,8 @@ public class MuteController : MonoBehaviour
     {
         slashSprite = transform.FindChild("Slash").GetComponent<SpriteRenderer>();
         Toggle(muted);
+        transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.95f, 0.95f));
+        transform.position = (Vector2)transform.position;
     }
 
     void OnMouseDown()
