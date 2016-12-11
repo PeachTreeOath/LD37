@@ -36,11 +36,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4324887124316020}
-  - component: {fileID: 212924449353909370}
   - component: {fileID: 114273378939495716}
   - component: {fileID: 114317300382656934}
   - component: {fileID: 50276244489624688}
   - component: {fileID: 58023881290784178}
+  - component: {fileID: 114963782569691810}
   m_Layer: 0
   m_Name: RoombaUnit
   m_TagString: Untagged
@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 4069219293619556}
   - component: {fileID: 212412298236788198}
   - component: {fileID: 58795111419835892}
+  - component: {fileID: 114244350035772484}
   m_Layer: 0
   m_Name: VacuumEffect
   m_TagString: Player
@@ -101,7 +102,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1233278716725154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4069219293619556}
@@ -184,6 +185,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.17
+--- !u!114 &114244350035772484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1809998986098480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b945065054787c45b2e479671e82e26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radUpgradeMult: 0.015
 --- !u!114 &114273378939495716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -213,6 +226,12 @@ MonoBehaviour:
   maxMoveSpeed: 15
   health: 0
   batteryLife: 0
+  baseBatteryLife: 50
+  batteryTimer: 0
+  batteryDuration: 60
+  suctionPower: 5
+  curBatteryPerc: 0
+  curBatteryTime: 0
 --- !u!114 &114761628861404036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -222,6 +241,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75dd685a734044543a9e164e8f199ab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114963782569691810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1233278716725154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9419c49a3a108c4499f66b3cd3c29c7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212006135472908406
@@ -326,41 +356,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
---- !u!212 &212924449353909370
-SpriteRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1233278716725154}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2b813bfaca878bd4db32f5ea3e872047, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

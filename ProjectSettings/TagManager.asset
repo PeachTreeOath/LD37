@@ -10,6 +10,7 @@ TagManager:
   - AnimalObstacle
   - Dirt
   - Thorns
+  - Dock
   layers:
   - Default
   - TransparentFX
