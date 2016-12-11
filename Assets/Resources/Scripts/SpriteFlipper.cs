@@ -22,7 +22,7 @@ public class SpriteFlipper : MonoBehaviour
         if (Time.time > nextFlipTime)
         {
             sprite.flipX = !sprite.flipX;
-            nextFlipTime += flipTime;
+            nextFlipTime = Time.time + flipTime;
         }
     }
 }
