@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114039213680494002}
   - component: {fileID: 114797473927701628}
   - component: {fileID: 114476474376853378}
+  - component: {fileID: 114300778945308222}
   m_Layer: 0
   m_Name: BackgroundLoader
   m_TagString: Untagged
@@ -36,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1514037908326438}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.7, y: 1.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,10 +54,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7877812262a94a84c95597ef67c49967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rowNum: 8
-  colNum: 10
+  rowNum: 9
+  colNum: 11
   bgPrefab: {fileID: 1413799696881478, guid: 96261a8b5d8650d41bb5272a0e0fdee3, type: 2}
   parentGameObject: {fileID: 0}
+--- !u!114 &114300778945308222
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1514037908326438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa94c973f44cf64e95dc6f78c802065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomWidth: 10
+  roomHeight: 8
+  dirtPatches: 100
+  scaleMin: 0.2
+  scaleMax: 1
+  dirtParticlePrefab: {fileID: 1819323040811344, guid: 4e110faeb3483c64f834f7e3133e2af7,
+    type: 2}
 --- !u!114 &114476474376853378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -86,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92a608cedf9706489c3e288cbbaba72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rowNum: 8
-  colNum: 10
+  rowNum: 9
+  colNum: 11
   scale: 0.5
   dirtPrefab: {fileID: 1841225837927584, guid: b8b9424780e1c8c42a08021e6cc46b28, type: 2}
