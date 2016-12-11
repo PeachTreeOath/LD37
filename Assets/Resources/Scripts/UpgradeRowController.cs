@@ -45,12 +45,12 @@ public class UpgradeRowController : MonoBehaviour
     {
         if (currLevel == null)
             Debug.LogWarning("Current level text not assigned.");
-		upgradeObj = UpgradeManager.Instance.GetUpgradeInfo(type);
+        upgradeObj = UpgradeManager.instance.GetUpgradeInfo(type);
 
         if (upgradeObj != null)
         {
-			currLevel.text = upgradeObj.value.ToString();
-			currCost.text = (upgradeObj.cost + (int)(upgradeObj.cost * upgradeObj.value * .33f)).ToString();
+            currLevel.text = upgradeObj.value.ToString();
+            currCost.text = (upgradeObj.cost + (int)(upgradeObj.cost * upgradeObj.value * .33f)).ToString();
         }
         buyButton = GetComponentInChildren<Button>();
         if (buyButton != null)
@@ -65,11 +65,11 @@ public class UpgradeRowController : MonoBehaviour
     /// </summary>
     public void ButtonPress()
     {
-		if (UpgradeManager.money >= (upgradeObj.cost + (int)(upgradeObj.cost * upgradeObj.value * .33f)) &&
-			upgradeObj.value < upgradeObj.maxValue)
+        if (UpgradeManager.money >= (upgradeObj.cost + (int)(upgradeObj.cost * upgradeObj.value * .33f)) &&
+            upgradeObj.value < upgradeObj.maxValue)
         {
-			UpgradeManager.money -= (upgradeObj.cost + (int)(upgradeObj.cost * upgradeObj.value * .33f));
-			UpgradeManager.Instance.AddUpgrade(type, ((upgradeObj.cb != null)?true:false));
+            UpgradeManager.money -= (upgradeObj.cost + (int)(upgradeObj.cost * upgradeObj.value * .33f));
+            UpgradeManager.instance.AddUpgrade(type, ((upgradeObj.cb != null) ? true : false));
             AudioManager.instance.PlaySound("Money_Buy");
             Referesh();
         }
@@ -77,7 +77,7 @@ public class UpgradeRowController : MonoBehaviour
         {
             AudioManager.instance.PlaySound("Money_Invalid");
         }
-		if (upgradeObj.value == upgradeObj.maxValue)
+        if (upgradeObj.value == upgradeObj.maxValue)
         {
             buyButton.enabled = false;
         }
@@ -88,8 +88,8 @@ public class UpgradeRowController : MonoBehaviour
     /// </summary>
     private void Referesh()
     {
-		currLevel.text = upgradeObj.value.ToString();
-		currCost.text = (upgradeObj.cost + (int)(upgradeObj.cost * upgradeObj.value * .33f)).ToString();
+        currLevel.text = upgradeObj.value.ToString();
+        currCost.text = (upgradeObj.cost + (int)(upgradeObj.cost * upgradeObj.value * .33f)).ToString();
     }
 
     // Update is called once per frame
