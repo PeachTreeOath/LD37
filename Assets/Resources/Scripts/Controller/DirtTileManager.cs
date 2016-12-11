@@ -7,23 +7,25 @@ public class DirtTileManager : MonoBehaviour
     /// Current color value shown in the sprite renderer.
     /// </summary>
     public Color curColor;
-    static GameObject moneyFab;
-    static Text dirtCounter;
-    static float moneyTimer;
-    static float moneyTimeout = .3f;
+
+    private static GameObject moneyFab;
+    private static Text dirtCounter;
+    private static float moneyTimer;
+    private static float moneyTimeout = .3f;
 
     /// <summary>
     /// The current opacity value of the tile, as a percentage.
     /// </summary>
     public float opacityPercentage;
+
     private float t = 0;
     private float fadeDuration = 3.0f; // seconds
 
-    DirtData dirt;
-    bool started;
+    private DirtData dirt;
+    private bool started;
 
     // Use this for initialization
-    void Start()
+    private void Start()
     {
         if (dirtCounter == null)
         {
@@ -49,7 +51,7 @@ public class DirtTileManager : MonoBehaviour
             other.CompareTag("Player"))
         {
             RoombaData rd = other.gameObject.transform.parent.gameObject.GetComponent<RoombaData>();
-            int dmg = (int)((rd.suctionPower + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN)) * dirt.multFactor);
+            int dmg = (int)((rd.suctionPower + UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeEnum.DEEP_CLEAN)) * dirt.multFactor);
             dirt.health -= dmg;
 
             opacityPercentage = dirt.health / (float)dirt.baseHealth;
@@ -61,8 +63,8 @@ public class DirtTileManager : MonoBehaviour
             {
                 // start lerp control value when roomba enters dirt
                 t = 0;
-                UpgradeManager.money += dirt.value;
-                dirtCounter.text = "" + UpgradeManager.money;
+                UpgradeManager.instance.money += dirt.value;
+                dirtCounter.text = "" + UpgradeManager.instance.money;
 
                 if (Time.time - moneyTimer > moneyTimeout)
                 {
