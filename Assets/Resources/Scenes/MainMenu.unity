@@ -296,8 +296,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8fb2021135575534a9036291b98233d6, type: 3}
-    m_FontSize: 20
-    m_FontStyle: 0
+    m_FontSize: 40
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 93
@@ -341,7 +341,7 @@ RectTransform:
   m_GameObject: {fileID: 1544636909}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1204713739}
   m_Father: {fileID: 1624152504}
@@ -350,7 +350,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 252, y: -158}
-  m_SizeDelta: {x: 93, y: 24}
+  m_SizeDelta: {x: 186, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1544636911
 MonoBehaviour:
@@ -602,7 +602,7 @@ RectTransform:
   m_GameObject: {fileID: 1864298393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1624152504}
   m_RootOrder: 0
@@ -610,7 +610,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 256, y: -44}
-  m_SizeDelta: {x: 233, y: 171}
+  m_SizeDelta: {x: 466, y: 342}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1864298395
 MonoBehaviour:
@@ -633,10 +633,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8fb2021135575534a9036291b98233d6, type: 3}
-    m_FontSize: 30
-    m_FontStyle: 0
+    m_FontSize: 54
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 70
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -644,7 +644,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BRIEF INTRO TEXT HERE. LORIUM IPSUM DOLOR HOTDOG.
+  m_Text: 'A / D  T O  R O T A T E
+
+    B U Y  U P G R A D E S  W I T H  D I R T
+
+    C L E A N  U P  9 0 %  O F  T H E  R O O M
+
+'
 --- !u!222 &1864298396
 CanvasRenderer:
   m_ObjectHideFlags: 0
