@@ -24,7 +24,51 @@ public class UpgradeButton : MonoBehaviour {
         GameObject descipt = GameObject.FindGameObjectWithTag("DescriptionTag");
         DescriptionField = descipt.GetComponent<Text>();
 
+		UpdateText();
     }
+
+	void UpdateText()
+	{
+		string name = this.gameObject.name;
+		Text txt = transform.GetChild(0).gameObject.GetComponent<Text>();
+		int val = 0;
+		UpgradeManager.UpgradeEnum enm;
+		switch(name)
+		{
+		case "Knife Button":
+			val = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.THORNS);
+			break;
+		case "Eagle Eye Button":
+			val = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.VISION);
+			break;
+		case "Muscle Mix of Mixing":
+			val = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY);
+			break;
+		case "Max Gainz":
+			val = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN);
+			break;
+		case "AoE Cleaning":
+			val = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.CLEAN_RADIUS);
+			break;
+		case "Rhonda's Legs of Running":
+			val = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED);
+			break;
+		case "Rhonda's Plate Armor":
+			val = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DURABILITY);
+			break;
+		case "Rhonda's Omnidirectional Turning Ability":
+			val = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.TURN_RADIUS);
+			break;
+		}
+
+		if(val == 5)
+		{
+			txt.text = "MAXED";
+			Button button = this.gameObject.GetComponent<Button>();
+			ButtonText.text = "5";
+		}
+	}
+
     public void Upgrade()
     {
         Button button = this.gameObject.GetComponent<Button>();
@@ -46,7 +90,6 @@ public class UpgradeButton : MonoBehaviour {
         }
         if(value == MaxLevel)
         {
-            button.enabled = false;
             Text text = this.GetComponentInChildren<Text>();
             if(text != null)
             {
