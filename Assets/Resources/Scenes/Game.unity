@@ -506,6 +506,10 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: -218
       objectReference: {fileID: 0}
+    - target: {fileID: 1367511679097782, guid: 49bd5a95162c5c44e9023dc554aaf3a2, type: 2}
+      propertyPath: m_Name
+      value: HudCanvas
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 49bd5a95162c5c44e9023dc554aaf3a2, type: 2}
   m_IsPrefabParent: 0
