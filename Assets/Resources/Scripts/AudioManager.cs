@@ -107,26 +107,26 @@ public class AudioManager : Singleton<AudioManager>
         timeSinceLastSound += Time.deltaTime;
 
         playingDirtSound = timeSinceLastSound < dirtCheckInterval; 
-        if (!playingDirtSound && dirtStockpile >= 50)
+        if (!playingDirtSound && dirtStockpile >= 60)
         {
             playingDirtSound = true;
-            dirtStockpile -= 50;
+            dirtStockpile -= 60;
             timeSinceLastSound = 0;
             AudioClip clip = soundMap["Crumb_click_heavy"];
             soundChannel.PlayOneShot(clip);
         }
-        else if (!playingDirtSound && dirtStockpile >= 20)
+        else if (!playingDirtSound && dirtStockpile >= 30)
         {
             playingDirtSound = true;
-            dirtStockpile -= 20;
+            dirtStockpile -= 30;
             timeSinceLastSound = 0;
             AudioClip clip = soundMap["Crumb_click_med"];
             soundChannel.PlayOneShot(clip);
         }
-        else if (!playingDirtSound && dirtStockpile >= 5)
+        else if (!playingDirtSound && dirtStockpile >= 8)
         {
             playingDirtSound = true;
-            dirtStockpile -= 5;
+            dirtStockpile -= 8;
             timeSinceLastSound = 0;
             AudioClip clip = soundMap["Crumb_click_light"];
             soundChannel.PlayOneShot(clip);
