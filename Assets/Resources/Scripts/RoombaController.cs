@@ -79,11 +79,8 @@ public class RoombaController : MonoBehaviour {
         }
 
         float rSpeed = rd.rotSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.TURN_RADIUS) * rotUpgradeMult;
-        if (Vector3.Distance(gameObject.transform.position, lastPos) > 0) {
-            rb.MoveRotation(rb.rotation - moveHorizontal * rSpeed);
-        } else {
-            rb.MoveRotation(rb.rotation + moveHorizontal * rSpeed);
-        }
+        rb.MoveRotation(rb.rotation - moveHorizontal * rSpeed);
+
         lastPos = gameObject.transform.position;
 
         if (isReversing) {

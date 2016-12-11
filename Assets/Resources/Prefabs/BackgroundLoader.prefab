@@ -105,7 +105,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92a608cedf9706489c3e288cbbaba72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   rowNum: 9
   colNum: 11
   scale: 0.5
+=======
+  rowNum: 8
+  colNum: 10
+  scale: 0.2
+>>>>>>> 1a8b5556733725b7cf401a85ebfc0b7101f03031
   dirtPrefab: {fileID: 1841225837927584, guid: b8b9424780e1c8c42a08021e6cc46b28, type: 2}
