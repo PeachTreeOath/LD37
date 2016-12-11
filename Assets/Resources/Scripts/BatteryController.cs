@@ -20,6 +20,9 @@ public class BatteryController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		rd.curBatteryPerc = (1 - (Time.time - startTime) / rd.curBatteryTime) * ((rd.baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10f)/100f);
+
+		CircleCollider2D boxCollider = gameObject.GetComponent<CircleCollider2D>();
+		Collider2D[] overlap = Physics2D.OverlapAreaAll(boxCollider.bounds.min, boxCollider.bounds.max);
 	}
 
 	public void Damage()
