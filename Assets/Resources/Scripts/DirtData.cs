@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class DirtData : MonoBehaviour {
 
-	public int baseValue;
+	public int value;
+	public int baseHealth;
 	public float multFactor = 1;
 	[HideInInspector]
-	public int value;
+	public int health;
 
 	void Start()
 	{
-		value = baseValue;
+		health = baseHealth;
 	}
 }

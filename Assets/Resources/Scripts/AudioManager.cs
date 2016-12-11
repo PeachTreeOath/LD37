@@ -62,6 +62,8 @@ public class AudioManager : Singleton<AudioManager>
 
     public void PlaySound(string name)
     {
+        Debug.Log("Looking for " + name);
+        AudioClip clip = soundMap[name];
         soundChannel.PlayOneShot(soundMap[name]);
     }
 

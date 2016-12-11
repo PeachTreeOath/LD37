@@ -24,9 +24,10 @@ GameObject:
   - component: {fileID: 50842998787436498}
   - component: {fileID: 61226160578139104}
   - component: {fileID: 114040032776395750}
+  - component: {fileID: 114258625229716478}
   m_Layer: 0
   m_Name: cat
-  m_TagString: Untagged
+  m_TagString: AnimalObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,6 +105,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flipTime: 0.3
+--- !u!114 &114258625229716478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1852616723904656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f45b810ae4364d440b8ac9537ff2fa9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundsToPlay:
+  - kitty
+  - Bounce
 --- !u!212 &212895894938776030
 SpriteRenderer:
   m_ObjectHideFlags: 1

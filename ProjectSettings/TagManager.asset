@@ -8,6 +8,7 @@ TagManager:
   - DescriptionTag
   - Obstacle
   - AnimalObstacle
+  - Dirt
   layers:
   - Default
   - TransparentFX

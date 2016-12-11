@@ -134,6 +134,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1852616723904656, guid: c47cb1945139aa14da7f14181e3dd86a, type: 2}
+      propertyPath: m_TagString
+      value: AnimalObstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c47cb1945139aa14da7f14181e3dd86a, type: 2}
   m_IsPrefabParent: 0
@@ -241,6 +245,21 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114317300382656934, guid: a0209aa2706e79743afba24e23dfe9a7,
+        type: 2}
+      propertyPath: maxBatteryLife
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114317300382656934, guid: a0209aa2706e79743afba24e23dfe9a7,
+        type: 2}
+      propertyPath: batteryDuration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114317300382656934, guid: a0209aa2706e79743afba24e23dfe9a7,
+        type: 2}
+      propertyPath: suctionPower
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0209aa2706e79743afba24e23dfe9a7, type: 2}
   m_IsPrefabParent: 0
@@ -249,6 +268,17 @@ GameObject:
   m_PrefabParentObject: {fileID: 1233278716725154, guid: a0209aa2706e79743afba24e23dfe9a7,
     type: 2}
   m_PrefabInternal: {fileID: 420353891}
+--- !u!114 &420353899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 420353892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d228065f0212047b29668d597e348a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &623710000
 Prefab:
   m_ObjectHideFlags: 0
@@ -411,6 +441,26 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2847d80ff86e214e9f34989fbcf99e7, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1308504596 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1841225837927584, guid: b8b9424780e1c8c42a08021e6cc46b28,
+    type: 2}
+  m_PrefabInternal: {fileID: 1694733177}
+--- !u!114 &1308504597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1308504596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f9c4e0edca526a4290e00d3c3e19802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 5
+  baseHealth: 3
+  multFactor: 1
+  health: 0
 --- !u!1001 &1400441073
 Prefab:
   m_ObjectHideFlags: 0
@@ -548,6 +598,10 @@ Prefab:
     - target: {fileID: 4017925806316076, guid: b8b9424780e1c8c42a08021e6cc46b28, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841225837927584, guid: b8b9424780e1c8c42a08021e6cc46b28, type: 2}
+      propertyPath: m_TagString
+      value: Dirt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8b9424780e1c8c42a08021e6cc46b28, type: 2}

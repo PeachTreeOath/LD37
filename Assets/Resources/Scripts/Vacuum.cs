@@ -22,18 +22,4 @@ public class Vacuum : MonoBehaviour {
 	{
 		cirCol.radius = startRad + (UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.CLEAN_RADIUS) * radUpgradeMult);
 	}
-
-	void OnTrigger2DEnter(Collider2D col)
-	{
-		if(col.gameObject.tag.Equals("Dirt"))
-		{
-			DirtData dirt = col.gameObject.GetComponent<DirtData>();
-			dirt.value -= (int)((rd.suctionPower + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN)) * dirt.multFactor);
-
-			if(dirt.value <= 0)
-			{
-				Destroy(col.gameObject);
-			}
-		}
-	}
 }

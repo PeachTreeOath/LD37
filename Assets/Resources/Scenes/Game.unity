@@ -215,46 +215,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 1570948108442488, guid: 8e4fbb991588c814a896eb2be6ea55df, type: 2}
-      propertyPath: m_TagString
-      value: AnimalObstacle
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012064763275070, guid: 8e4fbb991588c814a896eb2be6ea55df, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4687066839325620, guid: 8e4fbb991588c814a896eb2be6ea55df, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4228472657964534, guid: 8e4fbb991588c814a896eb2be6ea55df, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4541214652351128, guid: 8e4fbb991588c814a896eb2be6ea55df, type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 61045419597820250, guid: 8e4fbb991588c814a896eb2be6ea55df,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61123445754055418, guid: 8e4fbb991588c814a896eb2be6ea55df,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61943248777771356, guid: 8e4fbb991588c814a896eb2be6ea55df,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61146291898071018, guid: 8e4fbb991588c814a896eb2be6ea55df,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e4fbb991588c814a896eb2be6ea55df, type: 2}
   m_IsPrefabParent: 0
@@ -548,30 +508,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1249069030234072, guid: 8408c8ef51aab1443915174a356f8135, type: 2}
-      propertyPath: m_Name
-      value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 114142479920870160, guid: 8408c8ef51aab1443915174a356f8135,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114142479920870160, guid: 8408c8ef51aab1443915174a356f8135,
         type: 2}
       propertyPath: roombaBase
       value: 
       objectReference: {fileID: 817941436}
-    - target: {fileID: 114142479920870160, guid: 8408c8ef51aab1443915174a356f8135,
-        type: 2}
-      propertyPath: scale
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 114142479920870160, guid: 8408c8ef51aab1443915174a356f8135,
-        type: 2}
-      propertyPath: offset
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8408c8ef51aab1443915174a356f8135, type: 2}
   m_IsPrefabParent: 0
