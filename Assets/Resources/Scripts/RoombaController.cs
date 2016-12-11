@@ -32,18 +32,28 @@ public class RoombaController : MonoBehaviour {
 
     private bool isBraking;
 
+    private float dragControl;
+
     // Use this for initialization
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
         rd = GetComponent<RoombaData>();
         lastPos = gameObject.transform.position;
         startTime = Time.time;
+        dragControl = 0;
     }
 
     // Update is called once per frame
     private void Update() {
         transform.FindChild("RoombaBody").rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, 0);
         isBraking = Input.GetKey(KeyCode.Space);
+        if (isBraking) {
+            rb.drag = Mathf.Lerp(0, 10, dragControl);
+            if (dragControl < 1) {
+                dragControl += Time.deltaTime / 5f;
+            }
+        }
+
     }
 
     private void FixedUpdate() {
@@ -59,8 +69,14 @@ public class RoombaController : MonoBehaviour {
             rb.AddForce(transform.up * force);
 
             if (isBraking) {
+
                 rb.AddForce(transform.up * -force);
+            } else {
+                rb.drag = 10;
+                dragControl = 0;
             }
+
+
         }
 
         float rSpeed = rd.rotSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.TURN_RADIUS) * rotUpgradeMult;
