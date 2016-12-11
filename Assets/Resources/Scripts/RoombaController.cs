@@ -54,7 +54,11 @@ public class RoombaController : MonoBehaviour
         if (isReversing)
             rb.AddForce(transform.up * Mathf.Lerp(rd.maxMoveSpeed + bounceVelocity, rd.minMoveSpeed, (currReverseTime / reverseDuration)));
         else
-            rb.AddForce(transform.up * -Mathf.Lerp(rd.minMoveSpeed, rd.maxMoveSpeed, (Time.time - startTime) * rd.accelSpeed));
+		{
+			float minSpeed = rd.minMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED) * 5;
+			float maxSpeed = rd.maxMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED) * 2;
+			rb.AddForce(transform.up * -Mathf.Lerp(minSpeed, maxSpeed, (Time.time - startTime) * rd.accelSpeed));
+		}
 
         float rSpeed = rd.rotSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.TURN_RADIUS) * rotUpgradeMult;
         if (Vector3.Distance(gameObject.transform.position, lastPos) > 0)

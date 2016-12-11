@@ -7,8 +7,9 @@ public class DirtParticleBuilder : MonoBehaviour {
     public float roomWidth;
     public float roomHeight;
 
-    public int dirtPatches = 100;
-    public float scale = 0.2f;
+    public int dirtPatches = 1000;
+    public float scaleMin = 0.2f;
+    public float scaleMax = 2f;
 
     public GameObject dirtParticlePrefab;
 
@@ -19,10 +20,6 @@ public class DirtParticleBuilder : MonoBehaviour {
 
     private void CreateDirtParticles()
     {
-
-        // Scale down the prefab
-        dirtParticlePrefab.transform.localScale = new Vector3(scale, scale, 1);
-
         Vector2 size = dirtParticlePrefab.GetComponent<SpriteRenderer>().bounds.size;
 
         float randXMin = -roomWidth / 2f + size.x / 2f;
@@ -35,6 +32,8 @@ public class DirtParticleBuilder : MonoBehaviour {
             float randX = Random.Range(randXMin, randXMax);
             float randY = Random.Range(randYMin, randYMax);
 
+            float randScale = Random.Range(scaleMin, scaleMax);
+            dirtParticlePrefab.transform.localScale = new Vector3(randScale, randScale, 1);
             GameObject dirtParticleInstance = ((GameObject)Instantiate(dirtParticlePrefab, Vector2.zero, Quaternion.identity));
             dirtParticleInstance.transform.position = new Vector2(randX, randY);
             dirtParticleInstance.transform.SetParent(this.transform);

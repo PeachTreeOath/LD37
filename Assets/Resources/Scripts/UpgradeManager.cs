@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour {
 
+	//TODO: Thorns, energy, durability
 	public enum UpgradeEnum {THORNS, VISION, ENERGY, DEEP_CLEAN, CLEAN_RADIUS, TURN_RADIUS, DURABILITY, SPEED};
 
 	static Dictionary<UpgradeEnum, Upgrade> upgrades;
