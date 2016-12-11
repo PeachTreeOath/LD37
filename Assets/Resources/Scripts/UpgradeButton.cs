@@ -20,9 +20,60 @@ public class UpgradeButton : MonoBehaviour
     {
         upManager = UpgradeManager.instance;
         GameObject audioManager = GameObject.Find("AudioManager");
-        audioSource = audioManager.GetComponent<AudioSource>();
+        audioSource = audioManager.GetComponentInChildren<AudioSource>();
         GameObject descipt = GameObject.FindGameObjectWithTag("DescriptionTag");
         DescriptionField = descipt.GetComponent<Text>();
+
+        UpdateText();
+    }
+
+    private void UpdateText()
+    {
+        string name = this.gameObject.name;
+        Text txt = transform.GetChild(0).gameObject.GetComponent<Text>();
+        int val = 0;
+        UpgradeManager.UpgradeEnum enm;
+        switch (name)
+        {
+            case "Knife Button":
+                val = UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeEnum.THORNS);
+                break;
+
+            case "Eagle Eye Button":
+                val = UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeEnum.VISION);
+                break;
+
+            case "Muscle Mix of Mixing":
+                val = UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeEnum.ENERGY);
+                break;
+
+            case "Max Gainz":
+                val = UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeEnum.DEEP_CLEAN);
+                break;
+
+            case "AoE Cleaning":
+                val = UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeEnum.CLEAN_RADIUS);
+                break;
+
+            case "Rhonda's Legs of Running":
+                val = UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeEnum.SPEED);
+                break;
+
+            case "Rhonda's Plate Armor":
+                val = UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeEnum.DURABILITY);
+                break;
+
+            case "Rhonda's Omnidirectional Turning Ability":
+                val = UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeEnum.TURN_RADIUS);
+                break;
+        }
+
+        if (val == 5)
+        {
+            txt.text = "MAXED";
+            Button button = this.gameObject.GetComponent<Button>();
+            ButtonText.text = "5";
+        }
     }
 
     public void Upgrade()
@@ -36,7 +87,7 @@ public class UpgradeButton : MonoBehaviour
             value++;
             UpgradeManager.instance.money -= costValue;
             Money.text = upManager.ToString();
-            //UpdateManager(value);
+            UpdateManager(value);
             //Debug.Log("Hit");
             audioSource.PlayOneShot(succesClip);
         }
@@ -46,7 +97,6 @@ public class UpgradeButton : MonoBehaviour
         }
         if (value == MaxLevel)
         {
-            button.enabled = false;
             Text text = this.GetComponentInChildren<Text>();
             if (text != null)
             {
@@ -59,40 +109,34 @@ public class UpgradeButton : MonoBehaviour
     public void UpdateManager(int value)
     {
         string name = this.gameObject.name;
-        switch (name)
-        {
-            case "Knife Button":
-                upManager.AddUpgradeAndIncrement(UpgradeManager.UpgradeEnum.THORNS, true);
-                break;
+        //switch (name)
+        //{
+        //    case "Knife Button":
+        //        upManager.AddUpgrade(UpgradeManager.UpgradeEnum.THORNS, true);
+        //        break;
 
-            case "Eagle Eye Button":
-                upManager.AddUpgradeAndIncrement(UpgradeManager.UpgradeEnum.VISION, false);
-                break;
+        // case "Eagle Eye Button":
+        // upManager.AddUpgrade(UpgradeManager.UpgradeEnum.VISION, false); break;
 
-            case "Muscle Mix of Mixing":
-                upManager.AddUpgradeAndIncrement(UpgradeManager.UpgradeEnum.ENERGY, false);
-                break;
+        // case "Muscle Mix of Mixing":
+        // upManager.AddUpgrade(UpgradeManager.UpgradeEnum.ENERGY, false); break;
 
-            case "Max Gainz":
-                upManager.AddUpgradeAndIncrement(UpgradeManager.UpgradeEnum.DEEP_CLEAN, false);
-                break;
+        // case "Max Gainz":
+        // upManager.AddUpgrade(UpgradeManager.UpgradeEnum.DEEP_CLEAN, false); break;
 
-            case "AoE Cleaning":
-                upManager.AddUpgradeAndIncrement(UpgradeManager.UpgradeEnum.CLEAN_RADIUS, false);
-                break;
+        // case "AoE Cleaning":
+        // upManager.AddUpgrade(UpgradeManager.UpgradeEnum.CLEAN_RADIUS, false); break;
 
-            case "Rhonda's Legs of Running":
-                upManager.AddUpgradeAndIncrement(UpgradeManager.UpgradeEnum.SPEED, false);
-                break;
+        // case "Rhonda's Legs of Running":
+        // upManager.AddUpgrade(UpgradeManager.UpgradeEnum.SPEED, false); break;
 
-            case "Rhonda's Plate Armor":
-                upManager.AddUpgradeAndIncrement(UpgradeManager.UpgradeEnum.DURABILITY, false);
-                break;
+        // case "Rhonda's Plate Armor":
+        // upManager.AddUpgrade(UpgradeManager.UpgradeEnum.DURABILITY, false); break;
 
-            case "Rhonda's Omnidirectional Turning Ability":
-                upManager.AddUpgradeAndIncrement(UpgradeManager.UpgradeEnum.TURN_RADIUS, false);
-                break;
-        }
+        //    case "Rhonda's Omnidirectional Turning Ability":
+        //        upManager.AddUpgrade(UpgradeManager.UpgradeEnum.TURN_RADIUS, false);
+        //        break;
+        //}
     }
 
     public void SetDescription()
@@ -102,6 +146,6 @@ public class UpgradeButton : MonoBehaviour
 
     public void Done()
     {
-        Application.LoadLevel(0);
+        SceneTransitionManager.instance.GoToRoom();
     }
 }

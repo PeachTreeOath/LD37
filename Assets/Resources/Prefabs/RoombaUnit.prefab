@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4454700297088902}
   - component: {fileID: 212006135472908406}
   - component: {fileID: 114761628861404036}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FrontLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 50276244489624688}
   - component: {fileID: 58023881290784178}
   - component: {fileID: 114963782569691810}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoombaUnit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 212412298236788198}
   - component: {fileID: 58795111419835892}
   - component: {fileID: 114244350035772484}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VacuumEffect
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4845066799347668}
   - component: {fileID: 212149941748083132}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoombaBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -180,7 +180,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75949190f609c9498cce702735e738c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotUpgradeMult: 0
+  rotUpgradeMult: 0.2
 --- !u!114 &114317300382656934
 MonoBehaviour:
   m_ObjectHideFlags: 1

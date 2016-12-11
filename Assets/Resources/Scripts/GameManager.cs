@@ -1,17 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public string persistSceneName = "PersistentUpgrades";
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        bool isPersistenceSceneLoaded = false;
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            Scene scene = SceneManager.GetSceneAt(i);
+            if (scene.name.Equals(persistSceneName))
+            {
+                isPersistenceSceneLoaded = true;
+                break;
+            }
+        }
+
+        if (!isPersistenceSceneLoaded)
+        {
+            SceneManager.LoadScene(persistSceneName, LoadSceneMode.Additive);
+        }
+    }
+
+    // Use this for initialization
+    void Start()
+    {
+        AudioManager.instance.PlayRoomMusic(.25f);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //TODO: Remove this
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            SceneTransitionManager.instance.GoToShop();
+        }
+    }
 }

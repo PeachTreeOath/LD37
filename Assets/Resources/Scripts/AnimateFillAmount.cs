@@ -23,7 +23,7 @@ public class AnimateFillAmount : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        image.fillAmount = rd.curBatteryPerc;
+        image.fillAmount = rd.curBatteryPerc; //load bar is off at under 5%
         text.text = (int)(image.fillAmount * 100) + "%";
 
         if (image.fillAmount < .13f &&

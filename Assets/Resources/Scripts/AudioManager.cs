@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class AudioManager : Singleton<AudioManager>
 {
-
+    
     private AudioSource musicChannel;
     private AudioSource soundChannel;
     private AudioSource roombaChannel; // To play constant vacuum noise..
     private Dictionary<string, AudioClip> soundMap;
 
     // Use this for initialization
-    void Start()
+    protected override void Awake()
     {
+        base.Awake();
+
         soundMap = new Dictionary<string, AudioClip>();
 
         musicChannel = Instantiate(Resources.Load<GameObject>("Prefabs/AudioChannel")).GetComponent<AudioSource>();
@@ -30,15 +32,22 @@ public class AudioManager : Singleton<AudioManager>
             soundMap.Add(clip.name, clip);
         }
 
-        PlayMusicWithIntro("suck_it_up_intro", "suck_it_up_loop", .25f);
-        roombaChannel.clip = soundMap["roomba"];
-        roombaChannel.Play();
+        //PlayMusicWithIntro("suck_it_up_intro", "suck_it_up_loop", .25f);
+        //roombaChannel.clip = soundMap["roomba"];
+        //roombaChannel.Play();
     }
 
     // Pretty optional, keeping this here in case
     public void PlayShopMusic(float volume)
     {
         PlayMusic("roomba_rousey_shop", volume);
+    }
+
+    public void PlayRoomMusic(float volume)
+    {
+        PlayMusicWithIntro("suck_it_up_intro", "suck_it_up_loop", volume);
+        //roombaChannel.clip = soundMap["roomba"];
+        //roombaChannel.Play();
     }
 
     public void PlayMusic(string name, float volume)
