@@ -40,7 +40,7 @@ namespace Controller
         /// <summary>
         /// Track next position to lerp to.
         /// </summary>
-        private Vector3 nextPosition;
+        protected Vector3 nextPosition;
 
 		bool isKb;
 		Vector3 kbDir;
@@ -94,7 +94,7 @@ namespace Controller
         /// <summary>
         /// Handles moving the position of the model in the direction and speed provided.
         /// </summary>
-        private void MovePosition()
+        protected virtual void MovePosition()
         {
             switch (direction2D)
             {
