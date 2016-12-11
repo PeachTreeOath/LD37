@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 8fb2021135575534a9036291b98233d6
+timeCreated: 1481419355
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Knockout
+  fontNames:
+  - Knockout
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0c9e611d85999bd4b9c060114e9088a7, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
