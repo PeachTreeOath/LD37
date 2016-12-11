@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61198534447922912}
   - component: {fileID: 50217775255963974}
   - component: {fileID: 114774976686121840}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DirtTile
   m_TagString: Dirt
   m_Icon: {fileID: 0}
