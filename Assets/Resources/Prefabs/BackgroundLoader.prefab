@@ -72,8 +72,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92a608cedf9706489c3e288cbbaba72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rowNum: 9
-  colNum: 11
+  rowNum: 7
+  colNum: 8
   scale: 0.5
   dirtPrefab: {fileID: 1841225837927584, guid: b8b9424780e1c8c42a08021e6cc46b28, type: 2}
 --- !u!114 &114512844425656972
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7877812262a94a84c95597ef67c49967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rowNum: 9
-  colNum: 11
+  rowNum: 7
+  colNum: 8
   bgPrefab: {fileID: 1413799696881478, guid: 96261a8b5d8650d41bb5272a0e0fdee3, type: 2}
   parentGameObject: {fileID: 0}
