@@ -675,3 +675,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2096800119 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1514037908326438, guid: 539ba0822f7c83e44b851643f5ca50fc,
+    type: 2}
+  m_PrefabInternal: {fileID: 468668511}
+--- !u!114 &2096800123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2096800119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa94c973f44cf64e95dc6f78c802065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomWidth: 10
+  roomHeight: 8
+  dirtPatches: 100
+  scaleMin: 0.2
+  scaleMax: 1
+  dirtParticlePrefab: {fileID: 1819323040811344, guid: 4e110faeb3483c64f834f7e3133e2af7,
+    type: 2}
