@@ -27,16 +27,18 @@ public class DirtTileManager : MonoBehaviour
 
 			DirtData dirt = GetComponent<DirtData>();
 			RoombaData rd = other.gameObject.transform.parent.gameObject.GetComponent<RoombaData>();
-			dirt.value -= (int)((rd.suctionPower + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN)) * dirt.multFactor);
+			dirt.health -= (int)((rd.suctionPower + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN)) * dirt.multFactor);
 
-			opacityPercentage = dirt.value/(float)dirt.baseValue;
-			if(dirt.value <= 0)
+			opacityPercentage = dirt.health/(float)dirt.baseHealth;
+			if(dirt.health <= 0)
 			{
 				Destroy(gameObject);
 			}
-				
+
             // start lerp control value when roomba enters dirt
             t = 0;
+			UpgradeManager.money += dirt.value;
+			//TODO: show money income
 			/*
             int curUpgrade = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN) + 1;
 

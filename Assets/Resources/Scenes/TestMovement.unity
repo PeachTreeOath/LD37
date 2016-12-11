@@ -134,6 +134,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1852616723904656, guid: c47cb1945139aa14da7f14181e3dd86a, type: 2}
+      propertyPath: m_TagString
+      value: AnimalObstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c47cb1945139aa14da7f14181e3dd86a, type: 2}
   m_IsPrefabParent: 0
@@ -250,6 +254,11 @@ Prefab:
         type: 2}
       propertyPath: batteryDuration
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114317300382656934, guid: a0209aa2706e79743afba24e23dfe9a7,
+        type: 2}
+      propertyPath: suctionPower
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0209aa2706e79743afba24e23dfe9a7, type: 2}
@@ -448,9 +457,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9c4e0edca526a4290e00d3c3e19802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseValue: 3
+  value: 5
+  baseHealth: 3
   multFactor: 1
-  value: 0
+  health: 0
 --- !u!1001 &1400441073
 Prefab:
   m_ObjectHideFlags: 0
