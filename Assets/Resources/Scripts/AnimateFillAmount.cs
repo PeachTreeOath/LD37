@@ -20,6 +20,7 @@ public class AnimateFillAmount : MonoBehaviour
         text = GetComponentInChildren<Text>();
 
         image.fillAmount = (rd.baseBatteryLife + UpgradeManager.instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10f) / 100f;
+		startBatteryPerc = image.fillAmount;
     }
 
     // Update is called once per frame
