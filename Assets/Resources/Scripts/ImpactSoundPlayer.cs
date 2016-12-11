@@ -8,10 +8,15 @@ public class ImpactSoundPlayer : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        foreach(string clipName in soundsToPlay)
-        {
-            AudioManager.instance.PlaySound(clipName);
-        }
+		PlayImpactSounds();
     }
+
+	void PlayImpactSounds()
+	{
+		foreach(string clipName in soundsToPlay)
+		{
+			AudioManager.instance.PlaySound(clipName);
+		}
+	}
 
 }

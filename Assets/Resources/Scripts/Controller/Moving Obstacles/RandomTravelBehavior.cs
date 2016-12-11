@@ -42,6 +42,12 @@ namespace Controller
         /// </summary>
         private Vector3 nextPosition;
 
+		bool isKb;
+		Vector3 kbDir;
+		float kbTimer;
+		float kbTimeout = .35f;
+		float kbForce = 2.5f;
+
         private void Start()
         {
             currPosition = nextPosition = transform.position;
@@ -63,8 +69,26 @@ namespace Controller
                 timePassed = 0;
             }
 
-            transform.position = Vector3.Lerp(currPosition, nextPosition, timePassed / msDelay);
+			if(!isKb)
+			{
+            	transform.position = Vector3.Lerp(currPosition, nextPosition, timePassed / msDelay);
+			}else
+			{
+				DoKnockBack();
+			}
         }
+
+		void DoKnockBack()
+		{
+			if(Time.time - kbTimer < kbTimeout)
+			{
+				transform.position += kbDir * Time.deltaTime * kbForce;
+			}else
+			{
+				isKb = false;
+				MovePosition();
+			}
+		}
 
         /// <summary>
         /// Handles moving the position of the model in the direction and speed provided.
@@ -94,5 +118,13 @@ namespace Controller
                     break;
             }
         }
+
+		public void KnockBack(Vector3 kDir)
+		{
+			isKb = true;
+			kbDir = kDir;
+			kbTimer = Time.time;
+			SendMessage("PlayImpactSounds", SendMessageOptions.DontRequireReceiver);
+		}
     }
 }
