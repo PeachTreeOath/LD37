@@ -107,6 +107,7 @@ namespace Controller
         /// </summary>
         protected virtual void MovePosition()
         {
+            int tries = 0;
             do
             {
                 switch (direction2D)
@@ -132,8 +133,9 @@ namespace Controller
                         break;
                 }
                 RandomizeDirection2D();
+                tries++;
             }
-            while (!InBounds((Vector2)nextPosition));
+            while (tries < 8 && !InBounds((Vector2)nextPosition));
         }
 
         private Vector2 ulBounds = new Vector2(-6.2f, 5.5f);
