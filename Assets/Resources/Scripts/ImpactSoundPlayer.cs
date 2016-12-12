@@ -40,7 +40,10 @@ public class ImpactSoundPlayer : MonoBehaviour, ISizeListener
 
     void OnDestroy()
     {
-        Camera.main.GetComponent<FollowCameraController>().DeregisterSizeListener(this);
+		if(Camera.main != null)
+		{
+        	Camera.main.GetComponent<FollowCameraController>().DeregisterSizeListener(this);
+		}
     }
 
     void PlayImpactSounds()
