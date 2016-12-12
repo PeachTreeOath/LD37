@@ -18,15 +18,19 @@ public class DirtTileManager : MonoBehaviour
     /// </summary>
     public float opacityPercentage;
 
-    private float t = 0;
+    private float dirtTransition = 0;
     private float fadeDuration = 3.0f; // seconds
 
     private DirtData dirt;
     private bool started;
 
+	private GameObject moneyLossFab;
+
     // Use this for initialization
     private void Start()
     {
+        dirtTransition = 2f;
+		moneyLossFab = Resources.Load("Prefabs/MoneyLoss") as GameObject;
 		gameObject.tag = "Dirt";
 		gameObject.layer = LayerMask.NameToLayer("DirtTile");
         if (dirtCounter == null)
@@ -58,9 +62,9 @@ public class DirtTileManager : MonoBehaviour
             DirtManager.instance.CalculateDamage(dmg);
             
             opacityPercentage = dirt.health / (float)dirt.baseHealth;
-            
+
             // start lerp control value when roomba enters dirt
-            t = 0;
+            dirtTransition = 0;
             UpgradeManager.money += dirt.value;
 			dirt.collected += dirt.value;
             dirtCounter.text = "" + UpgradeManager.money;
@@ -77,12 +81,23 @@ public class DirtTileManager : MonoBehaviour
                 moneyObj.transform.position = other.transform.position;
             }
 
+			if(dirt.value < 0)
+			{
+				GameObject moneyLossTxt = Instantiate(moneyLossFab) as GameObject;
+				moneyLossTxt.GetComponent<Text>().text = "" + dirt.value;
+				moneyLossTxt.transform.SetParent(dirtCounter.transform.parent);
+				moneyLossTxt.transform.position = dirtCounter.transform.position;
+			}
+
 			if (dirt.health <= 0)
 			{
-				int totalValue = (int)Mathf.Ceil(dirt.value * (dirt.baseHealth/rd.suctionPower));
-				if(dirt.collected < totalValue)
+				if(dirt.value > 0)
 				{
-					UpgradeManager.money += totalValue - dirt.collected;
+					int totalValue = (int)Mathf.Ceil(dirt.value * (dirt.baseHealth/rd.suctionPower));
+					if(dirt.collected < totalValue)
+					{
+						UpgradeManager.money += totalValue - dirt.collected;
+					}
 				}
 				Destroy(gameObject);
 			}
@@ -108,14 +123,13 @@ public class DirtTileManager : MonoBehaviour
 
     public void Update()
     {
-        Color oldColor = GetComponent<SpriteRenderer>().color;
+        if (dirtTransition < 1) {
+            Color oldColor = GetComponent<SpriteRenderer>().color;
 
-        GetComponent<SpriteRenderer>().color = Color.Lerp(oldColor, curColor, t);
+            GetComponent<SpriteRenderer>().color = Color.Lerp(oldColor, curColor, dirtTransition);
 
-        // Increment lerp control value until maximum over fade duration
-        if (t < 1)
-        {
-			t += MyTime.Instance.deltaTime / fadeDuration;
+            // Increment lerp control value until maximum over fade duration
+            dirtTransition += MyTime.Instance.deltaTime / fadeDuration;
         }
     }
 

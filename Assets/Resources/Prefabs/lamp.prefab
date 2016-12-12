@@ -20,8 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4049127005566526}
   - component: {fileID: 212312898548726990}
+  - component: {fileID: 61155877021811394}
   - component: {fileID: 50546768943977892}
-  - component: {fileID: 61799772139876864}
+  - component: {fileID: 70035157375424452}
   m_Layer: 0
   m_Name: lamp
   m_TagString: Obstacle
@@ -36,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1821212774319290}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.6166422, y: 1.9975505, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalPosition: {x: 4.566, y: -2.166, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -62,7 +63,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61799772139876864
+--- !u!61 &61155877021811394
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -76,6 +77,20 @@ BoxCollider2D:
   m_Offset: {x: -0.017145634, y: -0.29718733}
   serializedVersion: 2
   m_Size: {x: 0.3541934, y: 0.27418202}
+--- !u!70 &70035157375424452
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1821212774319290}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.0126719475, y: -0.31428128}
+  m_Size: {x: 0.34663692, y: 0.20978115}
+  m_Direction: 1
 --- !u!212 &212312898548726990
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -105,7 +120,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1869518121
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7264de1548af8714ca31ecf0aafdc8c0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

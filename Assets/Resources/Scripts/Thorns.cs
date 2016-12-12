@@ -21,6 +21,7 @@ public class Thorns : MonoBehaviour
         {
 			timer = MyTime.Instance.time;
             bool destr = UpgradeManager.Instance.Downgrade(UpgradeManager.UpgradeEnum.THORNS);
+            //bool destr = GameManager.instance.RemoveThorns();
             Controller.RandomTravelBehavior rtb = col.gameObject.GetComponent<Controller.RandomTravelBehavior>();
             Vector3 pDir = col.gameObject.transform.position - gameObject.transform.position;
             rtb.KnockBack(pDir.normalized);

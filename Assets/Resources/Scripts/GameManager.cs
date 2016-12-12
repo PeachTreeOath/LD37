@@ -8,6 +8,8 @@ public class GameManager : Singleton<GameManager>
 
     public string persistSceneName = "PersistentUpgrades";
 
+    private int thornsValue = 0;
+
     protected override void Awake()
     {
         base.Awake();
@@ -26,6 +28,8 @@ public class GameManager : Singleton<GameManager>
         if (!isPersistenceSceneLoaded)
         {
             SceneManager.LoadScene(persistSceneName, LoadSceneMode.Additive);
+
+			thornsValue = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.THORNS);
         }
     }
 
@@ -33,6 +37,17 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         AudioManager.instance.PlayRoomMusic(.25f);
+
+    }
+
+    public bool RemoveThorns()
+    {
+        if (thornsValue >= 1)
+        {
+            thornsValue--;
+        }
+
+        return thornsValue <= 0;
     }
 
 }

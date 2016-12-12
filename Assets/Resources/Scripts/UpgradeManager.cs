@@ -12,7 +12,6 @@ public class UpgradeManager : MonoBehaviour
 
     private static UpgradeManager instance;
 
-    private GameObject thornsFab;
     private GameObject thornsObj;
     private GameObject player;
 
@@ -64,6 +63,15 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
+    public void Reset()
+    {
+        money = 0;
+        foreach (Upgrade u in upgrades.Values)
+        {
+            u.value = 0;
+        }
+    }
+
     public Upgrade GetUpgradeInfo(UpgradeEnum t)
     {
         Upgrade u = null;
@@ -80,7 +88,14 @@ public class UpgradeManager : MonoBehaviour
         if (upgrades.ContainsKey(t))
         {
             upgrades[t].value++;
-        }/*else
+        }
+
+        if (t == UpgradeEnum.VISION)
+        {
+            Camera.main.GetComponent<FollowCameraController>().VisionChange();
+        }
+
+        /*else
 		{
 			Upgrade u = ScriptableObject.CreateInstance<Upgrade>();
 			u.upgradeType = t;

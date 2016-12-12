@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ImpactSoundPlayer : MonoBehaviour
+public class ImpactSoundPlayer : MonoBehaviour, ISizeListener
 {
 
     public string[] soundsToPlay;
@@ -15,20 +15,19 @@ public class ImpactSoundPlayer : MonoBehaviour
 	float timer;
 	float timeout = 1;
 
+
     void Start()
     {
         roomba = GameObject.Find("RoombaUnit");
         currDistance = distance;
 		timer = MyTime.Instance.time;
+
+        Camera.main.GetComponent<FollowCameraController>().RegisterSizeListener(this);
     }
 
-    void Update()
+    public void SizeChanged(float newSize)
     {
-        if(Camera.main.orthographicSize != camSize)
-        {
-            camSize = Camera.main.orthographicSize;
-            currDistance = distance * camSize;
-        }
+        currDistance = distance * newSize;
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -37,6 +36,19 @@ public class ImpactSoundPlayer : MonoBehaviour
         {
             PlayImpactSounds();
         }
+    }
+
+    void OnDestroy()
+    {
+        if(Camera.main != null)
+        {
+            FollowCameraController cam = Camera.main.GetComponent<FollowCameraController>();
+            if(cam != null)
+            {
+                cam.DeregisterSizeListener(this);
+            }
+        }
+        
     }
 
     void PlayImpactSounds()
