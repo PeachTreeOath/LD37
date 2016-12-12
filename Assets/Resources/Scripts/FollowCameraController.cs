@@ -22,6 +22,7 @@ public class FollowCameraController : MonoBehaviour
         offset = transform.position - player.transform.position;
         cam = GetComponent<Camera>();
         startSize = cam.orthographicSize;
+        cam.orthographicSize = startSize + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.VISION) * .25f;
     }
 
     // Update is called once per frame
