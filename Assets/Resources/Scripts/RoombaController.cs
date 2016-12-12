@@ -87,73 +87,80 @@ public class RoombaController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
+		if(MyTime.Instance.timeScale > 0)
+		{
+	        float moveHorizontal = Input.GetAxis("Horizontal");
 
-        if (isReversing)
-            rb.AddForce(transform.up * Mathf.Lerp(rd.maxMoveSpeed + bounceVelocity, rd.minMoveSpeed, (currReverseTime / reverseDuration)));
-        else if (isDocking)
-        {
-            dockTime += MyTime.Instance.deltaTime * 1000;
-            // After a set amount of time has passed, jump to the docked position.
-            if (dockTime >= DOCK_TIME)
-            {
-                if (!isDocked)
-                {
-					transform.position = new Vector3(dockLocation.x, dockLocation.y - 0.11f);
-                    MyTime.Instance.timeScale = 0;
+	        if (isReversing)
+	            rb.AddForce(transform.up * Mathf.Lerp(rd.maxMoveSpeed + bounceVelocity, rd.minMoveSpeed, (currReverseTime / reverseDuration)));
+	        else if (isDocking)
+	        {
+	            dockTime += MyTime.Instance.deltaTime * 1000;
+	            // After a set amount of time has passed, jump to the docked position.
+	            if (dockTime >= DOCK_TIME)
+	            {
+	                if (!isDocked)
+	                {
+						transform.position = new Vector3(dockLocation.x, dockLocation.y - 0.11f);
+	                    MyTime.Instance.timeScale = 0;
 
-                    AudioManager.instance.PlaySound("Buzz");
-                    warning.enabled = false;
-                    UpgradePanelShowHide.instance.ShowHide(true);
-                    isDocked = true;
-                }
-            }
-            else
-            {
-                // Before the time limit has passed, attempt to lerp to the dock.
-                dockTime += MyTime.Instance.deltaTime * 1000;
-				transform.position = Vector3.Lerp(transform.localPosition, new Vector3(dockLocation.x, dockLocation.y - 0.11f), dockTime / DOCK_TIME);
-            }
-        }
-        else
-        {
-            float minSpeed = rd.minMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED) * 2;
-            float maxSpeed = rd.maxMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED);
-            float force = -Mathf.Lerp(minSpeed, maxSpeed, (MyTime.Instance.time - startTime) * rd.accelSpeed);
-            if (rd.curBatteryPerc < 0.001f)
-            { // floats...
-                rb.velocity = Vector3.zero;
-                return;
-            }
-            rb.AddForce(transform.up * force);
+	                    AudioManager.instance.PlaySound("Buzz");
+	                    warning.enabled = false;
+	                    UpgradePanelShowHide.instance.ShowHide(true);
+	                    isDocked = true;
+	                }
+	            }
+	            else
+	            {
+	                // Before the time limit has passed, attempt to lerp to the dock.
+	                dockTime += MyTime.Instance.deltaTime * 1000;
+					transform.position = Vector3.Lerp(transform.localPosition, new Vector3(dockLocation.x, dockLocation.y - 0.11f), dockTime / DOCK_TIME);
+	            }
+	        }
+	        else
+	        {
+	            float minSpeed = rd.minMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED) * 2;
+	            float maxSpeed = rd.maxMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED);
+	            float force = -Mathf.Lerp(minSpeed, maxSpeed, (MyTime.Instance.time - startTime) * rd.accelSpeed);
+	            if (rd.curBatteryPerc < 0.001f)
+	            { // floats...
+	                rb.velocity = Vector3.zero;
+	                return;
+	            }
+	            rb.AddForce(transform.up * force);
 
-            if (isBraking)
-            {
-                rb.AddForce(transform.up * -force);
-            }
-            else
-            {
-                rb.drag = 10;
-                dragControl = 0;
-            }
-        }
+	            if (isBraking)
+	            {
+	                rb.AddForce(transform.up * -force);
+	            }
+	            else
+	            {
+	                rb.drag = 10;
+	                dragControl = 0;
+	            }
+	        }
 
-        float rSpeed = rd.rotSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.TURN_RADIUS) * rotUpgradeMult;
-        rb.MoveRotation(rb.rotation - moveHorizontal * rSpeed);
+	        float rSpeed = rd.rotSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.TURN_RADIUS) * rotUpgradeMult;
+	        rb.MoveRotation(rb.rotation - moveHorizontal * rSpeed);
 
-        lastPos = gameObject.transform.position;
+	        lastPos = gameObject.transform.position;
 
-        if (isReversing)
-        {
-            dragControl = 1;
-            currReverseTime += Time.deltaTime * 1000;
-            if (currReverseTime >= reverseDuration)
-            {
-                currReverseTime = 0;
-                isReversing = false;
-                startTime = MyTime.Instance.time;
-            }
-        }
+	        if (isReversing)
+	        {
+	            dragControl = 1;
+	            currReverseTime += Time.deltaTime * 1000;
+	            if (currReverseTime >= reverseDuration)
+	            {
+	                currReverseTime = 0;
+	                isReversing = false;
+	                startTime = MyTime.Instance.time;
+	            }
+	        }
+		}else
+		{
+			rb.angularVelocity = 0;
+			rb.velocity = Vector2.zero;
+		}
     }
 
     private void OnTriggerEnter2D(Collider2D other)

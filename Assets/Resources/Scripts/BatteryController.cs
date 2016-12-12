@@ -42,9 +42,6 @@ public class BatteryController : MonoBehaviour
     {
         roombaData.curBatteryPerc = (1 - (MyTime.Instance.time - startTime) / roombaData.curBatteryTime) * ((roombaData.baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10f) / 100f);
 
-        CircleCollider2D boxCollider = gameObject.GetComponent<CircleCollider2D>();
-        Collider2D[] overlap = Physics2D.OverlapAreaAll(boxCollider.bounds.min, boxCollider.bounds.max);
-
         if (roombaData.curBatteryPerc <= 0 && !batteryDead)
         {
             batteryDead = true;

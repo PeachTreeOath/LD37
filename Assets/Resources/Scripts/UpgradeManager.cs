@@ -8,7 +8,7 @@ public class UpgradeManager : MonoBehaviour
 
 	static Dictionary<UpgradeEnum, Upgrade> upgrades;
 
-	public static int money = 0;
+	public static int money = 2000;
 
 	static UpgradeManager instance;
 
@@ -63,6 +63,15 @@ public class UpgradeManager : MonoBehaviour
             upgrades.Add(types[i], u);
         }
     }
+
+	public void Reset()
+	{
+		money = 0;
+		foreach (Upgrade u in upgrades.Values)
+		{
+			u.value = 0;
+		}
+	}
 
     public Upgrade GetUpgradeInfo(UpgradeEnum t)
     {
