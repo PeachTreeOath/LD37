@@ -27,7 +27,7 @@ namespace Controller
         /// </summary>
         protected void RandomizeDirection2D()
         {
-            direction2D = (DIRECTION2D)random.Next(1, 5);
+            direction2D = (DIRECTION2D)Random.Range(1, 5);
         }
     }
 }
