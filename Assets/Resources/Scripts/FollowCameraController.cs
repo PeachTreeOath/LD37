@@ -14,15 +14,16 @@ public class FollowCameraController : MonoBehaviour
     {
 
         listeners = new List<ISizeListener>();
+        cam = GetComponent<Camera>();
+        // Get distance from roomba starting position
+        offset = transform.position - player.transform.position;
+        startSize = cam.orthographicSize;
+        cam.orthographicSize = startSize + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.VISION) * .25f;
     }
 
     private void Start()
     {
-        // Get distance from roomba starting position
-        offset = transform.position - player.transform.position;
-        cam = GetComponent<Camera>();
-        startSize = cam.orthographicSize;
-        cam.orthographicSize = startSize + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.VISION) * .25f;
+        
     }
 
     // Update is called once per frame
