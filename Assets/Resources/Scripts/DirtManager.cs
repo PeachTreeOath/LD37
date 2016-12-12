@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class DirtManager : Singleton<DirtManager>
 {
-
+	public float winPercentage;
+	[HideInInspector]
     public float totalDirtValue;
     private float currDirtValue;
 
@@ -28,6 +29,16 @@ public class DirtManager : Singleton<DirtManager>
     public void CalculateDamage(float dmg)
     {
         currDirtValue -= dmg;
-        completionText.text = (int)((1 - currDirtValue / totalDirtValue) * 100) + "%";
+		int compPerc = (int)((1 - currDirtValue / totalDirtValue) * 100);
+		completionText.text = compPerc + "%";
+
+		if(compPerc >= winPercentage)
+		{
+			if(MyTime.Instance.timeScale != 0)
+			{
+				MyTime.Instance.timeScale = 0;
+				gameObject.AddComponent<WinTransition>();
+			}
+		}
     }
 }

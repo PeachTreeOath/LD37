@@ -2579,6 +2579,11 @@ Prefab:
       propertyPath: roombaBase
       value: 
       objectReference: {fileID: 817941436}
+    - target: {fileID: 114642769311377368, guid: 8408c8ef51aab1443915174a356f8135,
+        type: 2}
+      propertyPath: winPercentage
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114478892702547500, guid: 8408c8ef51aab1443915174a356f8135, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 8408c8ef51aab1443915174a356f8135, type: 2}
