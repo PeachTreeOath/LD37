@@ -27,6 +27,8 @@ public class DirtTileManager : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
+		gameObject.tag = "Dirt";
+		gameObject.layer = LayerMask.NameToLayer("DirtTile");
         if (dirtCounter == null)
         {
             dirtCounter = GameObject.Find("DirtCounter").GetComponent<Text>();

@@ -12,10 +12,14 @@ public class ImpactSoundPlayer : MonoBehaviour
     private float currDistance;
     private float camSize = 1;
 
+	float timer;
+	float timeout = 1;
+
     void Start()
     {
         roomba = GameObject.Find("RoombaUnit");
         currDistance = distance;
+		timer = MyTime.Instance.time;
     }
 
     void Update()
@@ -37,10 +41,14 @@ public class ImpactSoundPlayer : MonoBehaviour
 
     void PlayImpactSounds()
     {
-        foreach (string clipName in soundsToPlay)
-        {
-            AudioManager.instance.PlaySound(clipName);
-        }
+		if(MyTime.Instance.time - timer > timeout)
+		{
+			timer = MyTime.Instance.time;
+	        foreach (string clipName in soundsToPlay)
+	        {
+	            AudioManager.instance.PlaySound(clipName);
+	        }
+		}
     }
 
 }
