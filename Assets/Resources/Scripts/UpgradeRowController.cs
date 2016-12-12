@@ -101,5 +101,10 @@ public class UpgradeRowController : MonoBehaviour
     {
         if (buttonHover.isHovered)
             description.text = upgradeObj.description;
+
+		if(upgradeObj.value == upgradeObj.maxValue)
+		{
+			buyButton.gameObject.transform.GetChild(0).GetComponent<Text>().text = "MAXED";
+		}
     }
 }
