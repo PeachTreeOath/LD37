@@ -24,7 +24,6 @@ public class ImpactSoundPlayer : MonoBehaviour
         {
             camSize = Camera.main.orthographicSize;
             currDistance = distance * camSize;
-            Debug.Log(currDistance);
         }
     }
 
