@@ -41,7 +41,8 @@ GameObject:
   - component: {fileID: 50276244489624688}
   - component: {fileID: 58023881290784178}
   - component: {fileID: 114963782569691810}
-  m_Layer: 10
+  - component: {fileID: 58833070151778860}
+  m_Layer: 0
   m_Name: RoombaUnit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +60,7 @@ GameObject:
   - component: {fileID: 212412298236788198}
   - component: {fileID: 58795111419835892}
   - component: {fileID: 114244350035772484}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: VacuumEffect
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -152,7 +153,7 @@ Rigidbody2D:
   m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 55e1507b2ce3afc41a10570622d42519, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -165,8 +166,8 @@ CircleCollider2D:
   m_GameObject: {fileID: 1233278716725154}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_Material: {fileID: 6200000, guid: 55e1507b2ce3afc41a10570622d42519, type: 2}
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -185,6 +186,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.17
+--- !u!58 &58833070151778860
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1233278716725154}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 55e1507b2ce3afc41a10570622d42519, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.16872573
 --- !u!114 &114244350035772484
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -196,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b945065054787c45b2e479671e82e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radUpgradeMult: 0.015
+  radUpgradeMult: 0.065
 --- !u!114 &114273378939495716
 MonoBehaviour:
   m_ObjectHideFlags: 1

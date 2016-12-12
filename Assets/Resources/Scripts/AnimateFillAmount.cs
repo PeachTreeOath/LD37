@@ -31,7 +31,7 @@ public class AnimateFillAmount : MonoBehaviour
     private void Update()
     {
 		image.fillAmount = Mathf.Min(rd.curBatteryPerc + Mathf.Lerp(0, .05f, 1-Mathf.InverseLerp(0, startBatteryPerc, rd.curBatteryPerc)), startBatteryPerc); //load bar is off at under 5%
-		text.text = (int)(rd.curBatteryPerc * 100) + "%";
+		text.text = Mathf.Max(0, (int)(rd.curBatteryPerc * 100)) + "%";
 
         if(!isLowBatt && rd.curBatteryPerc < batteryLimit)
         {

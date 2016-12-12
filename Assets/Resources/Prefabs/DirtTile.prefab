@@ -106,6 +106,7 @@ MonoBehaviour:
   baseHealth: 15
   multFactor: 1
   health: 0
+  collected: 0
 --- !u!212 &212876420874608004
 SpriteRenderer:
   m_ObjectHideFlags: 1
