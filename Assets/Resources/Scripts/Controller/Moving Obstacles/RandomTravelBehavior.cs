@@ -47,10 +47,17 @@ namespace Controller
 		float kbTimer;
 		float kbTimeout = .35f;
 		float kbForce = 2.5f;
+        private float nextDelay;
 
         private void Start()
         {
             currPosition = nextPosition = transform.position;
+            CreateNextDelay();
+        }
+
+        private void CreateNextDelay()
+        {
+            nextDelay = msDelay + UnityEngine.Random.Range(-250, 250);
         }
 
         // Update is called once per frame
@@ -58,10 +65,10 @@ namespace Controller
         {
 			timePassed += MyTime.Instance.deltaTime * 1000;
 
-            if (timePassed >= msDelay)
+            if (timePassed >= nextDelay)
             {
                 currPosition = transform.position;
-                if (random.Next(1, 101) >= turnProbability)
+                if (UnityEngine.Random.Range(1, 101) >= turnProbability)
                 {
                     RandomizeDirection2D();
                 }
