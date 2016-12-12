@@ -18,7 +18,7 @@ public class DirtTileManager : MonoBehaviour
     /// </summary>
     public float opacityPercentage;
 
-    private float t = 0;
+    private float dirtTransition = 0;
     private float fadeDuration = 3.0f; // seconds
 
     private DirtData dirt;
@@ -26,12 +26,10 @@ public class DirtTileManager : MonoBehaviour
 
 	private GameObject moneyLossFab;
 
-    private bool isDirtPickedUp;
-
     // Use this for initialization
     private void Start()
     {
-        isDirtPickedUp = false;
+        dirtTransition = 2f;
 		moneyLossFab = Resources.Load("Prefabs/MoneyLoss") as GameObject;
 		gameObject.tag = "Dirt";
 		gameObject.layer = LayerMask.NameToLayer("DirtTile");
@@ -52,24 +50,21 @@ public class DirtTileManager : MonoBehaviour
         dirt = GetComponent<DirtData>();
         started = true;
     }
-    private void OnTriggerExit2D(Collider2D collision) {
-        isDirtPickedUp = false;
-    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (started &&
             other.CompareTag("Player"))
         {
-            isDirtPickedUp = true;
             RoombaData rd = other.gameObject.transform.parent.gameObject.GetComponent<RoombaData>();
             int dmg = (int)((rd.suctionPower + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN) * 2) * dirt.multFactor);
             dirt.health -= dmg;
             DirtManager.instance.CalculateDamage(dmg);
             
             opacityPercentage = dirt.health / (float)dirt.baseHealth;
-            
+
             // start lerp control value when roomba enters dirt
-            t = 0;
+            dirtTransition = 0;
             UpgradeManager.money += dirt.value;
 			dirt.collected += dirt.value;
             dirtCounter.text = "" + UpgradeManager.money;
@@ -123,15 +118,13 @@ public class DirtTileManager : MonoBehaviour
 
     public void Update()
     {
-        if (isDirtPickedUp) {
+        if (dirtTransition < 1) {
             Color oldColor = GetComponent<SpriteRenderer>().color;
 
-            GetComponent<SpriteRenderer>().color = Color.Lerp(oldColor, curColor, t);
+            GetComponent<SpriteRenderer>().color = Color.Lerp(oldColor, curColor, dirtTransition);
 
             // Increment lerp control value until maximum over fade duration
-            if (t < 1) {
-                t += MyTime.Instance.deltaTime / fadeDuration;
-            }
+            dirtTransition += MyTime.Instance.deltaTime / fadeDuration;
         }
     }
 
