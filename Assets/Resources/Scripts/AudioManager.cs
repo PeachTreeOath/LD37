@@ -113,7 +113,7 @@ public class AudioManager : Singleton<AudioManager>
             dirtStockpile -= 60;
             timeSinceLastSound = 0;
             AudioClip clip = soundMap["Crumb_click_heavy"];
-            soundChannel.PlayOneShot(clip);
+            soundChannel.PlayOneShot(clip, 0.2f);
         }
         else if (!playingDirtSound && dirtStockpile >= 30)
         {
@@ -121,7 +121,7 @@ public class AudioManager : Singleton<AudioManager>
             dirtStockpile -= 30;
             timeSinceLastSound = 0;
             AudioClip clip = soundMap["Crumb_click_med"];
-            soundChannel.PlayOneShot(clip);
+            soundChannel.PlayOneShot(clip, 0.2f);
         }
         else if (!playingDirtSound && dirtStockpile >= 8)
         {
@@ -129,7 +129,7 @@ public class AudioManager : Singleton<AudioManager>
             dirtStockpile -= 8;
             timeSinceLastSound = 0;
             AudioClip clip = soundMap["Crumb_click_light"];
-            soundChannel.PlayOneShot(clip);
+            soundChannel.PlayOneShot(clip, 0.2f);
         }
     }
 }
