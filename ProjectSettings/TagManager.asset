@@ -48,6 +48,9 @@ TagManager:
   - name: Background
     uniqueID: 508610745
     locked: 0
+  - name: Kitchen
+    uniqueID: 439224411
+    locked: 0
   - name: BackgroundDirt
     uniqueID: 992902367
     locked: 0
