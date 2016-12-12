@@ -9,6 +9,7 @@ public class BatteryController : MonoBehaviour
     private float startTime;
     private GameObject dirtCounter;
     private GameObject moneyLossFab;
+	private GameObject moneyLossDescFab;
     private float moneyStart;
     private bool batteryDead;
     GameObject batteryUI;
@@ -27,6 +28,7 @@ public class BatteryController : MonoBehaviour
         batteryUI = GameObject.Find("BatteryUI");
         roombaData = GetComponent<RoombaData>();
         moneyLossFab = Resources.Load("Prefabs/MoneyLoss") as GameObject;
+		moneyLossDescFab = Resources.Load("Prefabs/MoneyLossDesc") as GameObject;
         warning = GameObject.Find("RechargeWarning").GetComponent<Text>();
 
         roombaData.curBatteryPerc = (roombaData.baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10f) / 100f;
@@ -55,6 +57,10 @@ public class BatteryController : MonoBehaviour
             moneyLossTxt.GetComponent<Text>().text = "-" + moneyDec;
             moneyLossTxt.transform.SetParent(dirtCounter.transform.parent);
             moneyLossTxt.transform.position = dirtCounter.transform.position;
+
+			GameObject descTxt = Instantiate(moneyLossDescFab) as GameObject;
+			descTxt.transform.SetParent(dirtCounter.transform.parent);
+			descTxt.transform.position = dirtCounter.transform.position + Vector3.right * 139 + Vector3.up * 70;
 
             warning.enabled = false;
             UpgradePanelShowHide.instance.ShowHide(true);
