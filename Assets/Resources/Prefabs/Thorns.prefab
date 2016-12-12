@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4525510118482920}
   - component: {fileID: 212144781177300676}
   - component: {fileID: 114825567490377870}
-  - component: {fileID: 61180534244112902}
+  - component: {fileID: 58831665129690558}
   m_Layer: 9
   m_Name: Thorns
   m_TagString: Thorns
@@ -42,8 +42,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61180534244112902
-BoxCollider2D:
+--- !u!58 &58831665129690558
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -55,7 +55,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 4.5900006, y: 4.5900006}
+  m_Radius: 2.5
 --- !u!114 &114825567490377870
 MonoBehaviour:
   m_ObjectHideFlags: 1
