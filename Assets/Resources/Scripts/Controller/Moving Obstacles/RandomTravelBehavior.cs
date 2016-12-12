@@ -42,17 +42,17 @@ namespace Controller
         /// </summary>
         protected Vector3 nextPosition;
 
-		bool isKb;
-		Vector3 kbDir;
-		float kbTimer;
-		float kbTimeout = .35f;
-		float kbForce = 2.5f;
+        bool isKb;
+        Vector3 kbDir;
+        float kbTimer;
+        float kbTimeout = .35f;
+        float kbForce = 2.5f;
         private float nextDelay;
 
         private void Start()
         {
-			gameObject.tag = "AnimalObstacle";
-			gameObject.layer = LayerMask.NameToLayer("Animal");
+            gameObject.tag = "AnimalObstacle";
+            gameObject.layer = LayerMask.NameToLayer("Animal");
             currPosition = nextPosition = transform.position;
             CreateNextDelay();
         }
@@ -65,7 +65,7 @@ namespace Controller
         // Update is called once per frame
         private void Update()
         {
-			timePassed += MyTime.Instance.deltaTime * 1000;
+            timePassed += MyTime.Instance.deltaTime * 1000;
 
             if (timePassed >= nextDelay)
             {
@@ -78,63 +78,83 @@ namespace Controller
                 timePassed = 0;
             }
 
-			if(!isKb)
-			{
-				transform.position += (nextPosition - currPosition) * MyTime.Instance.deltaTime * 1.02f;
-            } else
-			{
-				DoKnockBack();
-			}
+            if (!isKb)
+            {
+                transform.position += (nextPosition - currPosition) * MyTime.Instance.deltaTime * 1.02f;
+            }
+            else
+            {
+                DoKnockBack();
+            }
         }
 
-		void DoKnockBack()
-		{
-			if(MyTime.Instance.time - kbTimer < kbTimeout)
-			{
-				transform.position += kbDir * MyTime.Instance.deltaTime * kbForce;
-			}else
-			{
-				isKb = false;
-				currPosition = gameObject.transform.position;
-				MovePosition();
-			}
-		}
+        void DoKnockBack()
+        {
+            if (MyTime.Instance.time - kbTimer < kbTimeout)
+            {
+                transform.position += kbDir * MyTime.Instance.deltaTime * kbForce;
+            }
+            else
+            {
+                isKb = false;
+                currPosition = gameObject.transform.position;
+                MovePosition();
+            }
+        }
 
         /// <summary>
         /// Handles moving the position of the model in the direction and speed provided.
         /// </summary>
         protected virtual void MovePosition()
         {
-            switch (direction2D)
+            do
             {
-                case DIRECTION2D.UP:
-                    nextPosition = new Vector3(transform.position.x + speed,
-                        transform.position.y, transform.position.z);
-                    break;
+                switch (direction2D)
+                {
+                    case DIRECTION2D.UP:
+                        nextPosition = new Vector3(transform.position.x + speed,
+                            transform.position.y, transform.position.z);
+                        break;
 
-                case DIRECTION2D.DOWN:
-                    nextPosition = new Vector3(transform.position.x + (speed * -1),
-                        transform.position.y, transform.position.z);
-                    break;
+                    case DIRECTION2D.DOWN:
+                        nextPosition = new Vector3(transform.position.x + (speed * -1),
+                            transform.position.y, transform.position.z);
+                        break;
 
-                case DIRECTION2D.LEFT:
-                    nextPosition = new Vector3(transform.position.x,
-                        transform.position.y + speed, transform.position.z);
-                    break;
+                    case DIRECTION2D.LEFT:
+                        nextPosition = new Vector3(transform.position.x,
+                            transform.position.y + speed, transform.position.z);
+                        break;
 
-                case DIRECTION2D.RIGHT:
-                    nextPosition = new Vector3(transform.position.x,
-                        transform.position.y + (speed * -1), transform.position.z);
-                    break;
+                    case DIRECTION2D.RIGHT:
+                        nextPosition = new Vector3(transform.position.x,
+                            transform.position.y + (speed * -1), transform.position.z);
+                        break;
+                }
+                RandomizeDirection2D();
             }
+            while (!InBounds((Vector2)nextPosition));
         }
 
-		public void KnockBack(Vector3 kDir)
-		{
-			isKb = true;
-			kbDir = kDir;
-			kbTimer = MyTime.Instance.time;
-			SendMessage("PlayImpactSounds", SendMessageOptions.DontRequireReceiver);
-		}
+        private Vector2 ulBounds = new Vector2(-6.2f, 5.5f);
+        private Vector2 brBounds = new Vector2(6.2f, -5.7f);
+
+        private bool InBounds(Vector2 nextPosition)
+        {
+            if (nextPosition.x < ulBounds.x || nextPosition.x > brBounds.x
+                || nextPosition.y > ulBounds.y || nextPosition.y < brBounds.y)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public void KnockBack(Vector3 kDir)
+        {
+            isKb = true;
+            kbDir = kDir;
+            kbTimer = MyTime.Instance.time;
+            SendMessage("PlayImpactSounds", SendMessageOptions.DontRequireReceiver);
+        }
     }
 }
