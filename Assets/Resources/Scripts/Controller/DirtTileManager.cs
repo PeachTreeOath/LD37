@@ -26,9 +26,12 @@ public class DirtTileManager : MonoBehaviour
 
 	private GameObject moneyLossFab;
 
+    private bool isDirtPickedUp;
+
     // Use this for initialization
     private void Start()
     {
+        isDirtPickedUp = false;
 		moneyLossFab = Resources.Load("Prefabs/MoneyLoss") as GameObject;
 		gameObject.tag = "Dirt";
 		gameObject.layer = LayerMask.NameToLayer("DirtTile");
@@ -49,12 +52,15 @@ public class DirtTileManager : MonoBehaviour
         dirt = GetComponent<DirtData>();
         started = true;
     }
-
+    private void OnTriggerExit2D(Collider2D collision) {
+        isDirtPickedUp = false;
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (started &&
             other.CompareTag("Player"))
         {
+            isDirtPickedUp = true;
             RoombaData rd = other.gameObject.transform.parent.gameObject.GetComponent<RoombaData>();
             int dmg = (int)((rd.suctionPower + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN) * 2) * dirt.multFactor);
             dirt.health -= dmg;
@@ -117,14 +123,15 @@ public class DirtTileManager : MonoBehaviour
 
     public void Update()
     {
-        Color oldColor = GetComponent<SpriteRenderer>().color;
+        if (isDirtPickedUp) {
+            Color oldColor = GetComponent<SpriteRenderer>().color;
 
-        GetComponent<SpriteRenderer>().color = Color.Lerp(oldColor, curColor, t);
+            GetComponent<SpriteRenderer>().color = Color.Lerp(oldColor, curColor, t);
 
-        // Increment lerp control value until maximum over fade duration
-        if (t < 1)
-        {
-			t += MyTime.Instance.deltaTime / fadeDuration;
+            // Increment lerp control value until maximum over fade duration
+            if (t < 1) {
+                t += MyTime.Instance.deltaTime / fadeDuration;
+            }
         }
     }
 
