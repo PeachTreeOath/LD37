@@ -89,9 +89,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 200
-  baseHealth: 50
+  baseHealth: 1
   multFactor: 1
   health: 0
+  collected: 0
 --- !u!114 &114688331773282074
 MonoBehaviour:
   m_ObjectHideFlags: 1
