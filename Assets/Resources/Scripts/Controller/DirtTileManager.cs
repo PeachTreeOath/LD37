@@ -53,10 +53,17 @@ public class DirtTileManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        string colliderTag = "";
+        if (gameObject.name.Contains("sock")) {
+            colliderTag = "Roomba";
+        } else {
+            colliderTag = "Player";
+        }
+        
         if (started &&
-            other.CompareTag("Player"))
+            other.CompareTag(colliderTag))
         {
-            RoombaData rd = other.gameObject.transform.parent.gameObject.GetComponent<RoombaData>();
+            RoombaData rd = GameObject.Find("RoombaUnit").GetComponent<RoombaData>();
             int dmg = (int)((rd.suctionPower + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DEEP_CLEAN) * 2) * dirt.multFactor);
             dirt.health -= dmg;
             DirtManager.instance.CalculateDamage(dmg);

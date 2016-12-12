@@ -11,6 +11,7 @@ TagManager:
   - Dirt
   - Thorns
   - Dock
+  - Roomba
   layers:
   - Default
   - TransparentFX
