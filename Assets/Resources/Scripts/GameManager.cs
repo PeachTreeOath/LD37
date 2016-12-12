@@ -9,7 +9,6 @@ public class GameManager : Singleton<GameManager>
     public string persistSceneName = "PersistentUpgrades";
 
     private int thornsValue = 0;
-    private UpgradeManager upgradeManager;
 
     protected override void Awake()
     {
@@ -30,9 +29,7 @@ public class GameManager : Singleton<GameManager>
         {
             SceneManager.LoadScene(persistSceneName, LoadSceneMode.Additive);
 
-            GameObject go = GameObject.Find("UpgradeManager");
-            upgradeManager = go.GetComponent<UpgradeManager>();
-            thornsValue = upgradeManager.GetUpgradeValue(UpgradeManager.UpgradeEnum.THORNS);
+			thornsValue = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.THORNS);
         }
     }
 
