@@ -146,7 +146,7 @@ public class RoombaController : MonoBehaviour
         if (isReversing)
         {
             dragControl = 1;
-            currReverseTime += MyTime.Instance.deltaTime * 1000;
+            currReverseTime += Time.deltaTime * 1000;
             if (currReverseTime >= reverseDuration)
             {
                 currReverseTime = 0;
