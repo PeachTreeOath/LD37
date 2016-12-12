@@ -4,34 +4,34 @@ using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour
 {
-	public enum UpgradeEnum {THORNS, VISION, ENERGY, DEEP_CLEAN, CLEAN_RADIUS, TURN_RADIUS, DURABILITY, SPEED};
+    public enum UpgradeEnum { THORNS, VISION, ENERGY, DEEP_CLEAN, CLEAN_RADIUS, TURN_RADIUS, DURABILITY, SPEED };
 
-	static Dictionary<UpgradeEnum, Upgrade> upgrades;
+    private static Dictionary<UpgradeEnum, Upgrade> upgrades;
 
-	public static int money = 0;
+    public static int money = 0;
 
-	static UpgradeManager instance;
+    private static UpgradeManager instance;
 
-	GameObject thornsFab;
-	GameObject thornsObj;
-	GameObject player;
+    private GameObject thornsFab;
+    private GameObject thornsObj;
+    private GameObject player;
 
-	public static UpgradeManager Instance
-	{
-		get
-		{
-			if(instance == null)
-			{
-				GameObject foo = new GameObject();
-				foo.name = "UpgradeManager";
-				instance = foo.AddComponent<UpgradeManager>();
-				InitUpgrades();
-				DontDestroyOnLoad(foo);
-			}
+    public static UpgradeManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                GameObject foo = new GameObject();
+                foo.name = "UpgradeManager";
+                instance = foo.AddComponent<UpgradeManager>();
+                InitUpgrades();
+                DontDestroyOnLoad(foo);
+            }
 
-			return instance;
-		}
-	}
+            return instance;
+        }
+    }
 
     private static void InitUpgrades()
     {
@@ -42,12 +42,12 @@ public class UpgradeManager : MonoBehaviour
         bool[] cbs = { true, false, false, false, false, false, false, false };
         string[] desc = {"Thorns allows you to chase off the pesky Mittens and pals. Try running into the dastardly feline and enjoy the newly colored ring. More Upgrades means more Thorns!",
             "Max Vision increases how much of The Room you can see any at time. Mo Upgrades Mo Vision.",
-            "Battery Life increases the how long Roomba Rousey can be out on a single run.",
+            "Battery Life increases the how long Roomba can be out on a single run.",
             "Deeper Clean: Each upgrade allows you to pull in more dirt from a single carpet tile.",
-            "Clean Radius allows Roomba Rousey to have a larger radius to suck in sweat and blood.",
-            "Turning: increases how quickly you can turn Roomba Rousey.",
+            "Clean Radius allows Roomba to have a larger radius to suck in dirt.",
+            "Turning: increases how quickly you can turn Roomba.",
             "Durability: increases how many hits you can take from the environment.",
-            "Speed: Increases how fast Roomba Rousey can move."};
+            "Speed: Increases how fast Roomba can move."};
         int[] costs = { 200, 200, 200, 200, 200, 200, 200, 200 };
         UpgradeEnum[] types = { UpgradeEnum.THORNS, UpgradeEnum.VISION, UpgradeEnum.ENERGY, UpgradeEnum.DEEP_CLEAN, UpgradeEnum.CLEAN_RADIUS, UpgradeEnum.TURN_RADIUS, UpgradeEnum.DURABILITY, UpgradeEnum.SPEED };
 
@@ -110,7 +110,7 @@ public class UpgradeManager : MonoBehaviour
         Upgrade u;
         if (upgrades.TryGetValue(t, out u))
         {
-			Debug.Log(MyTime.Instance.time + " Downgrading " + u.upgradeType.ToString() + " val " + u.value);
+            Debug.Log(MyTime.Instance.time + " Downgrading " + u.upgradeType.ToString() + " val " + u.value);
             u.value--;
             if (u.value <= 0)
             {

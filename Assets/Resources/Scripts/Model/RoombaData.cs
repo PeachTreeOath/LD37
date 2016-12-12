@@ -27,11 +27,14 @@ public class RoombaData : MonoBehaviour
     [HideInInspector]
     public float curBatteryTime;
 
+    [HideInInspector]
+    public bool isDocked = false;
+
     // Use this for initialization
     private void Start()
     {
         batteryLife = baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY);
-		batteryTimer = MyTime.Instance.time;
+        batteryTimer = MyTime.Instance.time;
         //UpgradeManager.Instance.AddUpgrade(UpgradeManager.UpgradeEnum.THORNS, true);
     }
 }

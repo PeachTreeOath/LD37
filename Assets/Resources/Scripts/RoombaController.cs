@@ -52,7 +52,7 @@ public class RoombaController : MonoBehaviour
 
     private SceneTransitionManager sceneManager;
 
-    private bool isDocked = false;
+    //private bool isDocked = false;
 
     private Text warning;
 
@@ -97,22 +97,22 @@ public class RoombaController : MonoBehaviour
             // After a set amount of time has passed, jump to the docked position.
             if (dockTime >= DOCK_TIME)
             {
-                if (!isDocked)
+                if (!rd.isDocked)
                 {
-					transform.position = new Vector3(dockLocation.x, dockLocation.y - 0.11f);
+                    transform.position = new Vector3(dockLocation.x, dockLocation.y - 0.11f);
                     MyTime.Instance.timeScale = 0;
 
                     AudioManager.instance.PlaySound("Buzz");
                     warning.enabled = false;
                     UpgradePanelShowHide.instance.ShowHide(true);
-                    isDocked = true;
+                    rd.isDocked = true;
                 }
             }
             else
             {
                 // Before the time limit has passed, attempt to lerp to the dock.
                 dockTime += MyTime.Instance.deltaTime * 1000;
-				transform.position = Vector3.Lerp(transform.localPosition, new Vector3(dockLocation.x, dockLocation.y - 0.11f), dockTime / DOCK_TIME);
+                transform.position = Vector3.Lerp(transform.localPosition, new Vector3(dockLocation.x, dockLocation.y - 0.11f), dockTime / DOCK_TIME);
             }
         }
         else
@@ -164,7 +164,7 @@ public class RoombaController : MonoBehaviour
             bounceVelocity = 2;
             reverseDuration = 500;
             isReversing = true;
-			GetComponent<BatteryController>().Damage();
+            GetComponent<BatteryController>().Damage();
         }
         else if (other.gameObject.CompareTag("AnimalObstacle"))
         {
@@ -176,7 +176,7 @@ public class RoombaController : MonoBehaviour
         else if (other.gameObject.CompareTag("Dock"))
         {
             isDocking = true;
-			dockLocation = other.transform.position;
+            dockLocation = other.transform.position;
             GetComponent<BatteryController>().enabled = false;
         }
     }
