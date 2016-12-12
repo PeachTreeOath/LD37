@@ -10,9 +10,11 @@ public class MuteController : MonoBehaviour, ISizeListener
 
     private SpriteRenderer slashSprite;
     private Camera mainCam;
-
+    private PersistenceVars persistenceVars;
     void Start()
     {
+        persistenceVars = GameObject.Find("PersistenceVars").GetComponent<PersistenceVars>();
+        muted = persistenceVars.muted;
         slashSprite = transform.FindChild("Slash").GetComponent<SpriteRenderer>();
         mainCam = Camera.main;
         Toggle(muted);
@@ -58,5 +60,6 @@ public class MuteController : MonoBehaviour, ISizeListener
         {
             slashSprite.enabled = false;
         }
+        persistenceVars.muted = toggle;
     }
 }
