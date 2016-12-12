@@ -24,9 +24,12 @@ public class DirtTileManager : MonoBehaviour
     private DirtData dirt;
     private bool started;
 
+	private GameObject moneyLossFab;
+
     // Use this for initialization
     private void Start()
     {
+		moneyLossFab = Resources.Load("Prefabs/MoneyLoss") as GameObject;
 		gameObject.tag = "Dirt";
 		gameObject.layer = LayerMask.NameToLayer("DirtTile");
         if (dirtCounter == null)
@@ -77,7 +80,13 @@ public class DirtTileManager : MonoBehaviour
                 moneyObj.transform.position = other.transform.position;
             }
 
-			if (dirt.health <= 0)
+			if(dirt.value < 0)
+			{
+				GameObject moneyLossTxt = Instantiate(moneyLossFab) as GameObject;
+				moneyLossTxt.GetComponent<Text>().text = "" + dirt.value;
+				moneyLossTxt.transform.SetParent(dirtCounter.transform.parent);
+				moneyLossTxt.transform.position = dirtCounter.transform.position;
+			}else if (dirt.health <= 0 && dirt.value > 0)
 			{
 				int totalValue = (int)Mathf.Ceil(dirt.value * (dirt.baseHealth/rd.suctionPower));
 				if(dirt.collected < totalValue)
