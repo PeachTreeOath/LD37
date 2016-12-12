@@ -9,6 +9,7 @@ public class GameManager : Singleton<GameManager>
     public string persistSceneName = "PersistentUpgrades";
 
     private int thornsValue = 0;
+    private RoombaController roombaController;
 
     protected override void Awake()
     {
@@ -32,10 +33,12 @@ public class GameManager : Singleton<GameManager>
 			
         }
 
+        roombaController = GameObject.Find("RoombaUnit").GetComponent<RoombaController>();
+
         thornsValue = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.THORNS);
         if (thornsValue > 0)
         {
-            UpgradeManager.Instance.SpawnThorns();
+            roombaController.SpawnThorns();
         }
     }
 

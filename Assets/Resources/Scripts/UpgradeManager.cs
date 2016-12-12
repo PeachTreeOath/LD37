@@ -139,8 +139,8 @@ public class UpgradeManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void Update()
-    {
+    //private void Update()
+    //{
         //foreach (Upgrade u in upgrades.Values)
         //{
         //    if (u.cb != null && u.cb.Length > 0 && u.value > 0)
@@ -148,7 +148,7 @@ public class UpgradeManager : MonoBehaviour
         //        gameObject.SendMessage(u.cb, SendMessageOptions.DontRequireReceiver);
         //    }
         //}
-    }
+    //}
 
     public void SpawnThorns()
     {

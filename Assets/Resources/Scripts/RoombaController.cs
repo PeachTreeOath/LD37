@@ -54,6 +54,9 @@ public class RoombaController : MonoBehaviour
 
     private Text warning;
 
+    private Thorns thornsObj;
+    private Object thornsPrefab;
+
     // Use this for initialization
     private void Start()
     {
@@ -66,6 +69,7 @@ public class RoombaController : MonoBehaviour
         GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         sceneManager = gameManager.GetComponent<SceneTransitionManager>();
         warning = GameObject.Find("RechargeWarning").GetComponent<Text>();
+        thornsPrefab = Resources.Load("Prefabs/Thorns");
     }
 
     // Update is called once per frame
@@ -185,5 +189,15 @@ public class RoombaController : MonoBehaviour
             dockLocation = other.transform.position;
             GetComponent<BatteryController>().enabled = false;
         }
+    }
+
+    public void SpawnThorns()
+    {
+        if (thornsObj == null)
+        {
+            thornsObj = (Thorns)Instantiate(thornsPrefab);
+        }
+        thornsObj.transform.SetParent(transform);
+
     }
 }
