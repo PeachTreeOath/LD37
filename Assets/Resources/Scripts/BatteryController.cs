@@ -40,7 +40,8 @@ public class BatteryController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        roombaData.curBatteryPerc = (1 - (MyTime.Instance.time - startTime) / roombaData.curBatteryTime) * ((roombaData.baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10f) / 100f);
+        //roombaData.curBatteryPerc = (1 - (MyTime.Instance.time - startTime) / roombaData.curBatteryTime) * ((roombaData.baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10f) / 100f);
+        roombaData.curBatteryPerc = (1 - (MyTime.Instance.time - startTime) / roombaData.curBatteryTime) * ((roombaData.baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * 10f) / 100f);
 
         if (roombaData.curBatteryPerc <= 0 && !batteryDead)
         {
