@@ -4,34 +4,34 @@ using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour
 {
-	public enum UpgradeEnum {THORNS, VISION, ENERGY, DEEP_CLEAN, CLEAN_RADIUS, TURN_RADIUS, DURABILITY, SPEED};
+    public enum UpgradeEnum { THORNS, VISION, ENERGY, DEEP_CLEAN, CLEAN_RADIUS, TURN_RADIUS, DURABILITY, SPEED };
 
-	static Dictionary<UpgradeEnum, Upgrade> upgrades;
+    static Dictionary<UpgradeEnum, Upgrade> upgrades;
 
-	public static int money = 0;
+    public static int money = 0;
 
-	static UpgradeManager instance;
+    static UpgradeManager instance;
 
-	GameObject thornsFab;
-	GameObject thornsObj;
-	GameObject player;
+    GameObject thornsFab;
+    GameObject thornsObj;
+    GameObject player;
 
-	public static UpgradeManager Instance
-	{
-		get
-		{
-			if(instance == null)
-			{
-				GameObject foo = new GameObject();
-				foo.name = "UpgradeManager";
-				instance = foo.AddComponent<UpgradeManager>();
-				InitUpgrades();
-				DontDestroyOnLoad(foo);
-			}
+    public static UpgradeManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                GameObject foo = new GameObject();
+                foo.name = "UpgradeManager";
+                instance = foo.AddComponent<UpgradeManager>();
+                InitUpgrades();
+                DontDestroyOnLoad(foo);
+            }
 
-			return instance;
-		}
-	}
+            return instance;
+        }
+    }
 
     private static void InitUpgrades()
     {
@@ -64,14 +64,14 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-	public void Reset()
-	{
-		money = 0;
-		foreach (Upgrade u in upgrades.Values)
-		{
-			u.value = 0;
-		}
-	}
+    public void Reset()
+    {
+        money = 0;
+        foreach (Upgrade u in upgrades.Values)
+        {
+            u.value = 0;
+        }
+    }
 
     public Upgrade GetUpgradeInfo(UpgradeEnum t)
     {
@@ -89,7 +89,16 @@ public class UpgradeManager : MonoBehaviour
         if (upgrades.ContainsKey(t))
         {
             upgrades[t].value++;
-        }/*else
+        }
+
+
+
+        if (t == UpgradeEnum.VISION)
+        {
+            Camera.main.GetComponent<FollowCameraController>().VisionChange();
+        }
+
+        /*else
 		{
 			Upgrade u = ScriptableObject.CreateInstance<Upgrade>();
 			u.upgradeType = t;
@@ -119,7 +128,7 @@ public class UpgradeManager : MonoBehaviour
         Upgrade u;
         if (upgrades.TryGetValue(t, out u))
         {
-			Debug.Log(MyTime.Instance.time + " Downgrading " + u.upgradeType.ToString() + " val " + u.value);
+            Debug.Log(MyTime.Instance.time + " Downgrading " + u.upgradeType.ToString() + " val " + u.value);
             u.value--;
             if (u.value <= 0)
             {

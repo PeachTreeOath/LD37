@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MuteController : MonoBehaviour
+public class MuteController : MonoBehaviour, ISizeListener
 {
 
     public bool muted;
@@ -15,19 +15,28 @@ public class MuteController : MonoBehaviour
     {
         slashSprite = transform.FindChild("Slash").GetComponent<SpriteRenderer>();
         mainCam = Camera.main;
-        Toggle(muted); 
+        Toggle(muted);
+        Camera.main.GetComponent<FollowCameraController>().RegisterSizeListener(this);
     }
 
-    void LateUpdate()
+    public void SizeChanged(float newSize)
     {
-        RecalculatePosition();
+        RecalculatePosition(newSize);
     }
 
-    void RecalculatePosition()
+    void OnDestroy()
+    {
+        if (Camera.main != null && Camera.main.GetComponent<FollowCameraController>() != null)
+        {
+            Camera.main.GetComponent<FollowCameraController>().DeregisterSizeListener(this);
+        }
+    }
+
+    void RecalculatePosition(float newSize)
     {
         transform.position = mainCam.ViewportToWorldPoint(new Vector3(0.95f, 0.95f));
         transform.position = (Vector2)transform.position;
-        float newScale = mainCam.orthographicSize * scale;
+        float newScale = newSize * scale;
         transform.localScale = new Vector3(newScale, newScale, 1);
     }
 

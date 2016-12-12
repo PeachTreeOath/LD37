@@ -87,12 +87,17 @@ public class DirtTileManager : MonoBehaviour
 				moneyLossTxt.GetComponent<Text>().text = "" + dirt.value;
 				moneyLossTxt.transform.SetParent(dirtCounter.transform.parent);
 				moneyLossTxt.transform.position = dirtCounter.transform.position;
-			}else if (dirt.health <= 0 && dirt.value > 0)
+			}
+
+			if (dirt.health <= 0)
 			{
-				int totalValue = (int)Mathf.Ceil(dirt.value * (dirt.baseHealth/rd.suctionPower));
-				if(dirt.collected < totalValue)
+				if(dirt.value > 0)
 				{
-					UpgradeManager.money += totalValue - dirt.collected;
+					int totalValue = (int)Mathf.Ceil(dirt.value * (dirt.baseHealth/rd.suctionPower));
+					if(dirt.collected < totalValue)
+					{
+						UpgradeManager.money += totalValue - dirt.collected;
+					}
 				}
 				Destroy(gameObject);
 			}
