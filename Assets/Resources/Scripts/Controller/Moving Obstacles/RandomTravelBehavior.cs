@@ -52,6 +52,7 @@ namespace Controller
         private void Start()
         {
 			gameObject.tag = "AnimalObstacle";
+			gameObject.layer = LayerMask.NameToLayer("Animal");
             currPosition = nextPosition = transform.position;
             CreateNextDelay();
         }
