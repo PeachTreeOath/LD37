@@ -99,7 +99,7 @@ public class RoombaController : MonoBehaviour
             {
                 if (!isDocked)
                 {
-                    transform.localPosition = new Vector3(dockLocation.x, dockLocation.y - 0.11f);
+					transform.position = new Vector3(dockLocation.x, dockLocation.y - 0.11f);
                     MyTime.Instance.timeScale = 0;
 
                     AudioManager.instance.PlaySound("Buzz");
@@ -112,13 +112,13 @@ public class RoombaController : MonoBehaviour
             {
                 // Before the time limit has passed, attempt to lerp to the dock.
                 dockTime += MyTime.Instance.deltaTime * 1000;
-                transform.localPosition = Vector2.Lerp(transform.localPosition, new Vector3(dockLocation.x, dockLocation.y - 0.11f), dockTime / DOCK_TIME);
+				transform.position = Vector3.Lerp(transform.localPosition, new Vector3(dockLocation.x, dockLocation.y - 0.11f), dockTime / DOCK_TIME);
             }
         }
         else
         {
-            float minSpeed = rd.minMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED) * 5;
-            float maxSpeed = rd.maxMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED) * 2;
+            float minSpeed = rd.minMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED) * 2;
+            float maxSpeed = rd.maxMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED);
             float force = -Mathf.Lerp(minSpeed, maxSpeed, (MyTime.Instance.time - startTime) * rd.accelSpeed);
             if (rd.curBatteryPerc < 0.001f)
             { // floats...
@@ -176,7 +176,7 @@ public class RoombaController : MonoBehaviour
         else if (other.gameObject.CompareTag("Dock"))
         {
             isDocking = true;
-            dockLocation = other.transform.localPosition;
+			dockLocation = other.transform.position;
             GetComponent<BatteryController>().enabled = false;
         }
     }
