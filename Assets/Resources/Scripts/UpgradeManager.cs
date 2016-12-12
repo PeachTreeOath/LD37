@@ -141,28 +141,23 @@ public class UpgradeManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        foreach (Upgrade u in upgrades.Values)
-        {
-            if (u.cb != null && u.cb.Length > 0 && u.value > 0)
-            {
-                gameObject.SendMessage(u.cb, SendMessageOptions.DontRequireReceiver);
-            }
-        }
+        //foreach (Upgrade u in upgrades.Values)
+        //{
+        //    if (u.cb != null && u.cb.Length > 0 && u.value > 0)
+        //    {
+        //        gameObject.SendMessage(u.cb, SendMessageOptions.DontRequireReceiver);
+        //    }
+        //}
     }
 
-    private void thorns()
+    public void SpawnThorns()
     {
         if (thornsObj == null)
         {
             thornsObj = Instantiate(Resources.Load("Prefabs/Thorns")) as GameObject;
         }
-        if (player == null)
-        {
-            player = GameObject.Find("RoombaUnit");
-        }
-        if (player != null)
-        {
-            thornsObj.transform.position = player.transform.position;
-        }
+        player = GameObject.Find("RoombaUnit");
+        thornsObj.transform.SetParent(player.transform);
+
     }
 }

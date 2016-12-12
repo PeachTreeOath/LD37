@@ -29,7 +29,13 @@ public class GameManager : Singleton<GameManager>
         {
             SceneManager.LoadScene(persistSceneName, LoadSceneMode.Additive);
 
-			thornsValue = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.THORNS);
+			
+        }
+
+        thornsValue = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.THORNS);
+        if (thornsValue > 0)
+        {
+            UpgradeManager.Instance.SpawnThorns();
         }
     }
 
