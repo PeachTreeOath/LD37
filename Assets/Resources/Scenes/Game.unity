@@ -750,7 +750,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: DURABILTY
+  m_Text: DURABILITY
 --- !u!222 &1304140063
 CanvasRenderer:
   m_ObjectHideFlags: 0
