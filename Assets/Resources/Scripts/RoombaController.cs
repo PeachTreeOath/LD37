@@ -195,7 +195,8 @@ public class RoombaController : MonoBehaviour
     {
         if (thornsObj == null)
         {
-            thornsObj = (Thorns)Instantiate(thornsPrefab);
+            GameObject thornsGo = (GameObject)Instantiate(Resources.Load("Prefabs/Thorns"));
+            thornsObj = thornsGo.GetComponent<Thorns>();
         }
         thornsObj.transform.SetParent(transform);
 
