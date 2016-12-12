@@ -21,7 +21,7 @@ public class BatteryDisplay : MonoBehaviour
         float x = canv.GetComponent<RectTransform>().sizeDelta.x;
         Vector2 basePos = Vector2.zero;
         bool setBasePos = false;
-        for (int i = 0; i < rd.baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY); i++)
+        for (int i = 0; i < rd.baseBatteryLife + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY) * UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.ENERGY); i++)
         {
             GameObject icn = Instantiate(Resources.Load("Prefabs/BatteryIcon")) as GameObject;
             batteryIcons.Add(icn);
