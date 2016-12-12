@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 200
-  baseHealth: 50
+  baseHealth: 1
   multFactor: 1
   health: 0
   collected: 0
