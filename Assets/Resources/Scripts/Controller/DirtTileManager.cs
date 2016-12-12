@@ -87,7 +87,9 @@ public class DirtTileManager : MonoBehaviour
 				moneyLossTxt.GetComponent<Text>().text = "" + dirt.value;
 				moneyLossTxt.transform.SetParent(dirtCounter.transform.parent);
 				moneyLossTxt.transform.position = dirtCounter.transform.position;
-			}else if (dirt.health <= 0)
+			}
+
+			if (dirt.health <= 0)
 			{
 				if(dirt.value > 0)
 				{
