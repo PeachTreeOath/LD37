@@ -66,7 +66,7 @@ public class BatteryController : MonoBehaviour
         if (Time.time - damageTimer > damageTimeout)
         {
             damageTimer = Time.time;
-            int dmgAmt = (6 - UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DURABILITY));
+            int dmgAmt = (600 - UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.DURABILITY));
 
             GameObject dmgTxt = Instantiate(moneyLossFab) as GameObject;
             dmgTxt.GetComponent<Text>().text = "-" + dmgAmt + "%";
