@@ -51,6 +51,7 @@ namespace Controller
 
         private void Start()
         {
+			gameObject.tag = "AnimalObstacle";
             currPosition = nextPosition = transform.position;
             CreateNextDelay();
         }
