@@ -17,6 +17,7 @@ public class MuteController : MonoBehaviour, ISizeListener
         mainCam = Camera.main;
         Toggle(muted);
         Camera.main.GetComponent<FollowCameraController>().RegisterSizeListener(this);
+        //RecalculatePosition(newSize());
     }
 
     public void SizeChanged(float newSize)

@@ -29,7 +29,6 @@ public class FollowCameraController : MonoBehaviour
     private void LateUpdate()
     {
         transform.position = player.transform.position + offset;
-
     }
 
     public void VisionChange()
@@ -45,6 +44,8 @@ public class FollowCameraController : MonoBehaviour
     public void RegisterSizeListener(ISizeListener listener)
     {
         listeners.Add(listener);
+        cam.orthographicSize = startSize + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.VISION) * .25f;
+        listener.SizeChanged(cam.orthographicSize);
     }
 
 
