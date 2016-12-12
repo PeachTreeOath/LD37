@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 222064789129193390}
   - component: {fileID: 114562939106142608}
   - component: {fileID: 114965276518183578}
-  - component: {fileID: 114681326307150030}
+  - component: {fileID: 114021126484914458}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -99,6 +99,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114021126484914458
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1106229174720646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1bda5eb7dd7afd4d9f65e6329d4e4df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 114965276518183578}
 --- !u!114 &114043683660057894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -256,18 +268,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114681326307150030
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1106229174720646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e049970b94230c043a010c7303875091, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 114965276518183578}
 --- !u!114 &114965276518183578
 MonoBehaviour:
   m_ObjectHideFlags: 1

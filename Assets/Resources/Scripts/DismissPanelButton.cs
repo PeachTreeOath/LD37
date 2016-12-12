@@ -12,14 +12,7 @@ public class DismissPanelButton : MonoBehaviour
 
     private void ClosePanel()
     {
-		UpgradeManager.Instance.Reset();
         UpgradePanelShowHide.instance.ShowHide(false);
-		Transform xform = gameObject.transform;
-		while(xform.parent != null)
-		{
-			xform = xform.parent;
-		}
-		Destroy(xform.gameObject);
         SceneTransitionManager.instance.ReloadRoom();
     }
 }
