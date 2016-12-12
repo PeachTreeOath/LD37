@@ -16,7 +16,7 @@ public class WinTransition : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		canvas = GameObject.Find("HudCanvas");
+		canvas = Instantiate(Resources.Load("Prefabs/Canvas")) as GameObject;
 		winTextObj = Instantiate(Resources.Load("Prefabs/WinText")) as GameObject;
 		winScreenFab = Resources.Load("Prefabs/WinScreen") as GameObject;
 		winTextObj.transform.SetParent(canvas.transform);
@@ -29,13 +29,11 @@ public class WinTransition : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log("timeScale " + MyTime.Instance.timeScale);
 		winTextObj.transform.position = Vector3.Lerp(startPos, tarPos, (Time.time - timer) * moveSpeed);
 		if((Time.time - timer) * moveSpeed > 1.5f)
 		{
-			Debug.Log(Time.time + " win");
 			GameObject foo = Instantiate(winScreenFab) as GameObject;
-			foo.transform.position = Vector3.zero;
+			Destroy(winTextObj);
 			Destroy(this);
 		}
 	}

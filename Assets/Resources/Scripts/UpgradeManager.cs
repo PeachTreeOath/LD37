@@ -64,6 +64,15 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
+	public void Reset()
+	{
+		money = 0;
+		foreach (Upgrade u in upgrades.Values)
+		{
+			u.value = 0;
+		}
+	}
+
     public Upgrade GetUpgradeInfo(UpgradeEnum t)
     {
         Upgrade u = null;
