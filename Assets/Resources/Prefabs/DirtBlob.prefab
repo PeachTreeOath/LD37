@@ -92,6 +92,7 @@ MonoBehaviour:
   baseHealth: 50
   multFactor: 1
   health: 0
+  collected: 0
 --- !u!114 &114688331773282074
 MonoBehaviour:
   m_ObjectHideFlags: 1
