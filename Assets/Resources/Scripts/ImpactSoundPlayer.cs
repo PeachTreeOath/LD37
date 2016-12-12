@@ -2,21 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ImpactSoundPlayer : MonoBehaviour {
+public class ImpactSoundPlayer : MonoBehaviour
+{
 
     public string[] soundsToPlay;
 
-    void OnCollisionEnter2D(Collision2D col)
+    private GameObject roomba;
+    private float distance = 3f;
+
+    void Start()
     {
-		PlayImpactSounds();
+        roomba = GameObject.Find("RoombaUnit");
     }
 
-	void PlayImpactSounds()
-	{
-		foreach(string clipName in soundsToPlay)
-		{
-			AudioManager.instance.PlaySound(clipName);
-		}
-	}
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (Vector2.Distance(col.contacts[0].point, (Vector2)roomba.transform.position) < distance)
+        {
+            PlayImpactSounds();
+        }
+    }
+
+    void PlayImpactSounds()
+    {
+        foreach (string clipName in soundsToPlay)
+        {
+            AudioManager.instance.PlaySound(clipName);
+        }
+    }
 
 }
