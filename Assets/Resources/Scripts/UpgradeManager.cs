@@ -147,6 +147,7 @@ public class UpgradeManager : MonoBehaviour
 		if (player == null)
 		{
 			player = GameObject.Find("RoombaUnit");
+			thornsObj.GetComponent<Thorns>().player = player;
 		}
 		if (player != null)
 		{
