@@ -52,8 +52,8 @@ public class UpgradeRowController : MonoBehaviour
 
         if (upgradeObj != null)
         {
-            currLevel.text = upgradeObj.value.ToString();
-            currCost.text = (upgradeObj.cost + (int)(upgradeObj.cost * upgradeObj.value * .33f)).ToString();
+            currLevel.text = upgradeObj.baseValue.ToString();
+            currCost.text = (upgradeObj.cost + (int)(upgradeObj.cost * upgradeObj.baseValue * .33f)).ToString();
         }
         buyButton = GetComponentInChildren<Button>();
         if (buyButton != null)
@@ -68,10 +68,10 @@ public class UpgradeRowController : MonoBehaviour
     /// </summary>
     public void ButtonPress()
     {
-        if (UpgradeManager.money >= (upgradeObj.cost + (int)(upgradeObj.cost * upgradeObj.value * .33f)) &&
-            upgradeObj.value < upgradeObj.maxValue)
+        if (UpgradeManager.money >= (upgradeObj.cost + (int)(upgradeObj.cost * upgradeObj.baseValue * .33f)) &&
+            upgradeObj.baseValue < upgradeObj.maxValue)
         {
-            UpgradeManager.money -= (upgradeObj.cost + (int)(upgradeObj.cost * upgradeObj.value * .33f));
+            UpgradeManager.money -= (upgradeObj.cost + (int)(upgradeObj.cost * upgradeObj.baseValue * .33f));
 			dirCounter.GetComponent<Text>().text = UpgradeManager.money+"";
             UpgradeManager.Instance.AddUpgrade(type, ((upgradeObj.cb != null) ? true : false));
             AudioManager.instance.PlaySound("Money_Buy");
@@ -81,7 +81,7 @@ public class UpgradeRowController : MonoBehaviour
         {
             AudioManager.instance.PlaySound("Money_Invalid");
         }
-        if (upgradeObj.value == upgradeObj.maxValue)
+        if (upgradeObj.baseValue == upgradeObj.maxValue)
         {
             buyButton.enabled = false;
         }
@@ -92,8 +92,8 @@ public class UpgradeRowController : MonoBehaviour
     /// </summary>
     private void Referesh()
     {
-        currLevel.text = upgradeObj.value.ToString();
-        currCost.text = (upgradeObj.cost + (int)(upgradeObj.cost * upgradeObj.value * .33f)).ToString();
+        currLevel.text = upgradeObj.baseValue.ToString();
+        currCost.text = (upgradeObj.cost + (int)(upgradeObj.cost * upgradeObj.baseValue * .33f)).ToString();
     }
 
     // Update is called once per frame
@@ -102,7 +102,7 @@ public class UpgradeRowController : MonoBehaviour
         if (buttonHover.isHovered)
             description.text = upgradeObj.description;
 
-		if(upgradeObj.value == upgradeObj.maxValue)
+		if(upgradeObj.baseValue == upgradeObj.maxValue)
 		{
 			buyButton.gameObject.transform.GetChild(0).GetComponent<Text>().text = "MAXED";
 		}

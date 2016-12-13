@@ -29,17 +29,11 @@ public class GameManager : Singleton<GameManager>
         if (!isPersistenceSceneLoaded)
         {
             SceneManager.LoadScene(persistSceneName, LoadSceneMode.Additive);
-
-			
         }
 
         roombaController = GameObject.Find("RoombaUnit").GetComponent<RoombaController>();
 
-        thornsValue = UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.THORNS);
-        if (thornsValue > 0)
-        {
-            roombaController.SpawnThorns();
-        }
+		UpgradeManager.Instance.GetUpgradeInfo(UpgradeManager.UpgradeEnum.THORNS).value = UpgradeManager.Instance.GetUpgradeInfo(UpgradeManager.UpgradeEnum.THORNS).baseValue;
     }
 
     // Use this for initialization
