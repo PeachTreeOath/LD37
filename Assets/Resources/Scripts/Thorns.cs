@@ -45,6 +45,7 @@ public class Thorns : MonoBehaviour
 				Controller.RandomTravelBehavior rtb = col.gameObject.GetComponent<Controller.RandomTravelBehavior>();
 				Vector3 pDir = col.gameObject.transform.position - gameObject.transform.position;
 				rtb.KnockBack(pDir.normalized);
+				//Debug.Log("hit " + col.gameObject.name + " forward " + pDir.normalized);
 				if (destr)
 				{
 					queueDeath = true;

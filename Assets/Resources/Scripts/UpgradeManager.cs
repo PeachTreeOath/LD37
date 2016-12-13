@@ -8,7 +8,7 @@ public class UpgradeManager : MonoBehaviour
 
 	static Dictionary<UpgradeEnum, Upgrade> upgrades;
 
-	public static int money = 2000;
+	public static int money = 0;
 
 	static UpgradeManager instance;
 
