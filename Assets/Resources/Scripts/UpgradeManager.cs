@@ -8,7 +8,11 @@ public class UpgradeManager : MonoBehaviour
 
 	static Dictionary<UpgradeEnum, Upgrade> upgrades;
 
+	#if UNITY_EDITOR
+	public static int money = 2000;
+	#else
 	public static int money = 0;
+	#endif
 
 	static UpgradeManager instance;
 
