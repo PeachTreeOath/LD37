@@ -54,6 +54,8 @@ public class RoombaController : MonoBehaviour
 
     private Text warning;
 
+	Vector2 lastMoveDir;
+
     // Use this for initialization
     private void Start()
     {
@@ -66,21 +68,30 @@ public class RoombaController : MonoBehaviour
         GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         sceneManager = gameManager.GetComponent<SceneTransitionManager>();
         warning = GameObject.Find("RechargeWarning").GetComponent<Text>();
+
+		if(AltControlsButton.isOn)
+		{
+			rd.maxMoveSpeed *= 4f;
+		}
+		lastMoveDir = Vector2.zero;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        transform.FindChild("RoombaBody").rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, 0);
-        isBraking = Input.GetKey(KeyCode.Space) | Input.GetKey(KeyCode.S) | Input.GetKey(KeyCode.DownArrow);
-        if (isBraking)
-        {
-            rb.drag = Mathf.Lerp(0, 10, dragControl);
-            if (dragControl < 1)
-            {
-                dragControl += MyTime.Instance.deltaTime / 5f;
-            }
-        }
+		if(!AltControlsButton.isOn)
+		{
+	        transform.FindChild("RoombaBody").rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, 0);
+	        isBraking = Input.GetKey(KeyCode.Space) | Input.GetKey(KeyCode.S) | Input.GetKey(KeyCode.DownArrow);
+	        if (isBraking)
+	        {
+	            rb.drag = Mathf.Lerp(0, 10, dragControl);
+	            if (dragControl < 1)
+	            {
+	                dragControl += MyTime.Instance.deltaTime / 5f;
+	            }
+	        }
+		}
     }
 
     private void FixedUpdate()
@@ -90,7 +101,30 @@ public class RoombaController : MonoBehaviour
             float moveHorizontal = Input.GetAxis("Horizontal");
 
             if (isReversing)
-                rb.AddForce(transform.up * Mathf.Lerp(rd.maxMoveSpeed + bounceVelocity, rd.minMoveSpeed, (currReverseTime / reverseDuration)));
+			{
+				Vector3 fDir = transform.up;
+
+				if(AltControlsButton.isOn)
+				{
+					if(lastMoveDir.x < 0)
+					{
+						fDir = Vector3.right;
+					}else if(lastMoveDir.x > 0)
+					{
+						fDir = Vector3.left;
+					}else if(lastMoveDir.y < 0)
+					{
+						fDir = Vector3.up;
+					}else if(lastMoveDir.y > 0)
+					{
+						fDir = Vector3.down;
+					}else
+					{
+					}
+				}
+
+				rb.AddForce(fDir * Mathf.Lerp(rd.maxMoveSpeed + bounceVelocity, rd.minMoveSpeed, (currReverseTime / reverseDuration)));
+			}
             else if (isDocking)
             {
                 dockTime += MyTime.Instance.deltaTime * 1000;
@@ -117,29 +151,114 @@ public class RoombaController : MonoBehaviour
             }
             else
             {
-                float minSpeed = rd.minMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED) * 2;
-                float maxSpeed = rd.maxMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED);
-                float force = -Mathf.Lerp(minSpeed, maxSpeed, (MyTime.Instance.time - startTime) * rd.accelSpeed);
-                if (rd.curBatteryPerc < 0.001f)
-                { // floats...
-                    rb.velocity = Vector3.zero;
-                    return;
-                }
-                rb.AddForce(transform.up * force);
+				if(!AltControlsButton.isOn)
+				{
+	                float minSpeed = rd.minMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED) * 2;
+	                float maxSpeed = rd.maxMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED);
+	                float force = -Mathf.Lerp(minSpeed, maxSpeed, (MyTime.Instance.time - startTime) * rd.accelSpeed);
+	                if (rd.curBatteryPerc < 0.001f)
+	                { // floats...
+	                    rb.velocity = Vector3.zero;
+	                    return;
+	                }
+	                rb.AddForce(transform.up * force);
 
-                if (isBraking)
-                {
-                    rb.AddForce(transform.up * -force);
-                }
-                else
-                {
-                    rb.drag = 10;
-                    dragControl = 0;
-                }
+	                if (isBraking)
+	                {
+	                    rb.AddForce(transform.up * -force);
+	                }
+	                else
+	                {
+	                    rb.drag = 10;
+	                    dragControl = 0;
+	                }
+				}else
+				{
+					float minSpeed = rd.minMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED) * 2;
+					float maxSpeed = rd.maxMoveSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.SPEED);
+					float force = Mathf.Lerp(minSpeed, maxSpeed, (MyTime.Instance.time - startTime) * rd.accelSpeed);
+
+					float hval = Input.GetAxisRaw("Horizontal");
+					float vval = Input.GetAxisRaw("Vertical");
+
+					if(lastMoveDir.x < 0)
+					{
+						rb.rotation = 270;
+					}else if(lastMoveDir.x > 0)
+					{
+						rb.rotation = 90;
+					}else if(lastMoveDir.y < 0)
+					{
+						rb.rotation = 0;
+					}else if(lastMoveDir.y > 0)
+					{
+						rb.rotation = 180;
+					}
+					Vector2 tarForceDir = lastMoveDir;
+					rb.inertia = 0;
+
+					if(hval != 0)
+					{
+						if(hval < 0)
+						{
+							if(rb.velocity.x > 0)
+							{
+								rb.velocity = new Vector2(-rb.velocity.x, 0);
+							}else if(rb.velocity.y != 0)
+							{
+								rb.velocity = new Vector2(-Mathf.Abs(rb.velocity.y), 0);
+							}
+							tarForceDir = Vector2.left;
+							rb.rotation = 270;
+						}else
+						{
+							if(rb.velocity.x < 0)
+							{
+								rb.velocity = new Vector2(-rb.velocity.x, 0);
+							}else if(rb.velocity.y != 0)
+							{
+								rb.velocity = new Vector2(Mathf.Abs(rb.velocity.y), 0);
+							}
+							rb.rotation = 90;
+							tarForceDir = Vector2.right;
+						}
+					}else if (vval != 0)
+					{
+						if(vval < 0)
+						{
+							if(rb.velocity.y > 0)
+							{
+								rb.velocity = new Vector2(0, -rb.velocity.y);
+							}else if(rb.velocity.x != 0)
+							{
+								rb.velocity = new Vector2(0, -Mathf.Abs(rb.velocity.x));
+							}
+							rb.rotation = 0;
+							tarForceDir = Vector2.down;
+						}else
+						{
+							if(rb.velocity.y < 0)
+							{
+								rb.velocity = new Vector2(0, -rb.velocity.y);
+							}else if(rb.velocity.x != 0)
+							{
+								rb.velocity = new Vector2(0, -Mathf.Abs(rb.velocity.x));
+							}
+							rb.rotation = 180;
+							tarForceDir = Vector2.up;
+						}
+					}
+
+					rb.AddForce(tarForceDir * force);
+					lastMoveDir = tarForceDir;
+				}
             }
 
-            float rSpeed = rd.rotSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.TURN_RADIUS) * rotUpgradeMult;
-            rb.MoveRotation(rb.rotation - moveHorizontal * rSpeed);
+			if(!AltControlsButton.isOn)
+			{
+	            float rSpeed = rd.rotSpeed + UpgradeManager.Instance.GetUpgradeValue(UpgradeManager.UpgradeEnum.TURN_RADIUS) * rotUpgradeMult;
+	            rb.MoveRotation(rb.rotation - moveHorizontal * rSpeed);
+			}
 
             lastPos = gameObject.transform.position;
 
